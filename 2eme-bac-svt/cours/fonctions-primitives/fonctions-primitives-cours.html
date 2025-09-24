@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Primitive</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 80%;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+<table>
+<colgroup>
+<col style="width: 97%" />
+<col style="width: 2%" />
+</colgroup>
+<thead>
+<tr>
+<th
+style="text-align: center;"><em><strong>Primitives</strong></em></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><ol type="I">
+<li><p><em>Primitive d’une fonction sur un intervalle</em></p></li>
+</ol>
+<p><em><strong>✍Activité :</strong></em></p>
+<p>Soient
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>F</mi><annotation encoding="application/x-tex">F</annotation></semantics></math>
+deux fonctions définies sur
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ℝ</mi><annotation encoding="application/x-tex">\mathbb{R}</annotation></semantics></math>
+par<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mspace width="0.222em"></mspace><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>5</mn><msup><mi>x</mi><mn>3</mn></msup><mo>−</mo><mn>3</mn><mi>x</mi><mo>+</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">\ f(x) = 5x^{3} - 3x + 2</annotation></semantics></math>
+et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mspace width="0.222em"></mspace><mi>F</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mn>5</mn><mn>4</mn></mfrac><msup><mi>x</mi><mn>4</mn></msup><mo>−</mo><mfrac><mn>3</mn><mn>2</mn></mfrac><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>2</mn><mi>x</mi></mrow><annotation encoding="application/x-tex">\ F(x) = \frac{5}{4}x^{4} - \frac{3}{2}x^{2} + 2x</annotation></semantics></math></p>
+<ol type="1">
+<li><p>Vérifier que
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>F</mi><annotation encoding="application/x-tex">F</annotation></semantics></math>
+est dérivable sur
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ℝ</mi><annotation encoding="application/x-tex">\mathbb{R}</annotation></semantics></math>
+et que 
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>F</mi><mo>′</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace></mrow><annotation encoding="application/x-tex">F&#39;(x) = f(x)\ \ </annotation></semantics></math>pour
+tout réel
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>x</mi><annotation encoding="application/x-tex">x</annotation></semantics></math>.</p></li>
+</ol>
+<p>On dit que la fonction
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>F</mi><annotation encoding="application/x-tex">F</annotation></semantics></math>
+est une primitive de f sur sur
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ℝ</mi><annotation encoding="application/x-tex">\mathbb{R}</annotation></semantics></math></p>
+<ol start="2" type="1">
+<li><p>Montrer que
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mspace width="0.222em"></mspace><mi>G</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mn>5</mn><mn>4</mn></mfrac><msup><mi>x</mi><mn>4</mn></msup><mo>−</mo><mfrac><mn>3</mn><mn>2</mn></mfrac><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>2</mn><mi>x</mi><mo>−</mo><mn>4</mn><mspace width="0.222em"></mspace></mrow><annotation encoding="application/x-tex">\ G(x) = \frac{5}{4}x^{4} - \frac{3}{2}x^{2} + 2x - 4\ </annotation></semantics></math>
+est aussi une primitive de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+sur
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ℝ</mi><annotation encoding="application/x-tex">\mathbb{R}</annotation></semantics></math>.</p></li>
+</ol>
+<p>Si
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>F</mi><annotation encoding="application/x-tex">F</annotation></semantics></math>
+est une primitive de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+sur
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>I</mi><annotation encoding="application/x-tex">I</annotation></semantics></math>,
+alors
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi><mo>+</mo><mi>c</mi></mrow><annotation encoding="application/x-tex">F + c</annotation></semantics></math>
+est aussi une fonction primitive de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+sur
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>I</mi><annotation encoding="application/x-tex">I</annotation></semantics></math>
+avec
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>c</mi><mo>∈</mo><mi>ℝ</mi></mrow><annotation encoding="application/x-tex">c \in \mathbb{R}</annotation></semantics></math>.</p>
+<ol start="3" type="1">
+<li><p>Déterminer une primitive
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>H</mi><annotation encoding="application/x-tex">H</annotation></semantics></math>
+de la fonction
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+tel que
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>H</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">H(1) = 0</annotation></semantics></math></p></li>
+</ol>
+<blockquote>
+<p><em>🖉🖉Définition :</em></p>
+</blockquote>
+<p>Soient
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mspace width="0.222em"></mspace><mi>f</mi><mspace width="0.222em"></mspace><mi>e</mi><mi>t</mi><mspace width="0.222em"></mspace><mi>F</mi><mspace width="0.222em"></mspace></mrow><annotation encoding="application/x-tex">\ f\ et\ F\ </annotation></semantics></math>deux
+fonctions définies sur un intervalle I de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ℝ</mi><annotation encoding="application/x-tex">\mathbb{R}</annotation></semantics></math>.</p>
+<p>On dit que
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>F</mi><annotation encoding="application/x-tex">F</annotation></semantics></math>
+est une <em>primitive</em> de la fonction
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+sur I, si
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>F</mi><annotation encoding="application/x-tex">F</annotation></semantics></math>
+est dérivable sur I et pour tout
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>∈</mo><mi>I</mi></mrow><annotation encoding="application/x-tex">x \in I</annotation></semantics></math> :
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>F</mi><mo>′</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">F&#39;(x) = f(x)</annotation></semantics></math>.</p>
+<p><em>🔿Exemples :</em></p>
+<ul>
+<li><p>La fonction
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mspace width="0.222em"></mspace><mi>x</mi><mo>↦</mo><mn>5</mn><mi>x</mi><mo>+</mo><mn>4</mn></mrow><annotation encoding="application/x-tex">\ x \mapsto 5x + 4</annotation></semantics></math>
+est une primitive sur
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ℝ</mi><annotation encoding="application/x-tex">\mathbb{R}</annotation></semantics></math>
+de<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mi>x</mi><mo>↦</mo><mn>5</mn></mrow><annotation encoding="application/x-tex">\ \ x \mapsto 5</annotation></semantics></math>
+.</p></li>
+<li><p>La fonction
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mi>x</mi><mo>↦</mo><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>2</mn><mi>x</mi><mo>+</mo><mn>3</mn></mrow><annotation encoding="application/x-tex">\ \ x \mapsto x^{2} + 2x + 3</annotation></semantics></math>
+est une primitive sur
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ℝ</mi><annotation encoding="application/x-tex">\mathbb{R}</annotation></semantics></math>
+de<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mspace width="0.222em"></mspace><mi>x</mi><mo>↦</mo><mn>2</mn><mi>x</mi><mo>+</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">\ x \mapsto 2x + 2</annotation></semantics></math>.</p></li>
+<li><p>La
+fonction<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mspace width="0.222em"></mspace><mi>x</mi><mo>↦</mo><mn>2</mn><msqrt><mi>x</mi></msqrt><mo>+</mo><mn>7</mn></mrow><annotation encoding="application/x-tex">\ x \mapsto 2\sqrt{x} + 7</annotation></semantics></math>
+est une primitive sur
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">]</mo><mn>0</mn><mo>;</mo><mi>+</mi><mi>∞</mi><mo stretchy="true" form="postfix">[</mo></mrow><annotation encoding="application/x-tex">\left\rbrack 0; + \infty \right\lbrack</annotation></semantics></math>
+de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mspace width="0.222em"></mspace><mi>x</mi><mo>↦</mo><mfrac><mn>1</mn><msqrt><mi>x</mi></msqrt></mfrac></mrow><annotation encoding="application/x-tex">\ x \mapsto \frac{1}{\sqrt{x}}</annotation></semantics></math>.</p></li>
+</ul>
+<blockquote>
+<p><em>🖉🖉Propriété :</em></p>
+</blockquote>
+<p>Toute fonction continue sur un intervalle
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>I</mi><annotation encoding="application/x-tex">I</annotation></semantics></math>
+admet une primitive sur
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>I</mi><annotation encoding="application/x-tex">I</annotation></semantics></math>.</p>
+<blockquote>
+<p><em><strong>✍ Application ① :</strong></em></p>
+</blockquote>
+<p>Montrer que la fonction
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>↦</mo><mi>x</mi><msqrt><mrow><mi>x</mi><mo>+</mo><mn>1</mn></mrow></msqrt><mo>+</mo><mrow><mi mathvariant="normal">cos</mi><mo>&#8289;</mo></mrow><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">x \mapsto x\sqrt{x + 1} + \cos(x)</annotation></semantics></math>
+sur admet une primitive sur
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>I</mi><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mi>−</mi><mn>1</mn><mo>,</mo><mi>+</mi><mi>∞</mi><mo stretchy="true" form="postfix">[</mo></mrow></mrow><annotation encoding="application/x-tex">I = \left\lbrack - 1, + \infty \right\lbrack</annotation></semantics></math>.</p>
+<blockquote>
+<p><em>🖉🖉Propriété :</em></p>
+</blockquote>
+<p>Soit
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>F</mi><annotation encoding="application/x-tex">F</annotation></semantics></math>
+une fonction primitive d’une fonction
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+sur
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>I</mi><annotation encoding="application/x-tex">I</annotation></semantics></math>.</p>
+<ul>
+<li><p>L’ensemble des primitives de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+sur
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>I</mi><mspace width="0.222em"></mspace></mrow><annotation encoding="application/x-tex">I\ </annotation></semantics></math>est
+l’ensemble des fonctions
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>↦</mo><mi>F</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mi>c</mi></mrow><annotation encoding="application/x-tex">x \mapsto F(x) + c</annotation></semantics></math>
+tel
+que<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mspace width="0.222em"></mspace><mi>c</mi><mrow><mo mathvariant="double-struck">∈</mo><mi>ℝ</mi></mrow></mrow><annotation encoding="application/x-tex">\ c\mathbb{\in R}</annotation></semantics></math>.</p></li>
+<li><p>Pour tout
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mn>0</mn></msub><mo>∈</mo><mi>I</mi><mspace width="0.222em"></mspace><mi>e</mi><mi>t</mi><mspace width="0.222em"></mspace><msub><mi>y</mi><mn>0</mn></msub><mrow><mo mathvariant="double-struck">∈</mo><mi>ℝ</mi></mrow></mrow><annotation encoding="application/x-tex">x_{0} \in I\ et\ y_{0}\mathbb{\in R}</annotation></semantics></math> ,
+il existe une unique primitive
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>G</mi><annotation encoding="application/x-tex">G</annotation></semantics></math>
+de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+sur <em>I</em> vérifiant
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mrow><mi>G</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi></mrow><mn>0</mn></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mspace width="0.222em"></mspace><msub><mi>y</mi><mn>0</mn></msub></mrow><annotation encoding="application/x-tex">{G(x}_{0}) = \ y_{0}</annotation></semantics></math>.</p></li>
+</ul>
+<blockquote>
+<p><em><strong>✍ Application ② :</strong></em></p>
+</blockquote>
+<ol type="1">
+<li><p>Déterminer, l’ensemble des primitives des fonctions
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>g</mi><annotation encoding="application/x-tex">g</annotation></semantics></math>
+sur l’intervalle I à déterminer sachant que
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msup><mi>x</mi><mn>4</mn></msup><mo>−</mo><mn>3</mn><msup><mi>x</mi><mn>3</mn></msup><mo>+</mo><mn>5</mn></mrow><annotation encoding="application/x-tex">f(x) = x^{4} - 3x^{3} + 5</annotation></semantics></math>
+et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mn>1</mn><mrow><mn>2</mn><msqrt><mi>x</mi></msqrt></mrow></mfrac><mo>+</mo><mfrac><mn>1</mn><msup><mi>x</mi><mn>2</mn></msup></mfrac></mrow><annotation encoding="application/x-tex">f(x) = \frac{1}{2\sqrt{x}} + \frac{1}{x^{2}}</annotation></semantics></math>.</p></li>
+<li><p>Déterminer la primitive F de la fonction
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+sur
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ℝ</mi><annotation encoding="application/x-tex">\mathbb{R}</annotation></semantics></math>,
+qui vérifie la condition indiquée :
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mspace width="0.222em"></mspace><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>4</mn><msup><mi>x</mi><mn>3</mn></msup><mo>−</mo><mn>5</mn><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>8</mn><mi>x</mi><mo>−</mo><mn>7</mn><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace></mrow><annotation encoding="application/x-tex">\ f(x) = 4x^{3} - 5x^{2} + 8x - 7\ \ \ \ </annotation></semantics></math>et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mi>F</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\ \ F(1) = 0</annotation></semantics></math>.</p></li>
+</ol>
+<ol start="2" type="I">
+<li><p><em>Tableau des primitives usuelles :</em></p></li>
+</ol>
+<table>
+<colgroup>
+<col style="width: 57%" />
+<col style="width: 42%" />
+</colgroup>
+<thead>
+<tr>
+<th
+style="text-align: center;"><em><strong>Primitives</strong></em></th>
+<th style="text-align: center;"><em><strong>Fonction</strong></em></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td
+style="text-align: center;"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>↦</mo><mi>c</mi></mrow><annotation encoding="application/x-tex">x \mapsto c</annotation></semantics></math></td>
+<td
+style="text-align: center;"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>↦</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">x \mapsto 0</annotation></semantics></math></td>
+</tr>
+<tr>
+<td
+style="text-align: center;"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>↦</mo><mi>a</mi><mi>x</mi><mo>+</mo><mi>c</mi></mrow><annotation encoding="application/x-tex">x \mapsto ax + c</annotation></semantics></math></td>
+<td
+style="text-align: center;"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>↦</mo><mi>a</mi><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo>∈</mo><mrow><mi>ℝ</mi><mspace width="0.222em"></mspace><mo stretchy="false" form="postfix" mathvariant="double-struck">)</mo></mrow></mrow><annotation encoding="application/x-tex">x \mapsto a\ \ \ \ (a \in \mathbb{R\ )}</annotation></semantics></math></td>
+</tr>
+<tr>
+<td
+style="text-align: center;"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>↦</mo><mfrac><mn>1</mn><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></mfrac><msup><mi>x</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msup><mo>+</mo><mi>c</mi></mrow><annotation encoding="application/x-tex">x \mapsto \frac{1}{n + 1}x^{n + 1} + c</annotation></semantics></math></td>
+<td
+style="text-align: center;"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>↦</mo><msup><mi>x</mi><mi>n</mi></msup><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mo stretchy="false" form="prefix">(</mo><mi>n</mi><mo>∈</mo><msup><mi>ℕ</mi><mo>*</mo></msup><mspace width="0.222em"></mspace><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">x \mapsto x^{n}\ \ \ \ (n \in \mathbb{N}^{*}\ )</annotation></semantics></math></td>
+</tr>
+<tr>
+<td
+style="text-align: center;"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>↦</mo><mfrac><mn>1</mn><mrow><mi>r</mi><mo>+</mo><mn>1</mn></mrow></mfrac><msup><mi>x</mi><mrow><mi>r</mi><mo>+</mo><mn>1</mn></mrow></msup><mo>+</mo><mi>c</mi></mrow><annotation encoding="application/x-tex">x \mapsto \frac{1}{r + 1}x^{r + 1} + c</annotation></semantics></math></td>
+<td
+style="text-align: center;"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>↦</mo><msup><mi>x</mi><mi>r</mi></msup><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mo stretchy="false" form="prefix">(</mo><mi>r</mi><mo>∈</mo><msup><mi>ℚ</mi><mo>*</mo></msup><mo>∖</mo><mrow><mo stretchy="true" form="prefix">{</mo><mi>−</mi><mn>1</mn><mo stretchy="true" form="postfix">}</mo></mrow><mspace width="0.222em"></mspace><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">x \mapsto x^{r}\ \ \ \ (r \in \mathbb{Q}^{*} \smallsetminus \left\{ - 1 \right\}\ )</annotation></semantics></math></td>
+</tr>
+<tr>
+<td
+style="text-align: center;"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>↦</mo><mn>2</mn><msqrt><mi>x</mi></msqrt><mo>+</mo><mi>c</mi></mrow><annotation encoding="application/x-tex">x \mapsto 2\sqrt{x} + c</annotation></semantics></math></td>
+<td
+style="text-align: center;"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>↦</mo><mfrac><mn>1</mn><msqrt><mi>x</mi></msqrt></mfrac></mrow><annotation encoding="application/x-tex">x \mapsto \frac{1}{\sqrt{x}}</annotation></semantics></math></td>
+</tr>
+<tr>
+<td
+style="text-align: center;"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>↦</mo><mi>−</mi><mfrac><mn>1</mn><mi>x</mi></mfrac><mo>+</mo><mi>c</mi></mrow><annotation encoding="application/x-tex">x \mapsto - \frac{1}{x} + c</annotation></semantics></math></td>
+<td
+style="text-align: center;"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>↦</mo><mfrac><mn>1</mn><mrow><mi>x</mi><mi>²</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">x \mapsto \frac{1}{x²}</annotation></semantics></math></td>
+</tr>
+<tr>
+<td
+style="text-align: center;"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>↦</mo><mi>s</mi><mi>i</mi><mi>n</mi><mi>x</mi><mo>+</mo><mi>c</mi></mrow><annotation encoding="application/x-tex">x \mapsto sinx + c</annotation></semantics></math></td>
+<td
+style="text-align: center;"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>↦</mo><mi>c</mi><mi>o</mi><mi>s</mi><mi>x</mi></mrow><annotation encoding="application/x-tex">x \mapsto cosx</annotation></semantics></math></td>
+</tr>
+<tr>
+<td
+style="text-align: center;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>↦</mo><mi>−</mi><mi>c</mi><mi>o</mi><mi>s</mi><mi>x</mi><mo>+</mo><mi>c</mi></mrow><annotation encoding="application/x-tex">x \mapsto - cosx + c</annotation></semantics></math></td>
+<td
+style="text-align: center;"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>↦</mo><mi>s</mi><mi>i</mi><mi>n</mi><mi>x</mi></mrow><annotation encoding="application/x-tex">x \mapsto sinx</annotation></semantics></math></td>
+</tr>
+<tr>
+<td
+style="text-align: center;"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>↦</mo><mi>t</mi><mi>a</mi><mi>n</mi><mi>x</mi><mo>+</mo><mi>c</mi></mrow><annotation encoding="application/x-tex">x \mapsto tanx + c</annotation></semantics></math></td>
+<td
+style="text-align: center;"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>↦</mo><mn>1</mn><mo>+</mo><msup><mrow><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mi>a</mi><mi>n</mi><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">x \mapsto 1 + {(tanx)}^{2}</annotation></semantics></math></td>
+</tr>
+<tr>
+<td
+style="text-align: center;"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>↦</mo><mfrac><mn>1</mn><mi>a</mi></mfrac><mrow><mi mathvariant="normal">sin</mi><mo>&#8289;</mo></mrow><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mi>x</mi><mo>+</mo><mi>b</mi><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mi>c</mi></mrow><annotation encoding="application/x-tex">x \mapsto \frac{1}{a}\sin(ax + b) + c</annotation></semantics></math></td>
+<td
+style="text-align: center;"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>↦</mo><mrow><mi mathvariant="normal">cos</mi><mo>&#8289;</mo></mrow><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mi>x</mi><mo>+</mo><mi>b</mi><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mspace width="0.222em"></mspace><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo>≠</mo><mn>0</mn><mspace width="0.222em"></mspace><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">x \mapsto \cos(ax + b),\ (a \neq 0\ )</annotation></semantics></math></td>
+</tr>
+<tr>
+<td
+style="text-align: center;"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>↦</mo><mi>−</mi><mfrac><mn>1</mn><mi>a</mi></mfrac><mrow><mi mathvariant="normal">cos</mi><mo>&#8289;</mo></mrow><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mi>x</mi><mo>+</mo><mi>b</mi><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mi>c</mi></mrow><annotation encoding="application/x-tex">x \mapsto - \frac{1}{a}\cos(ax + b) + c</annotation></semantics></math></td>
+<td
+style="text-align: center;"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>↦</mo><mrow><mi mathvariant="normal">sin</mi><mo>&#8289;</mo></mrow><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mi>x</mi><mo>+</mo><mi>b</mi><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mspace width="0.222em"></mspace><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo>≠</mo><mn>0</mn><mspace width="0.222em"></mspace><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">x \mapsto \sin(ax + b),\ (a \neq 0\ )</annotation></semantics></math></td>
+</tr>
+<tr>
+<td
+style="text-align: center;"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mn>1</mn><mrow><mi>r</mi><mo>+</mo><mn>1</mn></mrow></mfrac><msup><mi>U</mi><mrow><mi>r</mi><mo>+</mo><mn>1</mn></mrow></msup><mo>+</mo><mi>c</mi></mrow><annotation encoding="application/x-tex">\frac{1}{r + 1}U^{r + 1} + c</annotation></semantics></math></td>
+<td
+style="text-align: center;"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mrow><msup><mi>U</mi><mo>′</mo></msup><mo>×</mo><mi>U</mi></mrow><mi>r</mi></msup><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mo stretchy="false" form="prefix">(</mo><mi>r</mi><mo>∈</mo><msup><mi>ℚ</mi><mo>*</mo></msup><mo>∖</mo><mrow><mo stretchy="true" form="prefix">{</mo><mi>−</mi><mn>1</mn><mo stretchy="true" form="postfix">}</mo></mrow><mspace width="0.222em"></mspace><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">{U&#39; \times U}^{r}\ \ (r \in \mathbb{Q}^{*} \smallsetminus \left\{ - 1 \right\}\ )</annotation></semantics></math></td>
+</tr>
+<tr>
+<td
+style="text-align: center;"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>U</mi><mo>×</mo><mi>V</mi><mo>+</mo><mi>c</mi></mrow><annotation encoding="application/x-tex">U \times V + c</annotation></semantics></math></td>
+<td
+style="text-align: center;"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>U</mi><mo>′</mo></msup><mi>V</mi><mo>+</mo><mi>U</mi><msup><mi>V</mi><mo>′</mo></msup></mrow><annotation encoding="application/x-tex">U&#39;V + UV&#39;</annotation></semantics></math></td>
+</tr>
+<tr>
+<td
+style="text-align: center;"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mi>U</mi><mi>V</mi></mfrac><mo>+</mo><mi>c</mi></mrow><annotation encoding="application/x-tex">\frac{U}{V} + c</annotation></semantics></math></td>
+<td
+style="text-align: center;"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mfrac><mrow><msup><mi>U</mi><mo>′</mo></msup><mi>V</mi><mo>−</mo><mi>U</mi><msup><mi>V</mi><mo>′</mo></msup></mrow><mrow><mi>V</mi><mi>²</mi></mrow></mfrac><annotation encoding="application/x-tex">\frac{U&#39;V - UV&#39;}{V²}</annotation></semantics></math></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 42%" />
+<col style="width: 57%" />
+</colgroup>
+<tbody>
+<tr>
+<td><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mfrac><msup><mi>U</mi><mo>′</mo></msup><mrow><mi>U</mi><mi>²</mi></mrow></mfrac><annotation encoding="application/x-tex">\frac{U&#39;}{U²}</annotation></semantics></math></td>
+<td
+style="text-align: center;"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mfrac><mn>1</mn><mi>U</mi></mfrac><mo>+</mo><mi>c</mi></mrow><annotation encoding="application/x-tex">- \frac{1}{U} + c</annotation></semantics></math></td>
+</tr>
+<tr>
+<td><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mfrac><msup><mi>U</mi><mo>′</mo></msup><msqrt><mi>U</mi></msqrt></mfrac><annotation encoding="application/x-tex">\frac{U&#39;}{\sqrt{U}}</annotation></semantics></math></td>
+<td
+style="text-align: center;"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><msqrt><mi>U</mi></msqrt><mo>+</mo><mi>c</mi></mrow><annotation encoding="application/x-tex">2\sqrt{U} + c</annotation></semantics></math></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><em><strong>✍ Application ③ :</strong></em></p>
+</blockquote>
+<p>Déterminer une primitive des fonctions suivantes :</p>
+<table>
+<colgroup>
+<col style="width: 31%" />
+<col style="width: 36%" />
+<col style="width: 32%" />
+</colgroup>
+<thead>
+<tr>
+<th><ul>
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mn>1</mn></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>2</mn><msup><mi>x</mi><mn>5</mn></msup><mo>−</mo><mn>3</mn><msup><mi>x</mi><mn>2</mn></msup><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">f_{1}(x) = 2x^{5} - 3x^{2} - 1</annotation></semantics></math></p></li>
+</ul></th>
+<th><ul>
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mn>2</mn></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mn>1</mn><msup><mi>x</mi><mn>4</mn></msup></mfrac><mo>+</mo><mfrac><mn>2</mn><mroot><mi>x</mi><mn>3</mn></mroot></mfrac><mo>−</mo><mroot><msup><mi>x</mi><mn>3</mn></msup><mn>4</mn></mroot></mrow><annotation encoding="application/x-tex">f_{2}(x) = \frac{1}{x^{4}} + \frac{2}{\sqrt[3]{x}} - \sqrt[4]{x^{3}}</annotation></semantics></math></p></li>
+</ul></th>
+<th><ul>
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mn>3</mn></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msqrt><mi>x</mi></msqrt><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>2</mn><msqrt><mi>x</mi></msqrt><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">f_{3}(x) = \sqrt{x}\left( x^{2} + 2\sqrt{x} \right)</annotation></semantics></math></p></li>
+</ul></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><ul>
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mn>4</mn></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msqrt><mrow><mi>x</mi><mo>+</mo><mn>2</mn></mrow></msqrt></mrow><annotation encoding="application/x-tex">f_{4}(x) = \sqrt{x + 2}</annotation></semantics></math></p></li>
+</ul></td>
+<td><ul>
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mn>5</mn></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mi>x</mi><mo>+</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><msqrt><mrow><mn>2</mn><mi>x</mi><mo>+</mo><mn>1</mn></mrow></msqrt></mrow><annotation encoding="application/x-tex">f_{5}(x) = (2x + 1)\sqrt{2x + 1}</annotation></semantics></math></p></li>
+</ul></td>
+<td><ul>
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mn>6</mn></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>s</mi><mi>i</mi><mi>n</mi><mo stretchy="false" form="prefix">(</mo><mn>5</mn><mo>−</mo><mn>2</mn><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">f_{6}(x) = sin(5 - 2x)</annotation></semantics></math></p></li>
+</ul></td>
+</tr>
+<tr>
+<td><ul>
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mn>7</mn></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>c</mi><mi>o</mi><mi>s</mi><mo stretchy="false" form="prefix">(</mo><mn>3</mn><mi>x</mi><mo>−</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">f_{7}(x) = cos(3x - 1)</annotation></semantics></math></p></li>
+</ul></td>
+<td><ul>
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mn>8</mn></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mn>3</mn><msup><mi>x</mi><mn>2</mn></msup><mo>−</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="prefix">(</mo><msup><mi>x</mi><mn>3</mn></msup><mo>−</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mi>²</mi></mrow><annotation encoding="application/x-tex">f_{8}(x) = (3x^{2} - 1)(x^{3} - x)²</annotation></semantics></math></p></li>
+</ul></td>
+<td><ul>
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mn>9</mn></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>c</mi><mi>o</mi><mi>s</mi><mi>x</mi><mi>.</mi><msup><mrow><mo stretchy="false" form="prefix">(</mo><mi>s</mi><mi>i</mi><mi>n</mi><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><mn>4</mn></msup></mrow><annotation encoding="application/x-tex">f_{9}(x) = cosx.{(sinx)}^{4}</annotation></semantics></math></p></li>
+</ul></td>
+</tr>
+<tr>
+<td><ul>
+<li></li>
+</ul></td>
+<td><ul>
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mn>10</mn></msub><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mrow><mn>2</mn><mi>x</mi></mrow><msqrt><mrow><mi>x</mi><mi>²</mi><mo>+</mo><mn>1</mn></mrow></msqrt></mfrac></mrow><annotation encoding="application/x-tex">f_{10}(x) = \frac{2x}{\sqrt{x² + 1}}</annotation></semantics></math></p></li>
+</ul></td>
+<td><ul>
+<li></li>
+</ul></td>
+</tr>
+</tbody>
+</table></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<a href="fonctions-primitives-cours.pdf" class="download-btn" download><i class="fas fa-file-pdf"></i> Télécharger le cours en PDF</a>
+</body>
+</html>

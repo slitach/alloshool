@@ -1,0 +1,1363 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>derivation</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 80%;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+<table style="width:97%;">
+<colgroup>
+<col style="width: 97%" />
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: center;"><em><strong>Dérivation – Etude de
+fonctions</strong></em></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"><ol type="I">
+<li><p><em>Nombre dérivé- Fonction dérivée (Rappels)</em></p></li>
+</ol>
+<p><em><strong>✍Activité ①:</strong></em></p>
+<ol type="1">
+<li><p>On considère
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+la fonction définie sur <span
+dir="rtl"></span><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ℝ</mi><annotation encoding="application/x-tex">\mathbb{R}</annotation></semantics></math>
+par
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>x</mi><mi>²</mi><mo>−</mo><mn>2</mn><mi>x</mi></mrow><annotation encoding="application/x-tex">f(x) = x² - 2x</annotation></semantics></math>.</p></li>
+</ol>
+<p>Étudier la dérivabilité de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+en
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>1</mn></mrow><annotation encoding="application/x-tex">- 1</annotation></semantics></math>
+puis interpréter le résultat graphiquement.</p>
+<ol start="2" type="1">
+<li><p>On considère
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>g</mi><annotation encoding="application/x-tex">g</annotation></semantics></math>
+la fonction définie sur <span
+dir="rtl"></span><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ℝ</mi><annotation encoding="application/x-tex">\mathbb{R}</annotation></semantics></math>
+par<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mspace width="0.222em"></mspace><mi>g</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo stretchy="false" form="prefix">|</mo><mi>x</mi><mo>−</mo><mn>1</mn><mo stretchy="false" form="prefix">|</mo></mrow><annotation encoding="application/x-tex">\ g(x) = |x - 1|</annotation></semantics></math>.</p></li>
+</ol>
+<ol type="a">
+<li><p>Etudier la dérivabilité de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>g</mi><annotation encoding="application/x-tex">g</annotation></semantics></math>
+à droite et à gauche en 1 puis interpréter les résultats
+graphiquement.</p></li>
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>g</mi><annotation encoding="application/x-tex">g</annotation></semantics></math>
+est-elle dérivable en 1 ?</p></li>
+</ol>
+<blockquote>
+<p><em>🖉🖉Définitions et propriétés :</em></p>
+</blockquote>
+<p>Soit
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+une fonction définie sur un intervalle ouvert
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>I</mi><annotation encoding="application/x-tex">I</annotation></semantics></math>
+et a un point de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>I</mi><annotation encoding="application/x-tex">I</annotation></semantics></math>.</p>
+<ul>
+<li><p>On dit que
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mspace width="0.222em"></mspace></mrow><annotation encoding="application/x-tex">f\ </annotation></semantics></math>est
+<em>dérivable</em> en
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mspace width="0.222em"></mspace></mrow><annotation encoding="application/x-tex">a\ </annotation></semantics></math>s'il
+existe un réel
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>l</mi><mspace width="0.222em"></mspace></mrow><annotation encoding="application/x-tex">l\ </annotation></semantics></math>tel
+que
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mrow><mi mathvariant="normal">lim</mi><mo>&#8289;</mo></mrow><mrow><mi>x</mi><mo>→</mo><mi>a</mi></mrow></msub><mfrac><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>−</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo></mrow><mrow><mi>x</mi><mo>−</mo><mi>a</mi></mrow></mfrac><mo>=</mo><mi>l</mi></mrow><annotation encoding="application/x-tex">\lim_{x \rightarrow a}\frac{f(x) - f(a)}{x - a} = l</annotation></semantics></math>.</p></li>
+</ul>
+<ul>
+<li><p>Le nombre
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>l</mi><mspace width="0.222em"></mspace></mrow><annotation encoding="application/x-tex">l\ </annotation></semantics></math>,
+noté
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>f</mi><mo>′</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">f&#39;(a)</annotation></semantics></math>
+<em>ou</em>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mrow><mi>d</mi><mi>f</mi></mrow><mrow><mi>d</mi><mi>x</mi></mrow></mfrac><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\frac{df}{dx}(a)</annotation></semantics></math><em>,</em>
+est appelé le <em>nombre dérivé</em> de la fonction
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mspace width="0.222em"></mspace></mrow><annotation encoding="application/x-tex">f\ </annotation></semantics></math>en
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>a</mi><annotation encoding="application/x-tex">a</annotation></semantics></math>.</p></li>
+<li><p>Dans ce cas la courbe de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+admet une tangente au voisinage de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>a</mi><annotation encoding="application/x-tex">a</annotation></semantics></math>
+d’équation</p></li>
+</ul>
+<blockquote>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mspace width="0.222em"></mspace><mi>y</mi><mo>=</mo><msup><mi>f</mi><mo>′</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>−</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\ y = f&#39;(a)(x - a) + f(a)</annotation></semantics></math><em>.</em></p>
+</blockquote>
+<ul>
+<li><p>La fonction
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>↦</mo></mrow><annotation encoding="application/x-tex">x \longmapsto</annotation></semantics></math>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>f</mi><mo>′</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>−</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">f&#39;(a)(x - a) + f(a)</annotation></semantics></math>
+s'appelle <em>l'approximation affine</em> de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mspace width="0.222em"></mspace><mi>a</mi><mi>u</mi><mspace width="0.222em"></mspace></mrow><annotation encoding="application/x-tex">f\ au\ </annotation></semantics></math>voisinage
+de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>a</mi><annotation encoding="application/x-tex">a</annotation></semantics></math>.On
+écrit alors
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>≅</mo><msup><mi>𝐟</mi><mi mathvariant="bold">′</mi></msup><mrow><mo stretchy="false" form="prefix" mathvariant="bold">(</mo><mi>𝐚</mi><mo stretchy="false" form="postfix" mathvariant="bold">)</mo><mo stretchy="false" form="prefix" mathvariant="bold">(</mo><mi>𝐱</mi><mo mathvariant="bold">−</mo><mi>𝐚</mi><mo stretchy="false" form="postfix" mathvariant="bold">)</mo><mo mathvariant="bold">+</mo><mi>𝐟</mi><mo stretchy="false" form="prefix" mathvariant="bold">(</mo><mi>𝐚</mi><mo stretchy="false" form="postfix" mathvariant="bold">)</mo></mrow></mrow><annotation encoding="application/x-tex">f(x) \cong \mathbf{f}^{\mathbf{&#39;}}\mathbf{(a)(x - a) + f(a)}</annotation></semantics></math>
+au voisinage de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>a</mi><annotation encoding="application/x-tex">a</annotation></semantics></math>.</p></li>
+</ul>
+<ul>
+<li><p>On dit que
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mspace width="0.222em"></mspace></mrow><annotation encoding="application/x-tex">f\ </annotation></semantics></math>est
+<em>dérivable à droite</em> de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>a</mi><annotation encoding="application/x-tex">a</annotation></semantics></math>,
+s'il existe un réel
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>l</mi><mo>′</mo></msup><annotation encoding="application/x-tex">l&#39;</annotation></semantics></math>,
+tel que
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mrow><mi mathvariant="normal">lim</mi><mo>&#8289;</mo></mrow><mtable><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mi>x</mi><mo>→</mo><mi>a</mi></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mi>x</mi><mo>&gt;</mo><mi>a</mi></mtd></mtr></mtable></msub><mfrac><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>−</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo></mrow><mrow><mi>x</mi><mo>−</mo><mi>a</mi></mrow></mfrac><mo>=</mo><msup><mi>l</mi><mo>′</mo></msup></mrow><annotation encoding="application/x-tex">\lim_{\begin{aligned}
+ &amp; x \rightarrow a \\
+ &amp; x &gt; a
+\end{aligned}}\frac{f(x) - f(a)}{x - a} = l&#39;</annotation></semantics></math>.</p></li>
+</ul>
+<ul>
+<li><p>Le nombre
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>l</mi><mo>′</mo></msup><mspace width="0.222em"></mspace></mrow><annotation encoding="application/x-tex">l&#39;\ </annotation></semantics></math>,
+noté
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><msup><mi>d</mi><mo>′</mo></msup></msub><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">f_{d}&#39;(a)</annotation></semantics></math><em>,</em>
+est appelé le <em>nombre dérivé</em> de la fonction
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mspace width="0.222em"></mspace></mrow><annotation encoding="application/x-tex">f\ </annotation></semantics></math><em>à
+droite</em> en
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>a</mi><annotation encoding="application/x-tex">a</annotation></semantics></math>.</p></li>
+<li><p>Dans ce cas la courbe de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+admet une demi-tangente au voisinage de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>a</mi><annotation encoding="application/x-tex">a</annotation></semantics></math>
+d’équation
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mspace width="0.222em"></mspace><mrow><mo stretchy="true" form="prefix">{</mo><mtable><mtr><mtd columnalign="right" style="text-align: right"><mi>y</mi><mo>=</mo><msub><mi>f</mi><msup><mi>d</mi><mo>′</mo></msup></msub><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>−</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"><mi>x</mi><mo>&gt;</mo><mi>a</mi><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace></mtd></mtr></mtable></mrow><mspace width="0.222em"></mspace></mrow><annotation encoding="application/x-tex">\ \left\{ \begin{array}{r}
+y = f_{d}&#39;(a)(x - a) + f(a) \\
+x &gt; a\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 
+\end{array} \right.\ </annotation></semantics></math>.(On définit de
+même manière la dérivabilité à gauche en
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>a</mi><annotation encoding="application/x-tex">a</annotation></semantics></math>)</p></li>
+</ul>
+<p><em>🔿Exemple :</em></p>
+<p>La fonction définie sur
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="postfix">]</mo><mo>−</mo><mi>∞</mi><mo>;</mo><mn>1</mn><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">\rbrack - \infty;1\rbrack</annotation></semantics></math>
+par
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo>:</mo><mi>x</mi><mo>↦</mo><mi>x</mi><mo>+</mo><mn>1</mn><mo>+</mo><mn>2</mn><msqrt><mrow><mn>1</mn><mo>−</mo><mi>x</mi></mrow></msqrt></mrow><annotation encoding="application/x-tex">f:x \mapsto x + 1 + 2\sqrt{1 - x}</annotation></semantics></math>
+est dérivable en
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>3</mn></mrow><annotation encoding="application/x-tex">- 3</annotation></semantics></math>.
+En effet :</p>
+<p>On a
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mrow><mi mathvariant="normal">lim</mi><mo>&#8289;</mo></mrow><mrow><mi>x</mi><mo>→</mo><mi>−</mi><mn>3</mn></mrow></msub><mfrac><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>−</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mn>3</mn><mo stretchy="false" form="postfix">)</mo></mrow><mrow><mi>x</mi><mo>+</mo><mn>3</mn></mrow></mfrac><mo>=</mo><msub><mrow><mi mathvariant="normal">lim</mi><mo>&#8289;</mo></mrow><mrow><mi>x</mi><mo>→</mo><mi>−</mi><mn>3</mn></mrow></msub><mfrac><mrow><mi>x</mi><mo>−</mo><mn>1</mn><mo>+</mo><mn>2</mn><msqrt><mrow><mn>1</mn><mo>−</mo><mi>x</mi></mrow></msqrt></mrow><mrow><mi>x</mi><mo>+</mo><mn>3</mn></mrow></mfrac></mrow><annotation encoding="application/x-tex">\lim_{x \rightarrow - 3}\frac{f(x) - f( - 3)}{x + 3} = \lim_{x \rightarrow - 3}\frac{x - 1 + 2\sqrt{1 - x}}{x + 3}</annotation></semantics></math></p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>=</mo><msub><mrow><mi mathvariant="normal">lim</mi><mo>&#8289;</mo></mrow><mrow><mi>x</mi><mo>→</mo><mi>−</mi><mn>3</mn></mrow></msub><mfrac><mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo>−</mo><mn>1</mn><mo>+</mo><mn>2</mn><msqrt><mrow><mn>1</mn><mo>−</mo><mi>x</mi></mrow></msqrt><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo>−</mo><mn>1</mn><mo>−</mo><mn>2</mn><msqrt><mrow><mn>1</mn><mo>−</mo><mi>x</mi></mrow></msqrt><mo stretchy="true" form="postfix">)</mo></mrow></mrow><mrow><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>+</mo><mn>3</mn><mo stretchy="false" form="postfix">)</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo>−</mo><mn>1</mn><mo>−</mo><mn>2</mn><msqrt><mrow><mn>1</mn><mo>−</mo><mi>x</mi></mrow></msqrt><mo stretchy="true" form="postfix">)</mo></mrow></mrow></mfrac></mrow><annotation encoding="application/x-tex">= \lim_{x \rightarrow - 3}\frac{\left( x - 1 + 2\sqrt{1 - x} \right)\left( x - 1 - 2\sqrt{1 - x} \right)}{(x + 3)\left( x - 1 - 2\sqrt{1 - x} \right)}</annotation></semantics></math></p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>=</mo><msub><mrow><mi mathvariant="normal">lim</mi><mo>&#8289;</mo></mrow><mrow><mi>x</mi><mo>→</mo><mi>−</mi><mn>3</mn></mrow></msub><mfrac><mrow><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>−</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mi>²</mi><mo>+</mo><mn>2</mn><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>−</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><mrow><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>+</mo><mn>3</mn><mo stretchy="false" form="postfix">)</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo>−</mo><mn>1</mn><mo>−</mo><mn>2</mn><msqrt><mrow><mn>1</mn><mo>−</mo><mi>x</mi></mrow></msqrt><mo stretchy="true" form="postfix">)</mo></mrow></mrow></mfrac></mrow><annotation encoding="application/x-tex">= \lim_{x \rightarrow - 3}\frac{(x - 1)² + 2(1 - x)}{(x + 3)\left( x - 1 - 2\sqrt{1 - x} \right)}</annotation></semantics></math></p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>=</mo><msub><mrow><mi mathvariant="normal">lim</mi><mo>&#8289;</mo></mrow><mrow><mi>x</mi><mo>→</mo><mi>−</mi><mn>3</mn></mrow></msub><mfrac><mrow><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>+</mo><mn>3</mn><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>−</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><mrow><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>+</mo><mn>3</mn><mo stretchy="false" form="postfix">)</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo>−</mo><mn>1</mn><mo>−</mo><mn>2</mn><msqrt><mrow><mn>1</mn><mo>−</mo><mi>x</mi></mrow></msqrt><mo stretchy="true" form="postfix">)</mo></mrow></mrow></mfrac></mrow><annotation encoding="application/x-tex">= \lim_{x \rightarrow - 3}\frac{(x + 3)(x - 1)}{(x + 3)\left( x - 1 - 2\sqrt{1 - x} \right)}</annotation></semantics></math></p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>=</mo><msub><mrow><mi mathvariant="normal">lim</mi><mo>&#8289;</mo></mrow><mrow><mi>x</mi><mo>→</mo><mi>−</mi><mn>3</mn></mrow></msub><mfrac><mrow><mi>x</mi><mo>−</mo><mn>1</mn></mrow><mrow><mi>x</mi><mo>−</mo><mn>1</mn><mo>−</mo><mn>2</mn><msqrt><mrow><mn>1</mn><mo>−</mo><mi>x</mi></mrow></msqrt></mrow></mfrac><mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac></mrow><annotation encoding="application/x-tex">= \lim_{x \rightarrow - 3}\frac{x - 1}{x - 1 - 2\sqrt{1 - x}} = \frac{1}{2}</annotation></semantics></math>.</p>
+<p>Donc
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+est dérivable en
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>3</mn></mrow><annotation encoding="application/x-tex">- 3</annotation></semantics></math>
+et la courbe
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>C</mi><mi>f</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\left( C_{f} \right)</annotation></semantics></math>
+admet au voisinage de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>3</mn></mrow><annotation encoding="application/x-tex">- 3</annotation></semantics></math>
+une tangente d’équation :
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>=</mo><msup><mi>f</mi><mo>′</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mn>3</mn><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>+</mo><mn>3</mn><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mn>3</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>x</mi><mo>+</mo><mfrac><mn>7</mn><mn>2</mn></mfrac></mrow><annotation encoding="application/x-tex">y = f&#39;( - 3)(x + 3) + f( - 3) = \frac{1}{2}x + \frac{7}{2}</annotation></semantics></math>.</p>
+<ul>
+<li><p>Donnons une valeur approchée de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mn>2.999</mn><mo stretchy="false" form="postfix">)</mo><mspace width="0.222em"></mspace></mrow><annotation encoding="application/x-tex">f( - 2.999)\ </annotation></semantics></math>:</p></li>
+</ul>
+<p>La fonction affine tangente à
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>C</mi><mi>f</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\left( C_{f} \right)</annotation></semantics></math>
+au voisinage de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>3</mn></mrow><annotation encoding="application/x-tex">- 3</annotation></semantics></math>
+est
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo>:</mo><mi>x</mi><mo>↦</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>x</mi><mo>+</mo><mfrac><mn>7</mn><mn>2</mn></mfrac></mrow><annotation encoding="application/x-tex">g:x \longmapsto \frac{1}{2}x + \frac{7}{2}</annotation></semantics></math>.</p>
+<p>Ainsi :
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mn>2.999</mn><mo stretchy="false" form="postfix">)</mo><mo>≅</mo><mi>g</mi><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mn>2.999</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">f( - 2.999) \cong g( - 2.999)</annotation></semantics></math><em>.</em></p>
+<p>Or
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mn>2.999</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mn>2.999</mn><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mfrac><mn>7</mn><mn>2</mn></mfrac><mo>=</mo><mn>2</mn><mo>,</mo><mn>0005</mn></mrow><annotation encoding="application/x-tex">g( - 2.999) = \frac{1}{2}( - 2.999) + \frac{7}{2} = 2,0005</annotation></semantics></math><em>.</em></p>
+<p>Par suite
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mn>2.999</mn><mo stretchy="false" form="postfix">)</mo><mo>≅</mo><mn>2</mn><mo>,</mo><mn>0005</mn></mrow><annotation encoding="application/x-tex">f( - 2.999) \cong 2,0005</annotation></semantics></math><em>.</em></p>
+<p><em>🔿Remarques :</em></p>
+<ul>
+<li><p>Si
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mrow><mi mathvariant="normal">lim</mi><mo>&#8289;</mo></mrow><mrow><mi>x</mi><mo>→</mo><mi>a</mi></mrow></msub><mfrac><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>−</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo></mrow><mrow><mi>x</mi><mo>−</mo><mi>a</mi></mrow></mfrac><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\lim_{x \rightarrow a}\frac{f(x) - f(a)}{x - a} = 0</annotation></semantics></math>,
+alors
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><msub><mi>C</mi><mi>f</mi></msub><mo stretchy="false" form="postfix">)</mo><mspace width="0.222em"></mspace></mrow><annotation encoding="application/x-tex">(C_{f})\ </annotation></semantics></math>
+admet une tangente horizontale au point
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mspace width="0.222em"></mspace><mi>A</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>a</mi><mo>,</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">\ A\left( a,f(a) \right).</annotation></semantics></math></p></li>
+<li><p>Si
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+est continue en
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>a</mi><annotation encoding="application/x-tex">a</annotation></semantics></math>
+et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mrow><mi mathvariant="normal">lim</mi><mo>&#8289;</mo></mrow><mtable><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mi>x</mi><mo>→</mo><mi>a</mi></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mi>x</mi><mo>≻</mo><mi>a</mi></mtd></mtr></mtable></msub><mfrac><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>−</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo></mrow><mrow><mi>x</mi><mo>−</mo><mi>a</mi></mrow></mfrac><mo>=</mo><mi>±</mi><mi>∞</mi></mrow><annotation encoding="application/x-tex">\lim_{\begin{aligned}
+ &amp; x \rightarrow a \\
+ &amp; x \succ a
+\end{aligned}}\frac{f(x) - f(a)}{x - a} = \pm \infty</annotation></semantics></math>
+ou
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mrow><mi mathvariant="normal">lim</mi><mo>&#8289;</mo></mrow><mtable><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mi>x</mi><mo>→</mo><mi>a</mi></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mi>x</mi><mo>≺</mo><mi>a</mi></mtd></mtr></mtable></msub><mfrac><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>−</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo></mrow><mrow><mi>x</mi><mo>−</mo><mi>a</mi></mrow></mfrac><mo>=</mo><mi>±</mi><mi>∞</mi></mrow><annotation encoding="application/x-tex">\lim_{\begin{aligned}
+ &amp; x \rightarrow a \\
+ &amp; x \prec a
+\end{aligned}}\frac{f(x) - f(a)}{x - a} = \pm \infty</annotation></semantics></math>,
+alors
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><msub><mi>C</mi><mi>f</mi></msub><mo stretchy="false" form="postfix">)</mo><mspace width="0.222em"></mspace></mrow><annotation encoding="application/x-tex">(C_{f})\ </annotation></semantics></math>
+admet une demi-tangente verticale au point
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mspace width="0.222em"></mspace><mi>A</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>a</mi><mo>,</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">\ A\left( a,f(a) \right).</annotation></semantics></math></p></li>
+</ul>
+<p><em>🔿Exemple :</em></p>
+<p>La fonction définie sur
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="postfix">]</mo><mo>−</mo><mi>∞</mi><mo>;</mo><mn>1</mn><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">\rbrack - \infty;1\rbrack</annotation></semantics></math>
+par
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo>:</mo><mi>x</mi><mo>↦</mo><mi>x</mi><mo>+</mo><mn>1</mn><mo>+</mo><mn>2</mn><msqrt><mrow><mn>1</mn><mo>−</mo><mi>x</mi></mrow></msqrt></mrow><annotation encoding="application/x-tex">f:x \mapsto x + 1 + 2\sqrt{1 - x}</annotation></semantics></math>
+n’est pas dérivable en
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>1</mn><annotation encoding="application/x-tex">1</annotation></semantics></math>
+a gauche. En effet :</p>
+<p>On a
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mrow><mi mathvariant="normal">lim</mi><mo>&#8289;</mo></mrow><mrow><mi>x</mi><mo>→</mo><msup><mn>1</mn><mo>−</mo></msup></mrow></msub><mfrac><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>−</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><mrow><mi>x</mi><mo>−</mo><mn>1</mn></mrow></mfrac><mo>=</mo><msub><mrow><mi mathvariant="normal">lim</mi><mo>&#8289;</mo></mrow><mrow><mi>x</mi><mo>→</mo><msup><mn>1</mn><mo>−</mo></msup></mrow></msub><mfrac><mrow><mi>x</mi><mo>−</mo><mn>1</mn><mo>+</mo><mn>2</mn><msqrt><mrow><mn>1</mn><mo>−</mo><mi>x</mi></mrow></msqrt></mrow><mrow><mi>x</mi><mo>−</mo><mn>1</mn></mrow></mfrac></mrow><annotation encoding="application/x-tex">\lim_{x \rightarrow 1^{-}}\frac{f(x) - f(1)}{x - 1} = \lim_{x \rightarrow 1^{-}}\frac{x - 1 + 2\sqrt{1 - x}}{x - 1}</annotation></semantics></math></p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>=</mo><msub><mrow><mi mathvariant="normal">lim</mi><mo>&#8289;</mo></mrow><mrow><mi>x</mi><mo>→</mo><msup><mn>1</mn><mo>−</mo></msup></mrow></msub><mfrac><mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo>−</mo><mn>1</mn><mo>+</mo><mn>2</mn><msqrt><mrow><mn>1</mn><mo>−</mo><mi>x</mi></mrow></msqrt><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo>−</mo><mn>1</mn><mo>−</mo><mn>2</mn><msqrt><mrow><mn>1</mn><mo>−</mo><mi>x</mi></mrow></msqrt><mo stretchy="true" form="postfix">)</mo></mrow></mrow><mrow><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>−</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo>−</mo><mn>1</mn><mo>−</mo><mn>2</mn><msqrt><mrow><mn>1</mn><mo>−</mo><mi>x</mi></mrow></msqrt><mo stretchy="true" form="postfix">)</mo></mrow></mrow></mfrac></mrow><annotation encoding="application/x-tex">= \lim_{x \rightarrow 1^{-}}\frac{\left( x - 1 + 2\sqrt{1 - x} \right)\left( x - 1 - 2\sqrt{1 - x} \right)}{(x - 1)\left( x - 1 - 2\sqrt{1 - x} \right)}</annotation></semantics></math></p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>=</mo><msub><mrow><mi mathvariant="normal">lim</mi><mo>&#8289;</mo></mrow><mrow><mi>x</mi><mo>→</mo><msup><mn>1</mn><mo>−</mo></msup></mrow></msub><mfrac><mrow><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>+</mo><mn>3</mn><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>−</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><mrow><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>−</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo>−</mo><mn>1</mn><mo>−</mo><mn>2</mn><msqrt><mrow><mn>1</mn><mo>−</mo><mi>x</mi></mrow></msqrt><mo stretchy="true" form="postfix">)</mo></mrow></mrow></mfrac></mrow><annotation encoding="application/x-tex">= \lim_{x \rightarrow 1^{-}}\frac{(x + 3)(x - 1)}{(x - 1)\left( x - 1 - 2\sqrt{1 - x} \right)}</annotation></semantics></math></p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>=</mo><msub><mrow><mi mathvariant="normal">lim</mi><mo>&#8289;</mo></mrow><mrow><mi>x</mi><mo>→</mo><msup><mn>1</mn><mo>−</mo></msup></mrow></msub><mfrac><mrow><mi>x</mi><mo>+</mo><mn>3</mn></mrow><mrow><mi>x</mi><mo>−</mo><mn>1</mn><mo>−</mo><mn>2</mn><msqrt><mrow><mn>1</mn><mo>−</mo><mi>x</mi></mrow></msqrt></mrow></mfrac><mo>=</mo><mi>+</mi><mi>∞</mi></mrow><annotation encoding="application/x-tex">= \lim_{x \rightarrow 1^{-}}\frac{x + 3}{x - 1 - 2\sqrt{1 - x}} = + \infty</annotation></semantics></math>.</p>
+<p>Parce que
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mrow><mi mathvariant="normal">lim</mi><mo>&#8289;</mo></mrow><mrow><mi>x</mi><mo>→</mo><msup><mn>1</mn><mo>−</mo></msup></mrow></msub><mi>x</mi><mo>+</mo><mn>3</mn><mo>=</mo><mn>4</mn></mrow><annotation encoding="application/x-tex">\lim_{x \rightarrow 1^{-}}x + 3 = 4</annotation></semantics></math>
+et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mrow><mi mathvariant="normal">lim</mi><mo>&#8289;</mo></mrow><mrow><mi>x</mi><mo>→</mo><msup><mn>1</mn><mo>−</mo></msup></mrow></msub><mi>x</mi><mo>−</mo><mn>1</mn><mo>−</mo><mn>2</mn><msqrt><mrow><mn>1</mn><mo>−</mo><mi>x</mi></mrow></msqrt><mo>=</mo><msup><mn>0</mn><mo>−</mo></msup></mrow><annotation encoding="application/x-tex">\lim_{x \rightarrow 1^{-}}x - 1 - 2\sqrt{1 - x} = 0^{-}</annotation></semantics></math>
+du fait que
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>−</mo><mn>1</mn><mo>&lt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">x - 1 &lt; 0</annotation></semantics></math>
+et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>2</mn><msqrt><mrow><mn>1</mn><mo>−</mo><mi>x</mi></mrow></msqrt><mo>&lt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">- 2\sqrt{1 - x} &lt; 0</annotation></semantics></math>
+pour tout
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>&lt;</mo><mn>1</mn><mspace width="0.222em"></mspace></mrow><annotation encoding="application/x-tex">x &lt; 1\ </annotation></semantics></math>.</p>
+<p>Donc
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+n’est pas dérivable en 1 à gauche.</p>
+<p>Puisque
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+est continue en
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>1</mn><annotation encoding="application/x-tex">1</annotation></semantics></math>
+à gauche et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mrow><mi mathvariant="normal">lim</mi><mo>&#8289;</mo></mrow><mrow><mi>x</mi><mo>→</mo><msup><mn>1</mn><mo>−</mo></msup></mrow></msub><mfrac><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>−</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><mrow><mi>x</mi><mo>−</mo><mn>1</mn></mrow></mfrac><mo>=</mo><mi>+</mi><mi>∞</mi></mrow><annotation encoding="application/x-tex">\lim_{x \rightarrow 1^{-}}\frac{f(x) - f(1)}{x - 1} = + \infty</annotation></semantics></math>,
+alors
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><msub><mi>C</mi><mi>f</mi></msub><mo stretchy="false" form="postfix">)</mo><mspace width="0.222em"></mspace></mrow><annotation encoding="application/x-tex">(C_{f})\ </annotation></semantics></math>
+admet une demi-tangente verticale au point
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mspace width="0.222em"></mspace><mi>A</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\ A(1,2)</annotation></semantics></math>
+dirigée vers le haut.</p>
+<p><em><strong>✍ Application ① :</strong></em></p>
+<p>Etudier la dérivabilité de la fonction
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+en
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>a</mi><annotation encoding="application/x-tex">a</annotation></semantics></math>
+puis interpréter graphiquement les résultats dans les cas suivants :</p>
+<table>
+<colgroup>
+<col style="width: 30%" />
+<col style="width: 27%" />
+<col style="width: 41%" />
+</colgroup>
+<thead>
+<tr>
+<th><ol type="a">
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msup><mi>x</mi><mn>3</mn></msup><mo>−</mo><mi>x</mi></mrow><annotation encoding="application/x-tex">f(x) = x^{3} - x</annotation></semantics></math>
+et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>=</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">a = 2</annotation></semantics></math></p></li>
+</ol></th>
+<th><ol start="2" type="a">
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mrow><mi>x</mi><mo>+</mo><mn>1</mn></mrow><mi>x</mi></mfrac></mrow><annotation encoding="application/x-tex">f(x) = \frac{x + 1}{x}</annotation></semantics></math>
+et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">a = 1</annotation></semantics></math></p></li>
+</ol></th>
+<th><ol start="3" type="a">
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msqrt><mrow><mn>2</mn><mi>x</mi><mo>+</mo><mn>1</mn></mrow></msqrt></mrow><annotation encoding="application/x-tex">f(x) = \sqrt{2x + 1}</annotation></semantics></math>
+et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>=</mo><mi>−</mi><mfrac><mn>1</mn><mn>2</mn></mfrac></mrow><annotation encoding="application/x-tex">a = - \frac{1}{2}</annotation></semantics></math>
+à droite.</p></li>
+</ol></th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<blockquote>
+<p><em><strong>✍ Exercice ①:</strong></em></p>
+</blockquote>
+<p>On considère
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+la fonction définie par
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mrow><mo stretchy="true" form="prefix">{</mo><mtable><mtr><mtd columnalign="right" style="text-align: right"><mfrac><mrow><msqrt><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>1</mn></mrow></msqrt><mo>−</mo><mn>1</mn></mrow><mi>x</mi></mfrac><mo>;</mo><mi>s</mi><mi>i</mi><mspace width="0.222em"></mspace><mi>x</mi><mo>≠</mo><mn>0</mn></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"><mn>0</mn><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mo>;</mo><mi>s</mi><mi>i</mi><mspace width="0.222em"></mspace><mi>n</mi><mi>o</mi><mi>n</mi><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace></mtd></mtr></mtable></mrow><mspace width="0.222em"></mspace></mrow><annotation encoding="application/x-tex">f(x) = \left\{ \begin{array}{r}
+\frac{\sqrt{x^{2} + 1} - 1}{x};si\ x \neq 0 \\
+0\ \ \ \ \ \ \ \ \ \ \ \ ;si\ non\ \ 
+\end{array} \right.\ </annotation></semantics></math>.</p>
+<ol type="1">
+<li><p>Etudier la continuité de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+en
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mn>0</mn></msub><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">x_{0} = 0</annotation></semantics></math>.</p></li>
+<li><p>Etudier la dérivabilité de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+en
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mn>0</mn></msub><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">x_{0} = 0</annotation></semantics></math>.
+Interpréter graphiquement le résultat.</p></li>
+</ol>
+<blockquote>
+<p><em>🖉🖉Propriété :</em></p>
+</blockquote>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+est dérivable en
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>a</mi><annotation encoding="application/x-tex">a</annotation></semantics></math>
+si et seulement s’elle est dérivable à droite et à gauche en a et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><msup><mi>g</mi><mo>′</mo></msup></msub><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo><mtext mathvariant="normal">=</mtext><msub><mtext mathvariant="normal">f</mtext><msup><mi>d</mi><mo>′</mo></msup></msub><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">f_{g}&#39;(a)\text{=}\text{f}_{d}&#39;(a)</annotation></semantics></math>
+.</p>
+<p><em>🔿 Graphiquement :</em></p>
+<blockquote>
+<p>Si
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><msup><mi>g</mi><mo>′</mo></msup></msub><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo><mo>≠</mo><msub><mi>f</mi><msup><mi>d</mi><mo>′</mo></msup></msub><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">f_{g}&#39;(a) \neq f_{d}&#39;(a)</annotation></semantics></math>,
+alors
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><msub><mi>C</mi><mi>f</mi></msub><mo stretchy="false" form="postfix">)</mo><mspace width="0.222em"></mspace></mrow><annotation encoding="application/x-tex">(C_{f})\ </annotation></semantics></math>admet
+deux demi-tangentes non parallèles au point
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mspace width="0.222em"></mspace><mi>A</mi><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo>,</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\ A(a,f(a))</annotation></semantics></math>.
+Ce point est appelé <strong>point anguleux.</strong></p>
+<p><img src="./media/image1.png"
+style="width:1.8994in;height:1.03646in" /></p>
+</blockquote>
+<p><em><strong>✍ Application ②:</strong></em></p>
+<p>On considère
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+la fonction définie par
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">{</mo><mtable><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msqrt><mi>x</mi></msqrt><mo>−</mo><mn>1</mn><mspace width="0.222em"></mspace><mo>;</mo><mn>0</mn><mo>≤</mo><mi>x</mi><mo>&lt;</mo><mn>1</mn></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>−</mo><mn>1</mn></mrow><mn>4</mn></mfrac><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mo>;</mo><mi>x</mi><mo>≥</mo><mn>1</mn></mtd></mtr></mtable></mrow><mspace width="0.222em"></mspace></mrow><annotation encoding="application/x-tex">\left\{ \begin{aligned}
+ &amp; f(x) = \sqrt{x} - 1\ ;0 \leq x &lt; 1 \\
+ &amp; f(x) = \frac{x^{2} - 1}{4}\ \ \ \ \ ;x \geq 1
+\end{aligned} \right.\ </annotation></semantics></math></p>
+<ol type="1">
+<li><p>Montrer que
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+est continue en
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>1</mn><annotation encoding="application/x-tex">1</annotation></semantics></math><em> .</em></p></li>
+<li><p>Étudier la dérivabilité de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+en
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>1</mn><annotation encoding="application/x-tex">1</annotation></semantics></math><em>.</em></p></li>
+</ol>
+<p><em>🔿Remarque :</em></p>
+<blockquote>
+<p>Si
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+est dérivable en
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>a</mi><annotation encoding="application/x-tex">a</annotation></semantics></math>,
+alors elle est continue en a. la réciproque n’est pas toujours
+vraie.</p>
+</blockquote>
+<p><em>🔿Exemple :</em></p>
+<p>La fonction
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>↦</mo><mo stretchy="false" form="prefix">|</mo><mi>x</mi><mo stretchy="false" form="prefix">|</mo></mrow><annotation encoding="application/x-tex">x \longmapsto |x|</annotation></semantics></math>
+est continue en 0 mais n’est pas dérivable en ce point.</p>
+<ol start="2" type="I">
+<li><p><em>Opérations sur les fonctions dérivables-Monotonie d’une
+fonction</em></p></li>
+</ol>
+<blockquote>
+<p><em>🖉🖉Propriété :</em></p>
+</blockquote>
+<ul>
+<li><p>Les fonctions polynomiales et les fonctions
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>↦</mo><mi>c</mi><mi>o</mi><mi>s</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">x \longmapsto cos(x)</annotation></semantics></math>
+et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>↦</mo><mi>s</mi><mi>i</mi><mi>n</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">x \longmapsto sin(x)</annotation></semantics></math>
+sont dérivables sur
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ℝ</mi><annotation encoding="application/x-tex">\mathbb{R}</annotation></semantics></math>.</p></li>
+<li><p>Toute fonction rationnelle est dérivable sur tout intervalle
+inclus dans son domaine de définition.</p></li>
+</ul>
+<p><em><strong>Tableau des fonctions dérivées
+usuelles :</strong></em></p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: center;"><strong>La fonction</strong>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>𝐟</mi><annotation encoding="application/x-tex">\mathbf{f}</annotation></semantics></math></th>
+<th style="text-align: center;"><strong>La fonction dérivée</strong>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝐟</mi><mi mathvariant="bold">′</mi></mrow><annotation encoding="application/x-tex">\mathbf{f}\mathbf{&#39;}</annotation></semantics></math></th>
+<th style="text-align: center;"><strong>Domaine de dérivabilité
+de</strong>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>𝐟</mi><annotation encoding="application/x-tex">\mathbf{f}</annotation></semantics></math></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>↦</mo><mi>a</mi><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mo stretchy="false" form="prefix">(</mo><mi>k</mi><mi>a</mi><mrow><mo mathvariant="double-struck">∈</mo><mi>ℝ</mi><mo stretchy="false" form="postfix" mathvariant="double-struck">)</mo></mrow></mrow><annotation encoding="application/x-tex">x \longmapsto a\ \ \ (ka\mathbb{\in R)}</annotation></semantics></math></td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>↦</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">x \longmapsto 0</annotation></semantics></math></td>
+<td
+style="text-align: center;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ℝ</mi><annotation encoding="application/x-tex">\mathbb{R}</annotation></semantics></math></td>
+</tr>
+<tr>
+<td><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>↦</mo><mi>a</mi><mi>x</mi><mo>+</mo><mi>b</mi><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mrow><mo mathvariant="double-struck">∈</mo><mi>ℝ</mi><mspace width="0.222em"></mspace></mrow><mi>e</mi><mi>t</mi><mspace width="0.222em"></mspace><mi>b</mi><mrow><mo mathvariant="double-struck">∈</mo><mi>ℝ</mi><mspace width="0.222em"></mspace><mo stretchy="false" form="postfix" mathvariant="double-struck">)</mo></mrow></mrow><annotation encoding="application/x-tex">x \longmapsto ax + b\ \ \ (a\mathbb{\in R\ }et\ b\mathbb{\in R\ )}</annotation></semantics></math></td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>↦</mo><mi>a</mi><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace></mrow><annotation encoding="application/x-tex">x \longmapsto a\ \ \ </annotation></semantics></math></td>
+<td
+style="text-align: center;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ℝ</mi><annotation encoding="application/x-tex">\mathbb{R}</annotation></semantics></math></td>
+</tr>
+<tr>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>↦</mo><msup><mi>x</mi><mi>n</mi></msup><mspace width="0.222em"></mspace><mo stretchy="false" form="prefix">(</mo><mi>n</mi><mo>∈</mo><msup><mi>ℕ</mi><mo>*</mo></msup><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">x \longmapsto x^{n}\ (n \in \mathbb{N}^{*})</annotation></semantics></math></td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>↦</mo><mi>n</mi><msup><mi>x</mi><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msup><mspace width="0.222em"></mspace></mrow><annotation encoding="application/x-tex">x \longmapsto nx^{n - 1}\ </annotation></semantics></math></td>
+<td
+style="text-align: center;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ℝ</mi><annotation encoding="application/x-tex">\mathbb{R}</annotation></semantics></math></td>
+</tr>
+<tr>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>↦</mo><mfrac><mn>1</mn><mi>x</mi></mfrac></mrow><annotation encoding="application/x-tex">x \longmapsto \frac{1}{x}</annotation></semantics></math></td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>↦</mo><mi>−</mi><mfrac><mn>1</mn><mrow><mi>x</mi><mi>²</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">x \longmapsto - \frac{1}{x²}</annotation></semantics></math></td>
+<td
+style="text-align: center;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>ℝ</mi><mo>*</mo></msup><annotation encoding="application/x-tex">\mathbb{R}^{*}</annotation></semantics></math></td>
+</tr>
+<tr>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>↦</mo><msqrt><mi>x</mi></msqrt></mrow><annotation encoding="application/x-tex">x \longmapsto \sqrt{x}</annotation></semantics></math></td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>↦</mo><mfrac><mn>1</mn><mrow><mn>2</mn><msqrt><mi>x</mi></msqrt></mrow></mfrac></mrow><annotation encoding="application/x-tex">x \longmapsto \frac{1}{2\sqrt{x}}</annotation></semantics></math></td>
+<td
+style="text-align: center;"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>ℝ</mi><mo>+</mo><mo>*</mo></msubsup><annotation encoding="application/x-tex">\mathbb{R}_{+}^{*}</annotation></semantics></math></td>
+</tr>
+<tr>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>↦</mo><mi>c</mi><mi>o</mi><mi>s</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">x \longmapsto cos(x)</annotation></semantics></math></td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>↦</mo><mi>−</mi><mi>s</mi><mi>i</mi><mi>n</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">x \longmapsto - sin(x)</annotation></semantics></math></td>
+<td
+style="text-align: center;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ℝ</mi><annotation encoding="application/x-tex">\mathbb{R}</annotation></semantics></math></td>
+</tr>
+<tr>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>↦</mo><mi>s</mi><mi>i</mi><mi>n</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">x \longmapsto sin(x)</annotation></semantics></math></td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>↦</mo><mi>c</mi><mi>o</mi><mi>s</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">x \longmapsto cos(x)</annotation></semantics></math></td>
+<td
+style="text-align: center;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ℝ</mi><annotation encoding="application/x-tex">\mathbb{R}</annotation></semantics></math></td>
+</tr>
+<tr>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>↦</mo><mi>t</mi><mi>a</mi><mi>n</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">x \longmapsto tan(x)</annotation></semantics></math></td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>↦</mo><mn>1</mn><mo>+</mo><mi>t</mi><mi>a</mi><msup><mi>n</mi><mn>2</mn></msup><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mn>1</mn><mrow><mi>c</mi><mi>o</mi><mi>s</mi><mi>²</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow></mfrac></mrow><annotation encoding="application/x-tex">x \longmapsto 1 + tan^{2}(x) = \frac{1}{cos²(x)}</annotation></semantics></math></td>
+<td
+style="text-align: center;"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℝ</mi><mo>∖</mo><mrow><mo stretchy="true" form="prefix">{</mo><mfrac><mi>π</mi><mn>2</mn></mfrac><mo>+</mo><mi>k</mi><mi>π</mi><mi>/</mi><mi>k</mi><mrow><mo mathvariant="double-struck">∈</mo><mi>ℝ</mi></mrow><mo stretchy="true" form="postfix">}</mo></mrow></mrow><annotation encoding="application/x-tex">\mathbb{R} \smallsetminus \left\{ \frac{\pi}{2} + k\pi/k\mathbb{\in R} \right\}</annotation></semantics></math></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><em>🖉🖉Propriété :</em></p>
+<p>Soient
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>g</mi><annotation encoding="application/x-tex">g</annotation></semantics></math>
+deux fonctions dérivables sur un intervalle
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>I</mi><annotation encoding="application/x-tex">I</annotation></semantics></math>
+et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>k</mi><annotation encoding="application/x-tex">k</annotation></semantics></math>
+un réel, on a :</p>
+</blockquote>
+<ul>
+<li><p>La fonction
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo>+</mo><mi>g</mi></mrow><annotation encoding="application/x-tex">f + g</annotation></semantics></math>
+est dérivable sur
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>I</mi><annotation encoding="application/x-tex">I</annotation></semantics></math>
+et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>f</mi><mo>+</mo><mi>g</mi><msup><mo stretchy="false" form="postfix">)</mo><mo>′</mo></msup><mo>=</mo><msup><mi>f</mi><mo>′</mo></msup><mo>+</mo><msup><mi>g</mi><mo>′</mo></msup></mrow><annotation encoding="application/x-tex">(f + g)&#39; = f&#39; + g&#39;</annotation></semantics></math>.</p></li>
+<li><p>La fonction
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>λ</mi><mi>f</mi></mrow><annotation encoding="application/x-tex">\lambda f</annotation></semantics></math>
+est dérivable sur
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>I</mi><annotation encoding="application/x-tex">I</annotation></semantics></math>
+et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>λ</mi><mi>f</mi><msup><mo stretchy="false" form="postfix">)</mo><mo>′</mo></msup><mo>=</mo><mspace width="0.222em"></mspace><mi>λ</mi><msup><mi>f</mi><mo>′</mo></msup></mrow><annotation encoding="application/x-tex">(\lambda f)&#39; = \ \lambda f&#39;</annotation></semantics></math>.</p></li>
+<li><p>La fonction
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo>×</mo><mi>g</mi></mrow><annotation encoding="application/x-tex">f \times g</annotation></semantics></math>
+est dérivable sur
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>I</mi><annotation encoding="application/x-tex">I</annotation></semantics></math>
+et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>f</mi><mo>×</mo><mi>g</mi><msup><mo stretchy="false" form="postfix">)</mo><mo>′</mo></msup><mo>=</mo><msup><mi>f</mi><mo>′</mo></msup><mo>×</mo><mi>g</mi><mo>+</mo><mi>f</mi><mo>×</mo><msup><mi>g</mi><mo>′</mo></msup></mrow><annotation encoding="application/x-tex">(f \times g)&#39; = f&#39; \times g + f \times g&#39;</annotation></semantics></math>.</p></li>
+<li><p>La fonction
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>f</mi><mi>n</mi></msup><annotation encoding="application/x-tex">f^{n}</annotation></semantics></math>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>n</mi><mo>∈</mo><mi>I</mi><mi>N</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(n \in IN)</annotation></semantics></math>
+est dérivable sur
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>I</mi><annotation encoding="application/x-tex">I</annotation></semantics></math>
+et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>f</mi><mi>n</mi></msup><mo stretchy="true" form="postfix">)</mo></mrow><mo>′</mo></msup><mo>=</mo><mi>n</mi><msup><mi>f</mi><mo>′</mo></msup><mo>×</mo><msup><mi>f</mi><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msup></mrow><annotation encoding="application/x-tex">\left( f^{n} \right)&#39; = nf&#39; \times f^{n - 1}</annotation></semantics></math>.</p></li>
+<li><p>Si
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mo>∀</mo><mi>x</mi><mo>∈</mo><mi>I</mi><mo stretchy="false" form="postfix">)</mo><mo>:</mo><mi>g</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>≠</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">(\forall x \in I):g(x) \neq 0</annotation></semantics></math>,
+alors la fonction
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mfrac><mi>f</mi><mi>g</mi></mfrac><annotation encoding="application/x-tex">\frac{f}{g}</annotation></semantics></math>
+est dérivable sur
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>I</mi><annotation encoding="application/x-tex">I</annotation></semantics></math>
+et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mrow><mo stretchy="true" form="prefix">(</mo><mfrac><mi>f</mi><mi>g</mi></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mo>′</mo></msup><mo>=</mo><mfrac><mrow><msup><mi>f</mi><mo>′</mo></msup><mo>×</mo><mi>g</mi><mo>−</mo><mi>f</mi><mo>×</mo><msup><mi>g</mi><mo>′</mo></msup></mrow><msup><mi>g</mi><mn>2</mn></msup></mfrac></mrow><annotation encoding="application/x-tex">\left( \frac{f}{g} \right)&#39; = \frac{f&#39; \times g - f \times g&#39;}{g^{2}}</annotation></semantics></math>.</p></li>
+<li><p>Si
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mo>∀</mo><mi>x</mi><mo>∈</mo><mi>I</mi><mo stretchy="false" form="postfix">)</mo><mo>:</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>≠</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">(\forall x \in I):f(x) \neq 0</annotation></semantics></math>,
+alors la fonction
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mfrac><mn>1</mn><mi>f</mi></mfrac><annotation encoding="application/x-tex">\frac{1}{f}</annotation></semantics></math>
+est dérivable sur
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>I</mi><annotation encoding="application/x-tex">I</annotation></semantics></math>
+et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mrow><mo stretchy="true" form="prefix">(</mo><mfrac><mn>1</mn><mi>f</mi></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mo>′</mo></msup><mo>=</mo><mi>−</mi><mfrac><msup><mi>f</mi><mo>′</mo></msup><msup><mi>f</mi><mn>2</mn></msup></mfrac></mrow><annotation encoding="application/x-tex">\left( \frac{1}{f} \right)&#39; = - \frac{f&#39;}{f^{2}}</annotation></semantics></math>.</p></li>
+<li><p>Si
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mo>∀</mo><mi>x</mi><mo>∈</mo><mi>I</mi><mo stretchy="false" form="postfix">)</mo><mo>:</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">(\forall x \in I):f(x) &gt; 0</annotation></semantics></math>,
+alors la fonction
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msqrt><mi>f</mi></msqrt><annotation encoding="application/x-tex">\sqrt{f}</annotation></semantics></math>
+est dérivable sur
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>I</mi><annotation encoding="application/x-tex">I</annotation></semantics></math>
+et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mrow><mo stretchy="true" form="prefix">(</mo><msqrt><mi>f</mi></msqrt><mo stretchy="true" form="postfix">)</mo></mrow><mo>′</mo></msup><mo>=</mo><mfrac><msup><mi>f</mi><mo>′</mo></msup><mrow><mn>2</mn><msqrt><mi>f</mi></msqrt></mrow></mfrac></mrow><annotation encoding="application/x-tex">\left( \sqrt{f} \right)&#39; = \frac{f&#39;}{2\sqrt{f}}</annotation></semantics></math>.</p></li>
+</ul>
+<p><em><strong>✍ Application ③:</strong></em></p>
+<ol type="1">
+<li><p>Calculer la dérivée des fonctions suivantes :</p></li>
+</ol>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mrow><mn>2</mn><mi>x</mi></mrow><mrow><mn>1</mn><mo>+</mo><msup><mi>x</mi><mn>2</mn></msup></mrow></mfrac><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mo>;</mo><mi>h</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msqrt><mi>x</mi></msqrt><mrow><mi mathvariant="normal">sin</mi><mo>&#8289;</mo></mrow><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mrow><mi mathvariant="normal">cos</mi><mo>&#8289;</mo></mrow><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>;</mo><mi>g</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo stretchy="false" form="prefix">(</mo><msup><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><mn>5</mn></msup></mrow><annotation encoding="application/x-tex">f(x) = \frac{2x}{1 + x^{2}}\ \ ;h(x) = \sqrt{x}\sin(x) + \cos(x);g(x) = ({x^{2} + 1)}^{5}</annotation></semantics></math></p>
+<ol start="2" type="1">
+<li><p>a. Etudier la monotonie de la fonction
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+ci-dessus.</p></li>
+</ol>
+<p>b. Dresser le tableau de variations de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>.</p>
+<p>c. En déduire
+que<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">(</mo><mo>∀</mo><mi>x</mi><mo>∈</mo><mi>ℝ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>:</mo><mi>−</mi><mn>1</mn><mo>≤</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>≤</mo><mn>1</mn><mspace width="0.222em"></mspace></mrow><annotation encoding="application/x-tex">\left( \forall x \in \mathbb{R} \right): - 1 \leq f(x) \leq 1\ </annotation></semantics></math><em>.</em></p>
+<blockquote>
+<p><em><strong>✍ Exercice ②:</strong></em></p>
+</blockquote>
+<ol type="I">
+<li><p>On considère
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>g</mi><annotation encoding="application/x-tex">g</annotation></semantics></math>
+la fonction définie sur
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">[</mo><mn>0</mn><mo>;</mo><mi>+</mi><mi>∞</mi><mo stretchy="false" form="prefix">[</mo></mrow><annotation encoding="application/x-tex">\lbrack 0; + \infty\lbrack</annotation></semantics></math>
+par
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>x</mi><msqrt><mi>x</mi></msqrt><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">g(x) = x\sqrt{x} - 1</annotation></semantics></math>.</p></li>
+</ol>
+<ol type="1">
+<li><p>Etudier la dérivabilité de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>g</mi><annotation encoding="application/x-tex">g</annotation></semantics></math>
+à droite en
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0</mn><annotation encoding="application/x-tex">0</annotation></semantics></math>
+. Interpréter graphiquement le résultat.</p></li>
+<li><p>Montrer que
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>g</mi><annotation encoding="application/x-tex">g</annotation></semantics></math>
+est dérivable sur
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="postfix">]</mo><mn>0</mn><mo>;</mo><mi>+</mi><mi>∞</mi><mo stretchy="false" form="prefix">[</mo></mrow><annotation encoding="application/x-tex">\rbrack 0; + \infty\lbrack</annotation></semantics></math>
+puis calculer sa dérivée.</p></li>
+<li><p>Dresser le tableau de variations de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>g</mi><annotation encoding="application/x-tex">g</annotation></semantics></math>.</p></li>
+<li><p>Calculer
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">g(1)</annotation></semantics></math>
+puis déduire le signe de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>g</mi><annotation encoding="application/x-tex">g</annotation></semantics></math>
+sur
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">[</mo><mn>0</mn><mo>;</mo><mi>+</mi><mi>∞</mi><mo stretchy="false" form="prefix">[</mo></mrow><annotation encoding="application/x-tex">\lbrack 0; + \infty\lbrack</annotation></semantics></math>.</p></li>
+</ol>
+<ol start="2" type="I">
+<li><p>Soit
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+la fonction définie sur
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="postfix">]</mo><mn>0</mn><mo>;</mo><mi>+</mi><mi>∞</mi><mo stretchy="false" form="prefix">[</mo></mrow><annotation encoding="application/x-tex">\rbrack 0; + \infty\lbrack</annotation></semantics></math>
+par
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>2</mn><mi>x</mi><mo>−</mo><mn>3</mn><mo>+</mo><mfrac><mn>4</mn><msqrt><mi>x</mi></msqrt></mfrac></mrow><annotation encoding="application/x-tex">f(x) = 2x - 3 + \frac{4}{\sqrt{x}}</annotation></semantics></math>.</p></li>
+</ol>
+<ol type="1">
+<li><p>Montrer que
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">(</mo><mo>∀</mo><mi>x</mi><mo>∈</mo><mo stretchy="false" form="postfix">]</mo><mn>0</mn><mo>;</mo><mi>+</mi><mi>∞</mi><mo stretchy="false" form="prefix">[</mo><mo stretchy="true" form="postfix">)</mo></mrow><mo>:</mo><msup><mi>f</mi><mo>′</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mrow><mn>2</mn><mi>g</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><mrow><mi>x</mi><msqrt><mi>x</mi></msqrt></mrow></mfrac></mrow><annotation encoding="application/x-tex">\left( \forall x \in \rbrack 0; + \infty\lbrack \right):f&#39;(x) = \frac{2g(x)}{x\sqrt{x}}</annotation></semantics></math>.</p></li>
+<li><p>Etudier les variations de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>.</p></li>
+<li><p>Dresser le tableau de variations de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>.</p></li>
+<li><p>En déduire que
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">(</mo><mo>∀</mo><mi>x</mi><mo>∈</mo><mo stretchy="false" form="postfix">]</mo><mn>0</mn><mo>;</mo><mi>+</mi><mi>∞</mi><mo stretchy="false" form="prefix">[</mo><mo stretchy="true" form="postfix">)</mo></mrow><mo>:</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>≥</mo><mn>3</mn></mrow><annotation encoding="application/x-tex">\left( \forall x \in \rbrack 0; + \infty\lbrack \right):f(x) \geq 3</annotation></semantics></math>.</p></li>
+</ol>
+<ol start="3" type="I">
+<li><p><em>Dérivée de la fonction composée<strong> :
+</strong></em></p></li>
+</ol>
+<p><em><strong>✍Activité ②:</strong></em></p>
+<p>Soient
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>g</mi><annotation encoding="application/x-tex">g</annotation></semantics></math>
+deux fonctions définies sur IR par :
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mrow><mi mathvariant="normal">cos</mi><mo>&#8289;</mo></mrow><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">f(x) = \cos(x)</annotation></semantics></math> ;
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msup><mi>x</mi><mn>2</mn></msup><mo>−</mo><mn>2</mn><mi>x</mi></mrow><annotation encoding="application/x-tex">g(x) = x^{2} - 2x</annotation></semantics></math></p>
+<ol type="1">
+<li><p>Calculer
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mi>’</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">f’(x)</annotation></semantics></math>
+et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mi>’</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">g’(x)</annotation></semantics></math>
+pour tout
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>∈</mo><mi>I</mi><mi>R</mi></mrow><annotation encoding="application/x-tex">x \in IR</annotation></semantics></math>.</p></li>
+<li><p>Calculer
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>f</mi><mo>′</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>×</mo><msup><mi>g</mi><mo>′</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">f&#39;(x) \times g&#39;(f(x))</annotation></semantics></math>.</p></li>
+<li><p>Soit
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>g</mi><mi>o</mi><mi>f</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">h(x) = (gof)(x)</annotation></semantics></math>.
+Déterminer
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">h(x)</annotation></semantics></math>
+puis calculer
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mi>’</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">h’(x)</annotation></semantics></math>.</p></li>
+<li><p>Comparer
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>h</mi><mo>′</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mi>e</mi><mi>t</mi><mspace width="0.222em"></mspace><msup><mi>f</mi><mo>′</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>×</mo><msup><mi>g</mi><mo>′</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">h&#39;(x)et\ f&#39;(x) \times g&#39;(f(x))</annotation></semantics></math>.</p></li>
+</ol>
+<blockquote>
+<p><em>🖉🖉Propriété :</em></p>
+</blockquote>
+<ul>
+<li><p>Si
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+est dérivable en un réel
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>a</mi><annotation encoding="application/x-tex">a</annotation></semantics></math>
+et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>g</mi><annotation encoding="application/x-tex">g</annotation></semantics></math>
+dérivable en
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">f(a)</annotation></semantics></math>,
+alors la fonction composée
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mi>o</mi><mi>f</mi><mspace width="0.222em"></mspace></mrow><annotation encoding="application/x-tex">gof\ </annotation></semantics></math>est
+dérivable en
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>a</mi><annotation encoding="application/x-tex">a</annotation></semantics></math>
+et :
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>g</mi><mi>o</mi><msup><mrow><mi>f</mi><mo stretchy="false" form="postfix">)</mo></mrow><mo>′</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msup><mi>g</mi><mo>′</mo></msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="true" form="postfix">)</mo></mrow><mo>×</mo><msup><mi>f</mi><mo>′</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(go{f)}&#39;(a) = g&#39;\left( f(a) \right) \times f&#39;(a)</annotation></semantics></math>.</p></li>
+<li><p>Si
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+est dérivable sur un intervalle
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>I</mi><annotation encoding="application/x-tex">I</annotation></semantics></math>
+et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>g</mi><annotation encoding="application/x-tex">g</annotation></semantics></math>
+dérivable sur un intervalle
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>J</mi><annotation encoding="application/x-tex">J</annotation></semantics></math>
+tel que
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>I</mi><mo stretchy="false" form="postfix">)</mo><mo>⊂</mo><mi>J</mi></mrow><annotation encoding="application/x-tex">f(I) \subset J</annotation></semantics></math>,
+alors la fonction composée
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mi>o</mi><mi>f</mi></mrow><annotation encoding="application/x-tex">gof</annotation></semantics></math>
+est dérivable sur
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>I</mi><annotation encoding="application/x-tex">I</annotation></semantics></math>
+et de plus, pout tout
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>∈</mo><mi>I</mi><mspace width="0.222em"></mspace><mo>:</mo></mrow><annotation encoding="application/x-tex">x \in I\ :</annotation></semantics></math></p></li>
+</ul>
+<blockquote>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mspace width="0.222em"></mspace><mo stretchy="false" form="prefix">(</mo><mi>g</mi><mi>o</mi><msup><mrow><mi>f</mi><mo stretchy="false" form="postfix">)</mo></mrow><mo>′</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msup><mi>g</mi><mo>′</mo></msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="true" form="postfix">)</mo></mrow><mo>×</mo><msup><mi>f</mi><mo>′</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\ (go{f)}&#39;(x) = g&#39;\left( f(x) \right) \times f&#39;(x)</annotation></semantics></math>.</p>
+</blockquote>
+<p><em>🔿Exemple :</em></p>
+<p>Déterminons la dérivée de la fonction
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mspace width="0.222em"></mspace><mo>:</mo><mi>x</mi><mo>↦</mo><mrow><mi mathvariant="normal">cos</mi><mo>&#8289;</mo></mrow><mrow><mo stretchy="true" form="prefix">(</mo><msqrt><mi>x</mi></msqrt><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">h\ :x \longmapsto \cos\left( \sqrt{x} \right)</annotation></semantics></math>
+sur
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="postfix">]</mo><mn>0</mn><mo>;</mo><mi>+</mi><mi>∞</mi><mo stretchy="false" form="prefix">[</mo></mrow><annotation encoding="application/x-tex">\rbrack 0; + \infty\lbrack</annotation></semantics></math>.</p>
+<p>Pour tout
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>x</mi><annotation encoding="application/x-tex">x</annotation></semantics></math>
+de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="postfix">]</mo><mn>0</mn><mo>;</mo><mi>+</mi><mi>∞</mi><mo stretchy="false" form="prefix">[</mo></mrow><annotation encoding="application/x-tex">\rbrack 0; + \infty\lbrack</annotation></semantics></math>,
+on a
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mi>g</mi><mi>o</mi><mi>f</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">h(x) = (gof)(x)</annotation></semantics></math>
+tel que
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mrow><mi mathvariant="normal">cos</mi><mo>&#8289;</mo></mrow><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">g(x) = \cos(x)</annotation></semantics></math>
+et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msqrt><mi>x</mi></msqrt></mrow><annotation encoding="application/x-tex">f(x) = \sqrt{x}</annotation></semantics></math>.</p>
+<p>Comme
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>g</mi><annotation encoding="application/x-tex">g</annotation></semantics></math>
+est dérivable sur IR et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+est dérivable sur
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="postfix">]</mo><mn>0</mn><mo>,</mo><mi>+</mi><mi>∞</mi><mo stretchy="false" form="prefix">[</mo></mrow><annotation encoding="application/x-tex">\rbrack 0, + \infty\lbrack</annotation></semantics></math>
+et que
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mrow><mo stretchy="true" form="prefix">(</mo><mo stretchy="false" form="postfix">]</mo><mn>0</mn><mo>;</mo><mi>+</mi><mi>∞</mi><mo stretchy="false" form="prefix">[</mo><mo stretchy="true" form="postfix">)</mo></mrow><mo>⊂</mo><mi>I</mi><mi>R</mi></mrow><annotation encoding="application/x-tex">f\left( \rbrack 0; + \infty\lbrack \right) \subset IR</annotation></semantics></math>,
+alors la fonction
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>h</mi><annotation encoding="application/x-tex">h</annotation></semantics></math>
+est dérivable sur
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="postfix">]</mo><mn>0</mn><mo>;</mo><mi>+</mi><mi>∞</mi><mo stretchy="false" form="prefix">[</mo></mrow><annotation encoding="application/x-tex">\rbrack 0; + \infty\lbrack</annotation></semantics></math>
+.</p>
+<p>Et on :
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>h</mi><mo>′</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msup><mi>g</mi><mo>′</mo></msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="true" form="postfix">)</mo></mrow><mo>×</mo><msup><mi>f</mi><mo>′</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mrow><mi>−</mi><mrow><mi mathvariant="normal">sin</mi><mo>&#8289;</mo></mrow><mrow><mo stretchy="true" form="prefix">(</mo><msqrt><mi>x</mi></msqrt><mo stretchy="true" form="postfix">)</mo></mrow></mrow><mrow><mn>2</mn><msqrt><mi>x</mi></msqrt></mrow></mfrac></mrow><annotation encoding="application/x-tex">h&#39;(x) = g&#39;\left( f(x) \right) \times f&#39;(x) = \frac{- \sin\left( \sqrt{x} \right)}{2\sqrt{x}}</annotation></semantics></math>
+, pour tout
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>x</mi><annotation encoding="application/x-tex">x</annotation></semantics></math>
+de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="postfix">]</mo><mn>0</mn><mo>;</mo><mi>+</mi><mi>∞</mi><mo stretchy="false" form="prefix">[</mo></mrow><annotation encoding="application/x-tex">\rbrack 0; + \infty\lbrack</annotation></semantics></math>.<em><br />
+<strong>✍ Application ④:</strong></em></p>
+<p>Calculer la dérivée des fonctions
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo>:</mo><mi>x</mi><mo>↦</mo><mrow><mi mathvariant="normal">sin</mi><mo>&#8289;</mo></mrow><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>x</mi><mn>2</mn></msup><mo>−</mo><mfrac><mn>2</mn><mn>3</mn></mfrac><mi>x</mi><mo>+</mo><mn>4</mn><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">f:x \longmapsto \sin\left( x^{2} - \frac{2}{3}x + 4 \right)</annotation></semantics></math>
+et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo>:</mo><mi>x</mi><mo>↦</mo><mrow><mi mathvariant="normal">cos</mi><mo>&#8289;</mo></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mfrac><mn>4</mn><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>4</mn></mrow></mfrac><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">g:x \longmapsto \cos\left( \frac{4}{x^{2} + 4} \right)</annotation></semantics></math></p>
+<ol start="4" type="I">
+<li><p><em>Dérivée de la fonction
+Réciproque<strong> :</strong></em></p></li>
+</ol>
+<blockquote>
+<p><em>🖉🖉Propriété :</em></p>
+<p>Soit
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+une fonction continue et strictement monotone sur un intervalle
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>I</mi><annotation encoding="application/x-tex">I</annotation></semantics></math>
+de IR, et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>∈</mo><mi>I</mi></mrow><annotation encoding="application/x-tex">a \in I</annotation></semantics></math><span
+dir="rtl">.</span></p>
+<p>Si
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+est dérivable en
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>a</mi><annotation encoding="application/x-tex">a</annotation></semantics></math>
+et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>f</mi><mo>′</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo><mo>≠</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">f&#39;(a) \neq 0</annotation></semantics></math>,
+alors la fonction
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>f</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><annotation encoding="application/x-tex">f^{- 1}</annotation></semantics></math>
+est dérivable en
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo><mspace width="0.222em"></mspace></mrow><annotation encoding="application/x-tex">f(a)\ </annotation></semantics></math>et</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mrow><mo stretchy="false" form="prefix">(</mo><mi>f</mi></mrow><mrow><mi>−</mi><mn>1</mn></mrow></msup><msup><mo stretchy="false" form="postfix">)</mo><mo>′</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo><mspace width="0.222em"></mspace><mo>=</mo><mfrac><mn>1</mn><mrow><msup><mi>f</mi><mo>′</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo></mrow></mfrac></mrow><annotation encoding="application/x-tex">{(f}^{- 1})&#39;(f(a))\  = \frac{1}{f&#39;(a)}</annotation></semantics></math>.</p>
+</blockquote>
+<p><em><strong>✍ Application ⑤:</strong></em></p>
+<p>Soit
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+la fonction définie sur
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>I</mi><mi>R</mi></mrow><annotation encoding="application/x-tex">IR</annotation></semantics></math>
+par
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msup><mi>x</mi><mn>3</mn></msup><mo>+</mo><mi>x</mi></mrow><annotation encoding="application/x-tex">f(x) = x^{3} + x</annotation></semantics></math>
+<span dir="rtl">.</span></p>
+<ol type="1">
+<li><p>1.Montrer que
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+admet une fonction réciproque définie sur
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>I</mi><mi>R</mi></mrow><annotation encoding="application/x-tex">IR</annotation></semantics></math><span
+dir="rtl">.</span></p></li>
+<li><p>a. Calculer
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">f(1)</annotation></semantics></math>
+.</p></li>
+</ol>
+<ol start="2" type="a">
+<li><p>Montrer que
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>f</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><annotation encoding="application/x-tex">f^{- 1}</annotation></semantics></math>
+est dérivable en
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>2</mn><annotation encoding="application/x-tex">2</annotation></semantics></math>
+puis déterminer
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mrow><mo stretchy="false" form="prefix">(</mo><mi>f</mi></mrow><mrow><mi>−</mi><mn>1</mn></mrow></msup><msup><mo stretchy="false" form="postfix">)</mo><mo>′</mo></msup><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mo stretchy="false" form="postfix">)</mo><mspace width="0.222em"></mspace></mrow><annotation encoding="application/x-tex">{(f}^{- 1})&#39;(2)\ </annotation></semantics></math><span
+dir="rtl">.</span></p></li>
+</ol>
+<blockquote>
+<p><em>🖉🖉Propriété :</em></p>
+<p>Soit
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+une fonction continue et strictement monotone sur un intervalle
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>I</mi><annotation encoding="application/x-tex">I</annotation></semantics></math>
+de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>I</mi><mi>R</mi></mrow><annotation encoding="application/x-tex">IR</annotation></semantics></math>.</p>
+<p>Si
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+est dérivable sur
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>I</mi><annotation encoding="application/x-tex">I</annotation></semantics></math>
+tel que
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mo>∀</mo><mi>x</mi><mo>∈</mo><mi>I</mi><mo stretchy="false" form="postfix">)</mo><mo>:</mo><msup><mi>f</mi><mo>′</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>≠</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">(\forall x \in I):f&#39;(x) \neq 0</annotation></semantics></math>,
+alors la fonction
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>f</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><annotation encoding="application/x-tex">f^{- 1}</annotation></semantics></math>
+est dérivable sur
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>J</mi><mo>=</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>I</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">J = f(I)</annotation></semantics></math>.
+De plus on a pour tout
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>∈</mo><mi>J</mi><mspace width="0.222em"></mspace></mrow><annotation encoding="application/x-tex">x \in J\ </annotation></semantics></math>:
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>f</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><mo stretchy="true" form="postfix">)</mo></mrow><mo>′</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mn>1</mn><mrow><msup><mi>f</mi><mo>′</mo></msup><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>f</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="true" form="postfix">)</mo></mrow></mrow></mfrac></mrow><annotation encoding="application/x-tex">\left( f^{- 1} \right)&#39;(x) = \frac{1}{f&#39;\left( f^{- 1}(x) \right)}</annotation></semantics></math>.</p>
+</blockquote>
+<p><em>🔿 Conséquences :</em></p>
+<ul>
+<li><p>Soit
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>
+un entier naturel supérieur ou égal à
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>2</mn><annotation encoding="application/x-tex">2</annotation></semantics></math>.</p></li>
+</ul>
+<blockquote>
+<p>La fonction
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>↦</mo><mroot><mi>x</mi><mi>n</mi></mroot></mrow><annotation encoding="application/x-tex">x \longmapsto \sqrt[n]{x}</annotation></semantics></math>
+est dérivable sur
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="postfix">]</mo><mn>0</mn><mo>;</mo><mi>+</mi><mi>∞</mi><mo stretchy="false" form="prefix">[</mo></mrow><annotation encoding="application/x-tex">\rbrack 0; + \infty\lbrack</annotation></semantics></math>
+et pour tout
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>∈</mo><mo stretchy="false" form="postfix">]</mo><mn>0</mn><mo>;</mo><mi>+</mi><mi>∞</mi><mo stretchy="false" form="prefix">[</mo><mspace width="0.222em"></mspace><mo>:</mo></mrow><annotation encoding="application/x-tex">x \in \rbrack 0; + \infty\lbrack\ :</annotation></semantics></math>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mrow><mo stretchy="true" form="prefix">(</mo><mroot><mi>x</mi><mi>n</mi></mroot><mo stretchy="true" form="postfix">)</mo></mrow><mo>′</mo></msup><mo>=</mo><mfrac><mn>1</mn><mrow><mi>n</mi><mroot><msup><mi>x</mi><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msup><mi>n</mi></mroot></mrow></mfrac></mrow><annotation encoding="application/x-tex">\left( \sqrt[n]{x} \right)&#39; = \frac{1}{n\sqrt[n]{x^{n - 1}}}</annotation></semantics></math>.</p>
+</blockquote>
+<ul>
+<li><p>Si
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mspace width="0.222em"></mspace></mrow><annotation encoding="application/x-tex">f\ </annotation></semantics></math>une
+fonction dérivable sur un intervalle
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>I</mi><annotation encoding="application/x-tex">I</annotation></semantics></math>
+de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>I</mi><mi>R</mi></mrow><annotation encoding="application/x-tex">IR</annotation></semantics></math>
+et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mo>∀</mo><mi>x</mi><mo>∈</mo><mi>I</mi><mo stretchy="false" form="postfix">)</mo><mo>:</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">(\forall x \in I):f(x) &gt; 0</annotation></semantics></math>,
+alors la fonction
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>↦</mo><mroot><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><mi>n</mi></mroot><mspace width="0.222em"></mspace></mrow><annotation encoding="application/x-tex">x \longmapsto \sqrt[n]{f(x)}\ </annotation></semantics></math>est
+dérivable sur
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>I</mi><annotation encoding="application/x-tex">I</annotation></semantics></math>
+et sa fonction dérivée est donnée par :
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mroot><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><mi>n</mi></mroot><mo>=</mo><mfrac><mrow><msup><mi>f</mi><mo>′</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><mrow><mi>n</mi><mo>×</mo><mo stretchy="false" form="prefix">(</mo><msup><mrow><mroot><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><mi>n</mi></mroot><mo stretchy="false" form="postfix">)</mo></mrow><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msup></mrow></mfrac></mrow><annotation encoding="application/x-tex">\sqrt[n]{f(x)} = \frac{f&#39;(x)}{n \times ({\sqrt[n]{f(x)})}^{n - 1}}</annotation></semantics></math>.</p></li>
+</ul>
+<p><em><strong>✍ Application ⑥:</strong></em></p>
+<ol type="1">
+<li><p>Calculer la dérivée de chacune des fonctions suivantes :</p></li>
+</ol>
+<table>
+<colgroup>
+<col style="width: 54%" />
+<col style="width: 45%" />
+</colgroup>
+<thead>
+<tr>
+<th><ol type="a">
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mroot><mi>x</mi><mn>3</mn></mroot></mrow><annotation encoding="application/x-tex">f(x) = \sqrt[3]{x}</annotation></semantics></math></p></li>
+</ol></th>
+<th><ol start="2" type="a">
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mroot><msup><mi>x</mi><mn>3</mn></msup><mn>4</mn></mroot></mrow><annotation encoding="application/x-tex">f(x) = \sqrt[4]{x^{3}}</annotation></semantics></math></p></li>
+</ol></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><ol start="3" type="a">
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mroot><mrow><mn>1</mn><mo>+</mo><msup><mrow><mi mathvariant="normal">cos</mi><mo>&#8289;</mo></mrow><mn>2</mn></msup><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><mn>4</mn></mroot></mrow><annotation encoding="application/x-tex">f(x) = \sqrt[4]{1 + \cos^{2}(x)}</annotation></semantics></math></p></li>
+</ol></td>
+<td><ol start="4" type="a">
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mroot><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>2</mn><mi>x</mi></mrow><mn>3</mn></mroot></mrow><annotation encoding="application/x-tex">f(x) = \sqrt[3]{x^{2} + 2x}</annotation></semantics></math></p></li>
+</ol></td>
+</tr>
+</tbody>
+</table>
+<ol start="2" type="1">
+<li><p>A l’aide du nombre dérivé, calculer les limites
+suivantes :</p></li>
+</ol>
+<table>
+<colgroup>
+<col style="width: 54%" />
+<col style="width: 45%" />
+</colgroup>
+<thead>
+<tr>
+<th><ol type="a">
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mrow><mi mathvariant="normal">lim</mi><mo>&#8289;</mo></mrow><mrow><mi>x</mi><mo>→</mo><mn>0</mn></mrow></msub><mfrac><mrow><mroot><mrow><mi>x</mi><mo>+</mo><mn>1</mn></mrow><mn>3</mn></mroot><mo>−</mo><mn>1</mn></mrow><mi>x</mi></mfrac></mrow><annotation encoding="application/x-tex">\lim_{x \rightarrow 0}\frac{\sqrt[3]{x + 1} - 1}{x}</annotation></semantics></math></p></li>
+</ol></th>
+<th><ol start="2" type="a">
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mrow><mi mathvariant="normal">lim</mi><mo>&#8289;</mo></mrow><mrow><mi>x</mi><mo>→</mo><mn>1</mn></mrow></msub><mfrac><mrow><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>x</mi><mn>8</mn></msup><mo>+</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mroot><msup><mi>x</mi><mn>3</mn></msup><mn>4</mn></mroot><mo>+</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><mn>4</mn></mrow><mrow><mi>x</mi><mo>−</mo><mn>1</mn></mrow></mfrac></mrow><annotation encoding="application/x-tex">\lim_{x \rightarrow 1}\frac{\left( x^{8} + 1 \right)\left( \sqrt[4]{x^{3}} + 1 \right) - 4}{x - 1}</annotation></semantics></math></p></li>
+</ol></th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<blockquote>
+<p><em><strong>✍ Exercice ③:</strong></em></p>
+</blockquote>
+<p>Soit
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mspace width="0.222em"></mspace></mrow><annotation encoding="application/x-tex">f\ </annotation></semantics></math>la
+fonction numérique définie sur
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>I</mi><mi>R</mi></mrow><annotation encoding="application/x-tex">IR</annotation></semantics></math>
+par <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msup><mi>x</mi><mn>3</mn></msup><mo>−</mo><mn>3</mn><mi>x</mi><mo>−</mo><mn>3</mn></mrow><annotation encoding="application/x-tex">f(x) = x^{3} - 3x - 3</annotation></semantics></math>.</p>
+<ol type="1">
+<li><p>Etudier les variations de la fonction
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>.</p></li>
+<li><p>Soit
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>g</mi><annotation encoding="application/x-tex">g</annotation></semantics></math>
+la restriction de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+sur
+[1 ;+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>∞</mi><mo stretchy="false" form="prefix">[</mo></mrow><annotation encoding="application/x-tex">\infty\lbrack</annotation></semantics></math>.</p></li>
+</ol>
+<ol type="a">
+<li><p>Montrer que
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mspace width="0.222em"></mspace></mrow><annotation encoding="application/x-tex">g\ </annotation></semantics></math>
+admet une fonction réciproque définie sur un intervalle J à
+déterminer.</p></li>
+<li><p>Montrer que l’équation
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">g(x) = 0</annotation></semantics></math>
+admet une unique solution
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math>
+et que
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mo>&lt;</mo><mi>α</mi><mo>&lt;</mo><mn>3</mn></mrow><annotation encoding="application/x-tex">2 &lt; \alpha &lt; 3</annotation></semantics></math>.</p></li>
+<li><p>Montrer que :
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mrow><mo stretchy="false" form="prefix">(</mo><mi>g</mi></mrow><mrow><mi>−</mi><mn>1</mn></mrow></msup><msup><mo stretchy="false" form="postfix">)</mo><mo>′</mo></msup><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mn>1</mn><mrow><mn>3</mn><mo stretchy="false" form="prefix">(</mo><msup><mi>α</mi><mn>2</mn></msup><mo>−</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow></mfrac></mrow><annotation encoding="application/x-tex">{(g}^{- 1})&#39;(0) = \frac{1}{3(\alpha^{2} - 1)}</annotation></semantics></math>.</p></li>
+</ol>
+<ol start="5" type="I">
+<li><p><em>Branches infinies (Rappel)</em></p></li>
+</ol>
+<p><em><strong>Schéma récapitulatif de l'étude des branches
+infinies</strong></em></p>
+<p><em>🔿Exemple ① :</em></p>
+<p>On considère
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+la fonction définie sur
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>I</mi><mi>R</mi><mo>∖</mo><mrow><mo stretchy="true" form="prefix">{</mo><mi>−</mi><mn>1</mn><mo stretchy="true" form="postfix">}</mo></mrow></mrow><annotation encoding="application/x-tex">IR\backslash\left\{ - 1 \right\}</annotation></semantics></math>
+par :
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mrow><mn>3</mn><mo>−</mo><mn>2</mn><msup><mi>x</mi><mn>2</mn></msup></mrow><mrow><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>+</mo><mi>x</mi><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup></mrow></mfrac></mrow><annotation encoding="application/x-tex">f(x) = \frac{3 - 2x^{2}}{(1 + x)^{2}}</annotation></semantics></math>
+.</p>
+<p>On
+a<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mrow><mi mathvariant="normal">lim</mi><mo>&#8289;</mo></mrow><mrow><mi>x</mi><mo>→</mo><mi>−</mi><mi>∞</mi></mrow></msub><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msub><mrow><mi mathvariant="normal">lim</mi><mo>&#8289;</mo></mrow><mrow><mi>x</mi><mo>→</mo><mi>+</mi><mi>∞</mi></mrow></msub><mrow><mfrac><mrow><mn>3</mn><mo>−</mo><mn>2</mn><msup><mi>x</mi><mn>2</mn></msup></mrow><mrow><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>+</mo><mi>x</mi><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup></mrow></mfrac><mo>=</mo><mi>−</mi><mn>2</mn><mspace width="0.222em"></mspace></mrow><mspace width="0.222em"></mspace></mrow></mrow><annotation encoding="application/x-tex">\lim_{x \longrightarrow - \infty}{f(x) = \lim_{x \rightarrow + \infty}{\frac{3 - 2x^{2}}{(1 + x)^{2}} = - 2\ }\ }</annotation></semantics></math>
+et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mrow><mi mathvariant="normal">lim</mi><mo>&#8289;</mo></mrow><mrow><mi>x</mi><mo>→</mo><mi>−</mi><mi>∞</mi></mrow></msub><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msub><mrow><mi mathvariant="normal">lim</mi><mo>&#8289;</mo></mrow><mrow><mi>x</mi><mo>→</mo><mi>−</mi><mi>∞</mi></mrow></msub><mrow><mfrac><mrow><mn>3</mn><mo>−</mo><mn>2</mn><msup><mi>x</mi><mn>2</mn></msup></mrow><mrow><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>+</mo><mi>x</mi><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup></mrow></mfrac><mo>=</mo><mi>−</mi><mn>2</mn></mrow><mspace width="0.222em"></mspace></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">\lim_{x \rightarrow - \infty}{f(x) = \lim_{x \rightarrow - \infty}{\frac{3 - 2x^{2}}{(1 + x)^{2}} = - 2}\ }.</annotation></semantics></math></p>
+<p>Donc la droite d’équation
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>=</mo><mi>−</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">y = - 2</annotation></semantics></math>
+est une asymptote horizontale à la courbe
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>C</mi><mi>f</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\left( C_{f} \right)</annotation></semantics></math>
+au voisinage de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>+</mi><mi>∞</mi><mspace width="0.222em"></mspace></mrow><annotation encoding="application/x-tex">+ \infty\ </annotation></semantics></math>et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mi>∞</mi></mrow><annotation encoding="application/x-tex">- \infty</annotation></semantics></math>.</p>
+<p>Et on a :
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mrow><mi mathvariant="normal">lim</mi><mo>&#8289;</mo></mrow><mrow><mi>x</mi><mo>→</mo><msup><mn>2</mn><mo>+</mo></msup></mrow></msub><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msub><mrow><mi mathvariant="normal">lim</mi><mo>&#8289;</mo></mrow><mrow><mi>x</mi><mo>→</mo><msup><mn>2</mn><mo>+</mo></msup></mrow></msub><mrow><mfrac><mrow><mn>3</mn><mo>−</mo><mn>2</mn><msup><mi>x</mi><mn>2</mn></msup></mrow><mrow><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>+</mo><mi>x</mi><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup></mrow></mfrac><mo>=</mo><mi>+</mi><mi>∞</mi></mrow><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace></mrow></mrow><annotation encoding="application/x-tex">\lim_{x \rightarrow 2^{+}}{f(x) = \lim_{x \rightarrow 2^{+}}{\frac{3 - 2x^{2}}{(1 + x)^{2}} = + \infty}\ \ }</annotation></semantics></math>
+et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mrow><mi mathvariant="normal">lim</mi><mo>&#8289;</mo></mrow><mrow><mi>x</mi><mo>→</mo><msup><mn>2</mn><mo>−</mo></msup></mrow></msub><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msub><mrow><mi mathvariant="normal">lim</mi><mo>&#8289;</mo></mrow><mrow><mi>x</mi><mo>→</mo><msup><mn>2</mn><mo>−</mo></msup></mrow></msub><mrow><mfrac><mrow><mn>3</mn><mo>−</mo><mn>2</mn><msup><mi>x</mi><mn>2</mn></msup></mrow><mrow><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>+</mo><mi>x</mi><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup></mrow></mfrac><mo>=</mo><mi>+</mi><mi>∞</mi></mrow><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace></mrow></mrow><annotation encoding="application/x-tex">\lim_{x \rightarrow 2^{-}}{f(x) = \lim_{x \rightarrow 2^{-}}{\frac{3 - 2x^{2}}{(1 + x)^{2}} = + \infty}\ \ }</annotation></semantics></math>.</p>
+<p>Donc la droite d’équation
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">x = 2</annotation></semantics></math>
+est une asymptote verticale de la courbe
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>C</mi><mi>f</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\left( C_{f} \right)</annotation></semantics></math>.</p>
+<p><em>🔿Exemple ② :</em></p>
+<p>On considère
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>g</mi><annotation encoding="application/x-tex">g</annotation></semantics></math>
+la fonction définie sur
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">[</mo><mn>0</mn><mo>;</mo><mi>+</mi><mi>∞</mi><mo stretchy="false" form="prefix">[</mo></mrow><annotation encoding="application/x-tex">\lbrack 0; + \infty\lbrack</annotation></semantics></math>
+par :
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>2</mn><mi>x</mi><mo>−</mo><msqrt><mi>x</mi></msqrt></mrow><annotation encoding="application/x-tex">g(x) = 2x - \sqrt{x}</annotation></semantics></math>
+.</p>
+<p>On a :
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mrow><mi mathvariant="normal">lim</mi><mo>&#8289;</mo></mrow><mrow><mi>x</mi><mo>→</mo><mi>+</mi><mi>∞</mi></mrow></msub><mrow><mi>g</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><mo>=</mo><msub><mrow><mi mathvariant="normal">lim</mi><mo>&#8289;</mo></mrow><mrow><mi>x</mi><mo>→</mo><mi>+</mi><mi>∞</mi></mrow></msub><mrow><mn>2</mn><mi>x</mi><mo>−</mo><msqrt><mi>x</mi></msqrt></mrow><mo>=</mo><msub><mrow><mi mathvariant="normal">lim</mi><mo>&#8289;</mo></mrow><mrow><mi>x</mi><mo>→</mo><mi>+</mi><mi>∞</mi></mrow></msub><mrow><msqrt><mi>x</mi></msqrt><mo stretchy="false" form="prefix">(</mo><mn>2</mn></mrow><msqrt><mi>x</mi></msqrt><mo>−</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>+</mi><mi>∞</mi></mrow><annotation encoding="application/x-tex">\lim_{x \rightarrow + \infty}{g(x)} = \lim_{x \rightarrow + \infty}{2x - \sqrt{x}} = \lim_{x \rightarrow + \infty}{\sqrt{x}(2}\sqrt{x} - 1) = + \infty</annotation></semantics></math>.</p>
+<p>On calcul alors
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mrow><mi mathvariant="normal">lim</mi><mo>&#8289;</mo></mrow><mrow><mi>x</mi><mo>→</mo><mi>+</mi><mi>∞</mi></mrow></msub><mfrac><mrow><mi>g</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><mi>x</mi></mfrac></mrow><annotation encoding="application/x-tex">\lim_{x \rightarrow + \infty}\frac{g(x)}{x}</annotation></semantics></math>:</p>
+<p>On a
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mrow><mi mathvariant="normal">lim</mi><mo>&#8289;</mo></mrow><mrow><mi>x</mi><mo>→</mo><mi>+</mi><mi>∞</mi></mrow></msub><mfrac><mrow><mi>g</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><mi>x</mi></mfrac><mo>=</mo><msub><mrow><mi mathvariant="normal">lim</mi><mo>&#8289;</mo></mrow><mrow><mi>x</mi><mo>→</mo><mi>+</mi><mi>∞</mi></mrow></msub><mrow><mfrac><mrow><mn>2</mn><mi>x</mi><mo>−</mo><msqrt><mi>x</mi></msqrt></mrow><mi>x</mi></mfrac><mo>=</mo><msub><mrow><mi mathvariant="normal">lim</mi><mo>&#8289;</mo></mrow><mrow><mi>x</mi><mo>→</mo><mi>+</mi><mi>∞</mi></mrow></msub><mrow><mn>2</mn><mo>−</mo><mfrac><mn>1</mn><msqrt><mi>x</mi></msqrt></mfrac></mrow></mrow><mo>=</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">\lim_{x \rightarrow + \infty}\frac{g(x)}{x} = \lim_{x \rightarrow + \infty}{\frac{2x - \sqrt{x}}{x} = \lim_{x \rightarrow + \infty}{2 - \frac{1}{\sqrt{x}}}} = 2</annotation></semantics></math>.</p>
+<p>Par
+suite :<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mrow><mi mathvariant="normal">lim</mi><mo>&#8289;</mo></mrow><mrow><mi>x</mi><mo>→</mo><mi>+</mi><mi>∞</mi></mrow></msub><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>−</mo><mn>2</mn><mi>x</mi></mrow><mo>=</mo><msub><mrow><mi mathvariant="normal">lim</mi><mo>&#8289;</mo></mrow><mrow><mi>x</mi><mo>→</mo><mi>+</mi><mi>∞</mi></mrow></msub><mrow><mn>2</mn><mi>x</mi><mo>−</mo><msqrt><mi>x</mi></msqrt></mrow><mo>−</mo><mn>2</mn><mi>x</mi><mo>=</mo><msub><mrow><mi mathvariant="normal">lim</mi><mo>&#8289;</mo></mrow><mrow><mi>x</mi><mo>→</mo><mi>+</mi><mi>∞</mi></mrow></msub><mrow><mi>−</mi><msqrt><mi>x</mi></msqrt><mo>=</mo><mi>−</mi><mi>∞</mi></mrow></mrow><annotation encoding="application/x-tex">\lim_{x \rightarrow + \infty}{f(x) - 2x} = \lim_{x \rightarrow + \infty}{2x - \sqrt{x}} - 2x = \lim_{x \rightarrow + \infty}{- \sqrt{x} = - \infty}</annotation></semantics></math>.</p>
+<p>D’où la courbe
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>C</mi><mi>g</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\left( C_{g} \right)</annotation></semantics></math>
+admet une branche parabolique de direction de la droite d’équation
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>=</mo><mn>2</mn><mi>x</mi></mrow><annotation encoding="application/x-tex">y = 2x</annotation></semantics></math>
+au voisinage de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>+</mi><mi>∞</mi></mrow><annotation encoding="application/x-tex">+ \infty</annotation></semantics></math>.</p>
+<p><em><strong>✍ Application ⑦:</strong></em></p>
+<p>On considère
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+la fonction définie par 
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mi>x</mi><mo>−</mo><mn>1</mn></mrow><mrow><mi>x</mi><mo>+</mo><mn>2</mn></mrow></mfrac></mrow><annotation encoding="application/x-tex">f(x) = \frac{x^{2} + x - 1}{x + 2}</annotation></semantics></math>.</p>
+<ol type="1">
+<li><p>Donner
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>𝒟</mi><mi>f</mi></msub><annotation encoding="application/x-tex">\mathcal{D}_{f}</annotation></semantics></math>
+l’ensemble de définition de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>.</p></li>
+<li><p>Calculer
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mrow><mi mathvariant="normal">lim</mi><mo>&#8289;</mo></mrow><mtable><mtr><mtd columnalign="right" style="text-align: right"><mi>x</mi><mo>→</mo><mn>2</mn></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"><mi>x</mi><mo>&lt;</mo><mn>2</mn></mtd></mtr></mtable></msub><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\lim_{\begin{array}{r}
+x \rightarrow 2 \\
+x &lt; 2
+\end{array}}f(x)</annotation></semantics></math> et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mrow><mi mathvariant="normal">lim</mi><mo>&#8289;</mo></mrow><mtable><mtr><mtd columnalign="right" style="text-align: right"><mi>x</mi><mo>→</mo><mn>2</mn></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"><mi>x</mi><mo>&gt;</mo><mn>2</mn></mtd></mtr></mtable></msub><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\lim_{\begin{array}{r}
+x \rightarrow 2 \\
+x &gt; 2
+\end{array}}f(x)</annotation></semantics></math>. Interpréter les
+résultats.</p></li>
+<li><p>a. Vérifier, pour tout
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>x</mi><annotation encoding="application/x-tex">x</annotation></semantics></math>
+de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>𝒟</mi><mi>f</mi></msub><annotation encoding="application/x-tex">\mathcal{D}_{f}</annotation></semantics></math>,
+que
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>x</mi><mo>−</mo><mn>1</mn><mo>+</mo><mfrac><mn>1</mn><mrow><mi>x</mi><mo>+</mo><mn>2</mn></mrow></mfrac></mrow><annotation encoding="application/x-tex">f(x) = x - 1 + \frac{1}{x + 2}</annotation></semantics></math>.</p></li>
+</ol>
+<p>b. Montrer que la droite d’équation
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>D</mi><mo stretchy="false" form="postfix">)</mo><mo>:</mo><mi>y</mi><mo>=</mo><mi>x</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">(D):y = x - 1</annotation></semantics></math>
+est une asymptote oblique de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>C</mi><mi>f</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\left( C_{f} \right)</annotation></semantics></math>
+au voisinage de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>+</mi><mi>∞</mi></mrow><annotation encoding="application/x-tex">+ \infty</annotation></semantics></math>
+et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mi>∞</mi></mrow><annotation encoding="application/x-tex">- \infty</annotation></semantics></math>.</p>
+<p>c. Etudier les positions relatives entre la courbe
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>C</mi><mi>f</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\left( C_{f} \right)</annotation></semantics></math>
+et la droite
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>D</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(D)</annotation></semantics></math>.</p>
+<ol start="6" type="I">
+<li><p><em>Concavité d'une courbe - Points d'inflexion :</em></p></li>
+</ol>
+<p><em>🖉🖉Propriété :</em></p>
+<p>Soient
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+une fonction deux fois dérivable sur un intervalle
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>I</mi><annotation encoding="application/x-tex">I</annotation></semantics></math>
+<span dir="rtl"></span>et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>C</mi><mi>f</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\left( C_{f} \right)</annotation></semantics></math>
+sa courbe représentative et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>∈</mo><mi>I</mi></mrow><annotation encoding="application/x-tex">a \in I</annotation></semantics></math>.</p>
+<ul>
+<li><p>Si
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>f</mi><mo>″</mo></msup><annotation encoding="application/x-tex">f&#39;&#39;</annotation></semantics></math>
+<span dir="rtl"></span>est positive sur l'intervalle
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>I</mi><annotation encoding="application/x-tex">I</annotation></semantics></math>,
+alors
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>C</mi><mi>f</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\left( C_{f} \right)</annotation></semantics></math>
+est convexe</p></li>
+<li><p>Si
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>f</mi><mo>″</mo></msup><annotation encoding="application/x-tex">f&#39;&#39;</annotation></semantics></math>
+<span dir="rtl"></span>est négative sur l'intervalle
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>I</mi><annotation encoding="application/x-tex">I</annotation></semantics></math>,
+alors
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>C</mi><mi>f</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\left( C_{f} \right)</annotation></semantics></math>
+<span dir="rtl"></span>est concave<span dir="rtl">.</span></p></li>
+<li><p>Si
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>f</mi><mo>″</mo></msup><annotation encoding="application/x-tex">f&#39;&#39;</annotation></semantics></math>
+<span dir="rtl"></span>s'annule en
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>a</mi><annotation encoding="application/x-tex">a</annotation></semantics></math>
+<span dir="rtl"></span>en changeant de signe, alors le point
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>a</mi><mo>;</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">A\left( a;f(a) \right)</annotation></semantics></math>
+<span dir="rtl"></span>est un point d'inflexion de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>C</mi><mi>f</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\left( C_{f} \right)</annotation></semantics></math><span
+dir="rtl">.</span></p></li>
+</ul>
+<p><em><strong>✍ Application ⑧ :</strong></em></p>
+<p>On considère
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+la fonction définie par 
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mi>x</mi><mo>−</mo><mn>1</mn></mrow><mrow><mi>x</mi><mo>+</mo><mn>2</mn></mrow></mfrac></mrow><annotation encoding="application/x-tex">f(x) = \frac{x^{2} + x - 1}{x + 2}</annotation></semantics></math>.</p>
+<p>Etudier la concavité de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>C</mi><mi>f</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\left( C_{f} \right)</annotation></semantics></math>
+en précisant les points d'inflexion s'ils existent.</p>
+<ol start="3" type="I">
+<li><p><em>Eléments de symétrie d’une courbe :</em></p></li>
+</ol>
+<ol type="1">
+<li><p><em>Axe de symétrie :</em></p></li>
+</ol>
+<p><em>🖉🖉Propriété :</em></p>
+<p>Soit <img src="./media/image2.wmf"
+style="width:0.16667in;height:0.22014in" />une fonction définie sur un
+ensemble
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>D</mi><annotation encoding="application/x-tex">D</annotation></semantics></math>
+<span dir="rtl"></span>et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>C</mi><mi>f</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\left( C_{f} \right)</annotation></semantics></math>
+<span dir="rtl"></span>sa courbe représentative dans un repère
+orthonormé.</p>
+<p>La droite
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi mathvariant="normal">Δ</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(\Delta)</annotation></semantics></math>
+d'équation
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mi>a</mi></mrow><annotation encoding="application/x-tex">x = a</annotation></semantics></math>
+<span
+dir="rtl"></span><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><mi>a</mi><mo>∈</mo><mi>ℝ</mi><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\left( a \in \mathbb{R} \right)</annotation></semantics></math>
+<span dir="rtl"></span>est un <em><strong>axe de symétrie</strong></em>
+de la courbe
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>C</mi><mi>f</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\left( C_{f} \right)</annotation></semantics></math>
+<span dir="rtl"></span>si et seulement si <span dir="rtl">:</span>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">{</mo><mtable><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo stretchy="false" form="prefix">(</mo><mo>∀</mo><mi>x</mi><mo>∈</mo><mi>D</mi><mo stretchy="false" form="postfix">)</mo><mo>;</mo><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> </mtext><mspace width="0.333em"></mspace></mrow><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mi>a</mi><mo>−</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>∈</mo><mi>D</mi></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo stretchy="false" form="prefix">(</mo><mo>∀</mo><mi>x</mi><mo>∈</mo><mi>D</mi><mo stretchy="false" form="postfix">)</mo><mo>;</mo><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> </mtext><mspace width="0.333em"></mspace></mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mi>a</mi><mo>−</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mtd></mtr></mtable></mrow><mspace width="0.222em"></mspace></mrow><annotation encoding="application/x-tex">\left\{ \begin{aligned}
+ &amp; (\forall x \in D);\text{  }(2a - x) \in D \\
+ &amp; (\forall x \in D);\text{  }f(2a - x) = f(x)
+\end{aligned} \right.\ </annotation></semantics></math><em>.</em></p>
+<p><em><strong>✍ Application ⑨ :</strong></em></p>
+<p>Montrer que la droite
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi mathvariant="normal">Δ</mi><mo stretchy="false" form="postfix">)</mo><mo>:</mo><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mi>x</mi><mo>=</mo><mn>1</mn><mspace width="0.222em"></mspace></mrow><annotation encoding="application/x-tex">(\mathrm{\Delta}):\ \ x = 1\ </annotation></semantics></math>
+<span dir="rtl"></span>est un axe de symétrie de la courbe de la
+fonction
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+définie par
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mspace width="0.222em"></mspace><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msqrt><mrow><mi>x</mi><mi>²</mi><mo>−</mo><mn>2</mn><mi>x</mi><mo>+</mo><mn>3</mn></mrow></msqrt></mrow><annotation encoding="application/x-tex">\ f(x) = \sqrt{x² - 2x + 3}</annotation></semantics></math>.</p>
+<ol start="2" type="1">
+<li><p><em>Centre de symétrie :</em></p></li>
+</ol>
+<p><em>🖉🖉Propriété :</em></p>
+<p>Soit <img src="./media/image2.wmf"
+style="width:0.16667in;height:0.22014in" />une fonction définie sur un
+ensemble
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>D</mi><annotation encoding="application/x-tex">D</annotation></semantics></math>
+<span dir="rtl"></span>et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>C</mi><mi>f</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\left( C_{f} \right)</annotation></semantics></math>
+<span dir="rtl"></span>sa courbe représentative dans un repère
+orthonormé.</p>
+<p>Le point
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Ω</mi><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo>;</mo><mi>b</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\Omega(a;b)</annotation></semantics></math>
+<span dir="rtl"></span>tel que <span
+dir="rtl"></span><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo>;</mo><mi>b</mi><mo stretchy="false" form="postfix">)</mo><mo>∈</mo><msup><mi>ℝ</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">(a;b) \in \mathbb{R}^{2}</annotation></semantics></math>
+<span dir="rtl"></span>est un <em><strong>centre de
+symétrie</strong></em> de la courbe
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>C</mi><mi>f</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\left( C_{f} \right)</annotation></semantics></math>
+<span dir="rtl"></span>si et seulement si <span dir="rtl">:</span>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">{</mo><mtable><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo stretchy="false" form="prefix">(</mo><mo>∀</mo><mi>x</mi><mo>∈</mo><mi>D</mi><mo stretchy="false" form="postfix">)</mo><mo>;</mo><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> </mtext><mspace width="0.333em"></mspace></mrow><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mi>a</mi><mo>−</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>∈</mo><mi>D</mi></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right; padding-right: 0"></mtd><mtd columnalign="left" style="text-align: left; padding-left: 0"><mo stretchy="false" form="prefix">(</mo><mo>∀</mo><mi>x</mi><mo>∈</mo><mi>D</mi><mo stretchy="false" form="postfix">)</mo><mo>;</mo><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> </mtext><mspace width="0.333em"></mspace></mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mi>a</mi><mo>−</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>2</mn><mi>b</mi></mtd></mtr></mtable></mrow><mspace width="0.222em"></mspace></mrow><annotation encoding="application/x-tex">\left\{ \begin{aligned}
+ &amp; (\forall x \in D);\text{  }(2a - x) \in D \\
+ &amp; (\forall x \in D);\text{  }f(2a - x) + f(x) = 2b
+\end{aligned} \right.\ </annotation></semantics></math>.</p>
+<p><em><strong>✍ Application ①⓪ :</strong></em></p>
+<p>On considère
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+la fonction définie par 
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mi>x</mi><mo>−</mo><mn>1</mn></mrow><mrow><mi>x</mi><mo>+</mo><mn>2</mn></mrow></mfrac></mrow><annotation encoding="application/x-tex">f(x) = \frac{x^{2} + x - 1}{x + 2}</annotation></semantics></math>.</p>
+<ol type="1">
+<li><p>Montrer que le point
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Ω</mi><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mn>2</mn><mo>;</mo><mi>−</mi><mn>3</mn><mo stretchy="false" form="postfix">)</mo><mspace width="0.222em"></mspace></mrow><annotation encoding="application/x-tex">\Omega( - 2; - 3)\ </annotation></semantics></math>
+<span dir="rtl"></span>est un centre de symétrie de la courbe de la
+fonction
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+définie par
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mi>x</mi><mo>−</mo><mn>1</mn></mrow><mrow><mi>x</mi><mo>+</mo><mn>2</mn></mrow></mfrac></mrow><annotation encoding="application/x-tex">f(x) = \frac{x^{2} + x - 1}{x + 2}</annotation></semantics></math><em>.</em></p></li>
+<li><p>En déduire qu’il suffit d’étudier
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+sur
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="postfix">]</mo><mo>−</mo><mn>2</mn><mo>;</mo><mi>+</mi><mi>∞</mi><mo stretchy="false" form="prefix">[</mo></mrow><annotation encoding="application/x-tex">\rbrack - 2; + \infty\lbrack</annotation></semantics></math><em>.</em></p></li>
+</ol>
+<blockquote>
+<p><em><strong>✍ Exercice ④:</strong></em></p>
+</blockquote>
+<p>On considère
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+la fonction définie par 
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mi>x</mi><mo>−</mo><mn>1</mn></mrow><mrow><mi>x</mi><mo>+</mo><mn>2</mn></mrow></mfrac></mrow><annotation encoding="application/x-tex">f(x) = \frac{x^{2} + x - 1}{x + 2}</annotation></semantics></math>.</p>
+<ol type="1">
+<li><p>Donner les coordonnées des points d’intersection de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>C</mi><mi>f</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\left( C_{f} \right)</annotation></semantics></math>
+avec les axes du repère.</p></li>
+<li><p>Etudier les variations de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math><em>.</em></p></li>
+<li><p>Soit
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>g</mi><annotation encoding="application/x-tex">g</annotation></semantics></math>
+la restriction de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+sur
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">[</mo><mi>−</mi><mn>1</mn><mo>;</mo><mi>+</mi><mi>∞</mi><mo stretchy="false" form="prefix">[</mo></mrow><annotation encoding="application/x-tex">\lbrack - 1; + \infty\lbrack</annotation></semantics></math>.</p></li>
+</ol>
+<p>Montrer que
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>g</mi><annotation encoding="application/x-tex">g</annotation></semantics></math>
+admet une fonction réciproque
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>g</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><annotation encoding="application/x-tex">g^{- 1}</annotation></semantics></math>
+définie sur un intervalle
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>J</mi><annotation encoding="application/x-tex">J</annotation></semantics></math>
+à déterminer.</p>
+<ol start="4" type="1">
+<li><p>Construire
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>D</mi><mo stretchy="false" form="postfix">)</mo><mo>:</mo><mi>y</mi><mo>=</mo><mi>x</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">(D):y = x - 1</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>C</mi><mi>f</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\left( C_{f} \right)</annotation></semantics></math>
+et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>C</mi><msup><mi>g</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup></msub><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\left( C_{g^{- 1}} \right)</annotation></semantics></math>
+dans un repère orthonormé
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>O</mi><mo>,</mo><mover><mi>i</mi><mo accent="true">→</mo></mover><mo>,</mo><mover><mi>j</mi><mo accent="true">→</mo></mover><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(O,\overrightarrow{i},\overrightarrow{j})</annotation></semantics></math>.</p></li>
+</ol>
+<p><em><strong>✍ Exercice de synthèse :</strong></em></p>
+<ol type="I">
+<li><p>On
+considère<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mspace width="0.222em"></mspace><mi>g</mi></mrow><annotation encoding="application/x-tex">\ g</annotation></semantics></math>
+la fonction définie
+sur<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mspace width="0.222em"></mspace><mi>ℝ</mi></mrow><annotation encoding="application/x-tex">\mathbb{\ R}</annotation></semantics></math>
+par<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mspace width="0.222em"></mspace><mi>g</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>1</mn><mo>+</mo><mfrac><mi>x</mi><msqrt><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>1</mn></mrow></msqrt></mfrac></mrow><annotation encoding="application/x-tex">\ g(x) = 1 + \frac{x}{\sqrt{x^{2} + 1}}</annotation></semantics></math>.</p></li>
+</ol>
+<ol type="1">
+<li><p>Calculer
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mrow><mi mathvariant="normal">lim</mi><mo>&#8289;</mo></mrow><mrow><mi>x</mi><mo>→</mo><mi>+</mi><mi>∞</mi></mrow></msub><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\lim_{x \rightarrow + \infty}{f(x)}</annotation></semantics></math>
+et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mrow><mi mathvariant="normal">lim</mi><mo>&#8289;</mo></mrow><mrow><mi>x</mi><mo>→</mo><mi>−</mi><mi>∞</mi></mrow></msub><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\lim_{x \rightarrow - \infty}{f(x)}</annotation></semantics></math>.</p></li>
+<li><p>a. Montrer, pour tout réel
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>x</mi><annotation encoding="application/x-tex">x</annotation></semantics></math>,
+que
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>g</mi><mo>′</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mn>1</mn><mrow><msup><mrow><mo stretchy="false" form="prefix">(</mo><mi>x</mi></mrow><mn>2</mn></msup><mo>+</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><msqrt><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>1</mn></mrow></msqrt></mrow></mfrac><mspace width="0.222em"></mspace></mrow><annotation encoding="application/x-tex">g&#39;(x) = \frac{1}{{(x}^{2} + 1)\sqrt{x^{2} + 1}}\ </annotation></semantics></math>.</p></li>
+</ol>
+<p>b. Donner le tableau des variations de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>g</mi><annotation encoding="application/x-tex">g</annotation></semantics></math>
+.</p>
+<p>c. En déduire, pour tout réel
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>x</mi><annotation encoding="application/x-tex">x</annotation></semantics></math>,
+que
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">g(x) &gt; 0</annotation></semantics></math>.</p>
+<ol start="2" type="I">
+<li><p>Soit<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mspace width="0.222em"></mspace><mi>f</mi></mrow><annotation encoding="application/x-tex">\ f</annotation></semantics></math>
+la fonction qui définie
+sur<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mspace width="0.222em"></mspace><mi>ℝ</mi></mrow><annotation encoding="application/x-tex">\mathbb{\ R}</annotation></semantics></math>
+par
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>x</mi><mo>−</mo><mn>1</mn><mo>+</mo><msqrt><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>1</mn></mrow></msqrt></mrow><annotation encoding="application/x-tex">f(x) = x - 1 + \sqrt{x^{2} + 1}</annotation></semantics></math>,
+et soit
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>C</mi><mi>f</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\left( C_{f} \right)</annotation></semantics></math>
+sa courbe representative dans le plan muni d’un repère orthonormé
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><mi>O</mi><mo>,</mo><mover><mi>i</mi><mo accent="true">→</mo></mover><mo>,</mo><mover><mi>j</mi><mo accent="true">→</mo></mover><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\left( O,\overrightarrow{i},\overrightarrow{j} \right)</annotation></semantics></math>.</p></li>
+</ol>
+<ol type="1">
+<li><p>Calculer
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mrow><mi mathvariant="normal">lim</mi><mo>&#8289;</mo></mrow><mrow><mi>x</mi><mo>→</mo><mi>+</mi><mi>∞</mi></mrow></msub><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\lim_{x \rightarrow + \infty}{f(x)}</annotation></semantics></math>.</p></li>
+<li><p>Montrer
+que<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mrow><mi mathvariant="normal">lim</mi><mo>&#8289;</mo></mrow><mrow><mi>x</mi><mo>→</mo><mi>−</mi><mi>∞</mi></mrow></msub><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>−</mi><mn>1</mn></mrow></mrow><annotation encoding="application/x-tex">\lim_{x \rightarrow - \infty}{f(x) = - 1}</annotation></semantics></math>.
+Interpréter géométriquement le résultat.</p></li>
+<li><p>Montrer que la droite
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>D</mi><mo stretchy="false" form="postfix">)</mo><mo>:</mo><mi>y</mi><mo>=</mo><mn>2</mn><mi>x</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">(D):y = 2x - 1</annotation></semantics></math>
+est une asymptote oblique de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>C</mi><mi>f</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\left( C_{f} \right)</annotation></semantics></math>
+au voisinage de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>+</mi><mi>∞</mi></mrow><annotation encoding="application/x-tex">+ \infty</annotation></semantics></math>.</p></li>
+<li><p>a. Montrer, pour tout réel
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>x</mi><annotation encoding="application/x-tex">x</annotation></semantics></math>,
+que
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>f</mi><mo>′</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>g</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">f&#39;(x) = g(x).</annotation></semantics></math></p></li>
+</ol>
+<p>b. Dresser le tableau des variations de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>.</p>
+<ol start="5" type="1">
+<li><p>Calculer
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">f(1)</annotation></semantics></math>
+puis tracer
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>C</mi><mi>f</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\left( C_{f} \right)</annotation></semantics></math>.</p></li>
+<li><p>a. Montrer que
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+admet une fonction réciproque
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>f</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><annotation encoding="application/x-tex">f^{- 1}</annotation></semantics></math>
+definie sur un intervalle
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>J</mi><annotation encoding="application/x-tex">J</annotation></semantics></math>
+à déterminer.</p></li>
+</ol>
+<p>b.Montrer que
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>f</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><annotation encoding="application/x-tex">f^{- 1}</annotation></semantics></math>
+est derivable en
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msqrt><mn>2</mn></msqrt><annotation encoding="application/x-tex">\sqrt{2}</annotation></semantics></math>
+puis calculer
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>f</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><mo stretchy="true" form="postfix">)</mo></mrow><mo>′</mo></msup><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mrow><mo stretchy="true" form="prefix">(</mo><msqrt><mn>2</mn></msqrt><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\left( f^{- 1} \right)&#39;\ \ \left( \sqrt{2} \right)</annotation></semantics></math>.</p>
+<p>c. Tracer
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>C</mi><msup><mi>f</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup></msub><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\left( C_{f^{- 1}} \right)</annotation></semantics></math>
+dans le même repère.</p></td>
+</tr>
+</tbody>
+</table>
+<a href="derivation-etude-fonctions-cours.pdf" class="download-btn" download><i class="fas fa-file-pdf"></i> Télécharger le cours en PDF</a>
+</body>
+</html>

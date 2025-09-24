@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>equationdeffi</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 80%;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+<a href="equations-differentielles-cours.pdf" class="download-btn" download><i class="fas fa-file-pdf"></i> Télécharger le cours en PDF</a>
+<table>
+<colgroup>
+<col style="width: 97%" />
+<col style="width: 2%" />
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: center;"><em><strong>Equations
+différentielles</strong></em></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><ol type="I">
+<li><p><em>Equations différentielles du premier ordre :</em></p></li>
+</ol>
+<ol type="1">
+<li><p><em>L’équation différentielle</em>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>𝐲</mi><mo>′</mo></msup><mo>=</mo><mrow><mi>𝐚</mi><mi>𝐲</mi></mrow></mrow><annotation encoding="application/x-tex">\mathbf{y}&#39; = \mathbf{ay}</annotation></semantics></math>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>𝐚</mi><mo>∈</mo><msup><mi>ℝ</mi><mo>*</mo></msup><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(\mathbf{a} \in \mathbb{R}^{*})</annotation></semantics></math></p></li>
+</ol>
+<p><em><strong>✍Activité :</strong></em></p>
+<p>On considère la fonction numérique
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+définie sur
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℝ</mi><mspace width="0.222em"></mspace></mrow><annotation encoding="application/x-tex">\mathbb{R\ }</annotation></semantics></math>
+par :
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>2</mn><msup><mi>e</mi><mrow><mi>−</mi><mn>4</mn><mi>x</mi></mrow></msup></mrow><annotation encoding="application/x-tex">f(x) = 2e^{- 4x}</annotation></semantics></math>.</p>
+<p>On pose
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>=</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">y = f(x)</annotation></semantics></math>
+et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>y</mi><mo>′</mo></msup><mo>=</mo><msup><mi>f</mi><mo>′</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">y&#39; = f&#39;(x)</annotation></semantics></math>
+et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>y</mi><mi>″</mi></msup><mo>=</mo><msup><mi>f</mi><mi>″</mi></msup><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mspace width="0.222em"></mspace></mrow><annotation encoding="application/x-tex">y^{&#39;&#39;} = f^{&#39;&#39;}(x)\ </annotation></semantics></math>.Montrer
+que : <span
+dir="rtl"></span><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mspace width="0.222em"></mspace><msup><mi>y</mi><mi>″</mi></msup><mo>+</mo><mn>3</mn><msup><mi>y</mi><mo>′</mo></msup><mo>−</mo><mn>4</mn><mi>y</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\ y^{&#39;&#39;} + 3y&#39; - 4y = 0</annotation></semantics></math><em>.</em></p>
+<p>Toutes les équations où l’inconnue est une fonction, et qui se
+présente sous la forme d’une relation entre cette fonction et ses
+dérivées est appelée <em>équation différentielle.</em></p>
+<blockquote>
+<p><em>🖉🖉Propriété :</em></p>
+</blockquote>
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr>
+<td><p>Soit
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>a</mi><annotation encoding="application/x-tex">a</annotation></semantics></math>
+un nombre réel non nul.</p>
+<p>Les solutions sur
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ℝ</mi><annotation encoding="application/x-tex">\mathbb{R}</annotation></semantics></math> de
+l'équation différentielle
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>y</mi><mo>′</mo></msup><mo>=</mo><mi>a</mi><mi>y</mi></mrow><annotation encoding="application/x-tex">y&#39; = ay</annotation></semantics></math> 
+est l’ensemble des fonctions définies sur
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ℝ</mi><annotation encoding="application/x-tex">\mathbb{R}</annotation></semantics></math> 
+par :
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>k</mi><msup><mi>e</mi><mrow><mi>a</mi><mi>x</mi></mrow></msup><mspace width="0.222em"></mspace></mrow><annotation encoding="application/x-tex">f(x) = ke^{ax}\ </annotation></semantics></math>où <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>k</mi><annotation encoding="application/x-tex">k</annotation></semantics></math> est
+un nombre réel quelconque.</p></td>
+</tr>
+</tbody>
+</table>
+<p><em>🔿<strong>Exemple : </strong></em></p>
+<p>L’ensemble des solutions de l’équation différentielle
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>E</mi><mo stretchy="false" form="postfix">)</mo><mo>:</mo><msup><mi>y</mi><mo>′</mo></msup><mo>+</mo><mn>2</mn><mi>y</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">(E):y&#39; + 2y = 0</annotation></semantics></math>
+est l’ensemble des fonctions définies sur
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ℝ</mi><annotation encoding="application/x-tex">\mathbb{R}</annotation></semantics></math> 
+par :
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>k</mi><msup><mi>e</mi><mrow><mi>−</mi><mn>2</mn><mi>x</mi></mrow></msup><mspace width="0.222em"></mspace></mrow><annotation encoding="application/x-tex">f(x) = ke^{- 2x}\ </annotation></semantics></math>avec
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><mrow><mo mathvariant="double-struck">∈</mo><mi>ℝ</mi></mrow></mrow><annotation encoding="application/x-tex">k\mathbb{\in R}</annotation></semantics></math>.</p>
+<p><em><strong>✍ Application ① :</strong></em></p>
+<ol type="1">
+<li><p>Résoudre les équations différentielles suivantes :</p></li>
+</ol>
+<p><em>❶ <span
+dir="rtl"></span></em><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>y</mi><mo>′</mo></msup><mo>=</mo><mn>3</mn><mi>y</mi></mrow><annotation encoding="application/x-tex">y&#39; = 3y</annotation></semantics></math>
+<span dir="rtl"> </span><em>❷</em> <span
+dir="rtl"></span><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>y</mi><mo>′</mo></msup><mo>+</mo><mn>5</mn><mi>y</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">y&#39; + 5y = 0</annotation></semantics></math></p>
+<ol start="2" type="1">
+<li><p>a. Résoudre l’équation différentielle <span
+dir="rtl">:</span><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>E</mi><mo stretchy="false" form="postfix">)</mo><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><msup><mrow><mn>3</mn><mi>y</mi></mrow><mo>′</mo></msup><mo>−</mo><mn>2</mn><mi>y</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">(E)\ \ \ {3y}&#39; - 2y = 0</annotation></semantics></math>.</p></li>
+</ol>
+<blockquote>
+<p>b. Déterminer la solution de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>E</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(E)</annotation></semantics></math>
+qui vérifie :
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo stretchy="false" form="prefix">(</mo><mn>3</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>−</mi><mn>1</mn></mrow><annotation encoding="application/x-tex">y(3) = - 1</annotation></semantics></math>.</p>
+</blockquote>
+<ol start="2" type="1">
+<li><p><em>L’équation différentielle</em>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>𝐲</mi><mo>′</mo></msup><mo>=</mo><mrow><mi>𝐚</mi><mi>𝐲</mi></mrow><mo>+</mo><mi>𝐛</mi></mrow><annotation encoding="application/x-tex">\mathbf{y}&#39; = \mathbf{ay} + \mathbf{b}</annotation></semantics></math>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><mi>𝐚</mi><mo>∈</mo><msup><mi>ℝ</mi><mo>*</mo></msup><mspace width="0.222em"></mspace><mo>,</mo><mi>𝐛</mi><mrow><mo mathvariant="double-struck">∈</mo><mi>ℝ</mi></mrow><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\left( \mathbf{a} \in \mathbb{R}^{*}\ ,\mathbf{b}\mathbb{\in R} \right)</annotation></semantics></math></p></li>
+</ol>
+<blockquote>
+<p><em>🖉🖉Propriété :</em></p>
+</blockquote>
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr>
+<td><p>Soient
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mspace width="0.222em"></mspace><mi>e</mi><mi>t</mi><mspace width="0.222em"></mspace><mi>b</mi></mrow><annotation encoding="application/x-tex">a\ et\ b</annotation></semantics></math>
+deux nombres réels tels que
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>≠</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">a \neq 0</annotation></semantics></math>.</p>
+<p>L’ensemble des solutions de l’équation différentielle
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>y</mi><mo>′</mo></msup><mo>=</mo><mi>a</mi><mi>y</mi><mo>+</mo><mi>b</mi></mrow><annotation encoding="application/x-tex">y&#39; = ay + b</annotation></semantics></math>
+est l’ensemble des fonctions
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+définies sur
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ℝ</mi><annotation encoding="application/x-tex">\mathbb{R}</annotation></semantics></math>
+par :
+f<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>k</mi><msup><mi>e</mi><mrow><mi>a</mi><mi>x</mi></mrow></msup><mo>−</mo><mfrac><mi>b</mi><mi>a</mi></mfrac></mrow><annotation encoding="application/x-tex">(x) = ke^{ax} - \frac{b}{a}</annotation></semantics></math>.</p></td>
+</tr>
+</tbody>
+</table>
+<p><em>🔿<strong>Exemple : </strong></em></p>
+<p>L’ensemble des solutions de l’équation différentielle
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>E</mi><mo stretchy="false" form="postfix">)</mo><mo>:</mo><msup><mi>y</mi><mo>′</mo></msup><mo>=</mo><mn>3</mn><mi>y</mi><mo>+</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">(E):y&#39; = 3y + 2</annotation></semantics></math>
+est l’ensemble des fonctions définies sur
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ℝ</mi><annotation encoding="application/x-tex">\mathbb{R}</annotation></semantics></math> 
+par
+:<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>k</mi><msup><mi>e</mi><mrow><mn>3</mn><mi>x</mi></mrow></msup><mo>−</mo><mfrac><mn>2</mn><mn>3</mn></mfrac><mspace width="0.222em"></mspace></mrow><annotation encoding="application/x-tex">f(x) = ke^{3x} - \frac{2}{3}\ </annotation></semantics></math>avec
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><mrow><mo mathvariant="double-struck">∈</mo><mi>ℝ</mi></mrow></mrow><annotation encoding="application/x-tex">k\mathbb{\in R}</annotation></semantics></math>.</p>
+<p>Déterminons la solution
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>g</mi><annotation encoding="application/x-tex">g</annotation></semantics></math>
+de l’équation
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>E</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(E)</annotation></semantics></math>
+qui vérifie la condition
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mn>1</mn><mn>3</mn></mfrac></mrow><annotation encoding="application/x-tex">g( - 1) = \frac{1}{3}</annotation></semantics></math>.</p>
+<p>Pour tout
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mrow><mo mathvariant="double-struck">∈</mo><mi>ℝ</mi><mspace width="0.222em"></mspace><mo mathvariant="double-struck">,</mo><mspace width="0.222em"></mspace></mrow><mi>g</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>k</mi><msup><mi>e</mi><mrow><mn>3</mn><mi>x</mi></mrow></msup><mo>−</mo><mfrac><mn>2</mn><mn>3</mn></mfrac><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace></mrow><annotation encoding="application/x-tex">x\mathbb{\in R\ ,\ }g(x) = ke^{3x} - \frac{2}{3}\ \ </annotation></semantics></math>.</p>
+<p>La condition
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo stretchy="false" form="prefix">(</mo><mi>−</mi><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mn>1</mn><mn>3</mn></mfrac></mrow><annotation encoding="application/x-tex">g( - 1) = \frac{1}{3}</annotation></semantics></math>
+donne
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><msup><mi>e</mi><mrow><mi>−</mi><mn>3</mn></mrow></msup><mo>−</mo><mfrac><mn>2</mn><mn>3</mn></mfrac><mo>=</mo><mfrac><mn>1</mn><mn>3</mn></mfrac></mrow><annotation encoding="application/x-tex">ke^{- 3} - \frac{2}{3} = \frac{1}{3}</annotation></semantics></math>.</p>
+<p>Donc
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><mo>=</mo><msup><mi>e</mi><mn>3</mn></msup></mrow><annotation encoding="application/x-tex">k = e^{3}</annotation></semantics></math>
+il s’ensuit donc :
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">(</mo><mo>∀</mo><mi>x</mi><mrow><mo mathvariant="double-struck">∈</mo><mi>ℝ</mi></mrow><mo stretchy="true" form="postfix">)</mo></mrow><mspace width="0.222em"></mspace><mo>:</mo><mi>g</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msup><mi>e</mi><mrow><mn>3</mn><mi>x</mi><mo>+</mo><mn>3</mn></mrow></msup><mo>−</mo><mfrac><mn>2</mn><mn>3</mn></mfrac></mrow><annotation encoding="application/x-tex">\left( \forall x\mathbb{\in R} \right)\ :g(x) = e^{3x + 3} - \frac{2}{3}</annotation></semantics></math>.</p>
+<p><em><strong>✍ Application ② :</strong></em></p>
+<ol type="1">
+<li><p>Résoudre l’équation différentielle :
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>E</mi><mo stretchy="false" form="postfix">)</mo><mspace width="0.222em"></mspace><mo>:</mo><msup><mi>y</mi><mo>′</mo></msup><mo>+</mo><mn>2</mn><mi>y</mi><mo>−</mo><mn>4</mn><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">(E)\ :y&#39; + 2y - 4 = 0</annotation></semantics></math></p></li>
+<li><p>Déterminer la solution de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>E</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(E)</annotation></semantics></math>
+dont la courbe passe par le point
+A<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><mi>−</mi><mi mathvariant="normal">ln</mi><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mn>6</mn><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\left( - \ln(2),6 \right)</annotation></semantics></math></p></li>
+</ol>
+<ol start="2" type="I">
+<li><p><em>Equation différentielles du second ordre :</em>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>y</mi><mi>″</mi></msup><mo>+</mo><mi>a</mi><msup><mi>y</mi><mo>′</mo></msup><mo>+</mo><mi>b</mi><mi>y</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">y^{&#39;&#39;} + ay&#39; + by = 0</annotation></semantics></math></p></li>
+</ol>
+<blockquote>
+<p><em>🖉🖉 Définition :</em></p>
+</blockquote>
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr>
+<td><p>Soient
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mspace width="0.222em"></mspace><mi>e</mi><mi>t</mi><mspace width="0.222em"></mspace><mi>b</mi></mrow><annotation encoding="application/x-tex">a\ et\ b</annotation></semantics></math>
+deux nombres réels.</p>
+<p>L’équation
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>r</mi><mn>2</mn></msup><mo>+</mo><mi>a</mi><mi>r</mi><mo>+</mo><mi>b</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">r^{2} + ar + b = 0</annotation></semantics></math>
+, où
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>r</mi><annotation encoding="application/x-tex">r</annotation></semantics></math>
+est l’inconnue, s’appelle <em>l’équation caractéristique</em> de
+l’équation différentielle
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>y</mi><mi>″</mi></msup><mo>+</mo><mi>a</mi><msup><mi>y</mi><mo>′</mo></msup><mo>+</mo><mi>b</mi><mi>y</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">y^{&#39;&#39;} + ay&#39; + by = 0</annotation></semantics></math>.</p></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><em>🖉🖉Propriété :</em></p>
+</blockquote>
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr>
+<td><p>On considère
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>E</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(E)</annotation></semantics></math>
+l’équation différentielle
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>E</mi><mo stretchy="false" form="postfix">)</mo><mo>:</mo><mspace width="0.222em"></mspace><msup><mi>y</mi><mi>″</mi></msup><mo>+</mo><mi>a</mi><msup><mi>y</mi><mo>′</mo></msup><mo>+</mo><mi>b</mi><mi>y</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">(E):\ y^{&#39;&#39;} + ay&#39; + by = 0</annotation></semantics></math>
+et soit
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="normal">Δ</mi><annotation encoding="application/x-tex">\Delta</annotation></semantics></math>
+le discriminant de son équation caractéristique
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><msup><mi>E</mi><mo>′</mo></msup><mo stretchy="false" form="postfix">)</mo><mo>:</mo><mspace width="0.222em"></mspace><msup><mi>r</mi><mn>2</mn></msup><mo>+</mo><mi>a</mi><mi>r</mi><mo>+</mo><mi>b</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">(E&#39;):\ r^{2} + ar + b = 0</annotation></semantics></math>.</p>
+<ul>
+<li><p>Si
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Δ</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\Delta &gt; 0</annotation></semantics></math>,
+alors les solutions de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>E</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(E)</annotation></semantics></math>
+sont les fonctions
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>↦</mo><mi>α</mi><msup><mi>e</mi><mrow><msub><mi>r</mi><mn>1</mn></msub><mi>x</mi></mrow></msup><mo>+</mo><mi>β</mi><msup><mi>e</mi><mrow><msub><mi>r</mi><mn>2</mn></msub><mi>x</mi></mrow></msup></mrow><annotation encoding="application/x-tex">x \mapsto \alpha e^{r_{1}x} + \beta e^{r_{2}x}</annotation></semantics></math>
+tel que
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>α</mi><mo>,</mo><mi>β</mi><mo stretchy="false" form="postfix">)</mo><mo>∈</mo><msup><mi>ℝ</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">(\alpha,\beta) \in \mathbb{R}^{2}</annotation></semantics></math>
+où
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>r</mi><mn>1</mn></msub><annotation encoding="application/x-tex">r_{1}</annotation></semantics></math>
+et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mspace width="0.222em"></mspace><msub><mi>r</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">\ r_{2}</annotation></semantics></math>
+sont les solutions de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><msup><mi>E</mi><mo>′</mo></msup><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(E&#39;)</annotation></semantics></math>.</p></li>
+<li><p>Si
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Δ</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\Delta = 0</annotation></semantics></math>,
+alors les solutions de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>E</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(E)</annotation></semantics></math>
+sont les fonctions
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>↦</mo><mo stretchy="false" form="prefix">(</mo><mi>α</mi><mo>+</mo><mi>β</mi><mi>x</mi><mo stretchy="false" form="postfix">)</mo><msup><mi>e</mi><mrow><msub><mi>r</mi><mn>0</mn></msub><mi>x</mi></mrow></msup></mrow><annotation encoding="application/x-tex">x \mapsto (\alpha + \beta x)e^{r_{0}x}</annotation></semantics></math>
+tel que
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>α</mi><mo>,</mo><mi>β</mi><mo stretchy="false" form="postfix">)</mo><mo>∈</mo><msup><mi>ℝ</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">(\alpha,\beta) \in \mathbb{R}^{2}</annotation></semantics></math>
+où
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>r</mi><mn>0</mn></msub><annotation encoding="application/x-tex">r_{0}</annotation></semantics></math>
+est la solution de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><msup><mi>E</mi><mo>′</mo></msup><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(E&#39;)</annotation></semantics></math>.</p></li>
+<li><p>Si
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Δ</mi><mo>&lt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\Delta &lt; 0</annotation></semantics></math>,
+alors les solutions de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>E</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(E)</annotation></semantics></math>
+sont les fonctions
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>↦</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>α</mi><mi mathvariant="normal">cos</mi><mo stretchy="false" form="prefix">(</mo><mi>q</mi><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mi>β</mi><mi mathvariant="normal">sin</mi><mo stretchy="false" form="prefix">(</mo><mi>q</mi><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="true" form="postfix">)</mo></mrow><msup><mi>e</mi><mrow><mi>p</mi><mi>x</mi></mrow></msup></mrow><annotation encoding="application/x-tex">x \mapsto \left( \alpha\cos(qx) + \beta\sin(qx) \right)e^{px}</annotation></semantics></math>
+tel que
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>α</mi><mo>,</mo><mi>β</mi><mo stretchy="false" form="postfix">)</mo><mo>∈</mo><msup><mi>ℝ</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">(\alpha,\beta) \in \mathbb{R}^{2}</annotation></semantics></math>
+où
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>r</mi><mn>1</mn></msub><mo>=</mo><mi>p</mi><mo>+</mo><mi>i</mi><mi>q</mi></mrow><annotation encoding="application/x-tex">r_{1} = p + iq</annotation></semantics></math>
+et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mspace width="0.222em"></mspace><msub><mi>r</mi><mn>2</mn></msub><mo>=</mo><mover><msub><mi>r</mi><mn>1</mn></msub><mo accent="true">¯</mo></mover></mrow><annotation encoding="application/x-tex">\ r_{2} = \overline{r_{1}}</annotation></semantics></math>sont
+les solutions de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><msup><mi>E</mi><mo>′</mo></msup><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(E&#39;)</annotation></semantics></math>.</p></li>
+</ul></td>
+</tr>
+</tbody>
+</table>
+<p><em><strong>✍ Application ③ :</strong></em></p>
+<ol type="1">
+<li><p>Résoudre les équations différentielles suivantes :</p></li>
+</ol>
+<blockquote>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>E</mi><mn>1</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>:</mo><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><msup><mrow><msup><mi>y</mi><mi>″</mi></msup><mo>−</mo><mn>3</mn><mspace width="0.222em"></mspace><mi>y</mi></mrow><mo>′</mo></msup><mo>+</mo><mn>2</mn><mi>y</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\left( E_{1} \right):\ \ {y^{&#39;&#39;} - 3\ y}&#39; + 2y = 0</annotation></semantics></math>.</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>E</mi><mn>2</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>:</mo><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><msup><mrow><msup><mi>y</mi><mi>″</mi></msup><mo>+</mo><mn>4</mn><mspace width="0.222em"></mspace><mi>y</mi></mrow><mo>′</mo></msup><mo>+</mo><mn>4</mn><mi>y</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\left( E_{2} \right):\ \ {y^{&#39;&#39;} + 4\ y}&#39; + 4y = 0</annotation></semantics></math>.</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>E</mi><mn>3</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>:</mo><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><msup><mrow><msup><mi>y</mi><mi>″</mi></msup><mo>−</mo><mn>4</mn><mspace width="0.222em"></mspace><mi>y</mi></mrow><mo>′</mo></msup><mo>+</mo><mn>13</mn><mi>y</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\left( E_{3} \right):\ \ {y^{&#39;&#39;} - 4\ y}&#39; + 13y = 0</annotation></semantics></math>.</p>
+</blockquote>
+<ol start="2" type="1">
+<li><p>a. Résoudre l’équation différentielle :
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><msup><mi>E</mi><mo>′</mo></msup><mo stretchy="false" form="postfix">)</mo><mo>:</mo><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><msup><mrow><msup><mi>y</mi><mi>″</mi></msup><mo>−</mo><mn>5</mn><mspace width="0.222em"></mspace><mi>y</mi></mrow><mo>′</mo></msup><mo>+</mo><mn>6</mn><mi>y</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">(E&#39;):\ \ {y^{&#39;&#39;} - 5\ y}&#39; + 6y = 0</annotation></semantics></math></p></li>
+</ol>
+<blockquote>
+<p>b. Déterminer la solution
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>g</mi><annotation encoding="application/x-tex">g</annotation></semantics></math>
+de l’équation
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>E</mi><mo>′</mo></msup><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\left( E&#39; \right)</annotation></semantics></math>
+vérifiant les conditions initiales :</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>1</mn><mspace width="0.222em"></mspace><mi>e</mi><mi>t</mi><mspace width="0.222em"></mspace><msup><mi>g</mi><mo>′</mo></msup><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">g(0) = 1\ et\ g&#39;(0) = 2</annotation></semantics></math></p>
+</blockquote>
+<ol start="3" type="1">
+<li><p>a. Résoudre l’équation différentielle :
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><msup><mi>E</mi><mo>″</mo></msup><mo stretchy="false" form="postfix">)</mo><mo>:</mo><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><msup><mi>y</mi><mi>″</mi></msup><mo>+</mo><mn>4</mn><mi>y</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">(E&#39;&#39;):\ \ y^{&#39;&#39;} + 4y = 0</annotation></semantics></math></p></li>
+</ol>
+<p>b. Déterminer la solution
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>g</mi><annotation encoding="application/x-tex">g</annotation></semantics></math>
+de l’équation
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>E</mi><mi>″</mi></msup><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\left( E^{&#39;&#39;} \right)</annotation></semantics></math>
+vérifiant les conditions initiales :</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo stretchy="false" form="prefix">(</mo><mfrac><mi>π</mi><mn>2</mn></mfrac><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>1</mn><mspace width="0.222em"></mspace><mi>e</mi><mi>t</mi><mspace width="0.222em"></mspace><msup><mi>g</mi><mo>′</mo></msup><mrow><mo stretchy="true" form="prefix">(</mo><mfrac><mi>π</mi><mn>2</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">g(\frac{\pi}{2}) = 1\ et\ g&#39;\left( \frac{\pi}{2} \right) = 2</annotation></semantics></math>.</p></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>
