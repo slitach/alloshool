@@ -359,6 +359,59 @@ a:hover {
     }
 }
 
+/* --- Mobile-specific refinements --- */
+@media (max-width: 576px) {
+    .main-header .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .logo {
+        margin-bottom: 10px;
+    }
+
+    .header-icons {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        margin-top: 10px;
+    }
+
+    .header-icons a {
+        margin: 0;
+    }
+
+    .breadcrumbs {
+        font-size: 0.8rem;
+        padding: 8px 0;
+    }
+
+    .breadcrumbs .container {
+        text-align: center;
+    }
+
+    .course-header h1 {
+        font-size: 1.5rem;
+    }
+
+    .page-content {
+        padding: 1rem 0;
+    }
+
+    .course-layout {
+        gap: 1rem;
+    }
+
+    .accordion-header {
+        font-size: 1rem;
+        padding: 12px 15px;
+    }
+
+    .topic-container ul li a {
+        font-size: 1rem;
+    }
+}
+
 /* --- Homepage Enhancements --- */
 
 /* Hero Section */
