@@ -452,6 +452,12 @@ a:hover {
 .seo-text-section, .levels-section {
     padding: 2rem 0;
     border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0;
+}
+
+.teacher-section {
+    padding: 2rem 0;
+    text-align: center;
 }
 
 .section-title {
