@@ -603,4 +603,10 @@ a:hover {
     object-fit: cover;
 }
 
+.teacher-details-footer p {
+    color: #adb5bd;
+    font-size: 1rem;
+    margin: 0.5rem 0;
+}
+
 
