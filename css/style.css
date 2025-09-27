@@ -592,4 +592,15 @@ a:hover {
     margin-right: 8px;
 }
 
+.teacher-info-footer {
+    margin-top: 1rem;
+}
+
+.teacher-image-footer {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
 
