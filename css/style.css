@@ -521,6 +521,32 @@ a:hover {
     background-color: #343a40;
     color: #f8f9fa;
     padding-top: 3rem;
+    position: relative;
+}
+
+.teacher-in-footer {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    text-align: center;
+}
+
+.teacher-in-footer .teacher-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.teacher-in-footer .teacher-info h2 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: white;
+}
+
+.teacher-in-footer .teacher-info p {
+    font-size: 1rem;
+    color: #adb5bd;
 }
 
 .main-footer-enhanced .footer-content {
