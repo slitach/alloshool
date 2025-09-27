@@ -592,32 +592,4 @@ a:hover {
     margin-right: 8px;
 }
 
-.teacher-section {
-    padding: 2rem 0;
-    border-bottom: 1px solid var(--border-color);
-    text-align: center;
-}
 
-.teacher-section .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.teacher-image {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 1rem;
-}
-
-.teacher-info h2 {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-}
-
-.teacher-info p {
-    font-size: 1.2rem;
-    color: #6c757d;
-}
