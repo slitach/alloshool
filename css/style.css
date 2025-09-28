@@ -607,8 +607,8 @@ a:hover {
 }
 
 .footer-social .teacher-image-footer {
-    width: 100px !important;
-    height: 100px !important;
+    width: 30px !important;
+    height: 30px !important;
     border-radius: 50% !important;
     object-fit: cover;
 }
