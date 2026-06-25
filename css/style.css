@@ -452,6 +452,12 @@ a:hover {
 .seo-text-section, .levels-section {
     padding: 2rem 0;
     border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0;
+}
+
+.teacher-section {
+    padding: 2rem 0;
+    text-align: center;
 }
 
 .section-title {
@@ -552,9 +558,12 @@ a:hover {
     text-decoration: underline;
 }
 
-.footer-social a {
-    font-size: 1.5rem;
-    margin-right: 1rem;
+.footer-social {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
 }
 
 .footer-bottom {
@@ -585,3 +594,29 @@ a:hover {
 .download-btn i {
     margin-right: 8px;
 }
+
+.footer-social .teacher-info-footer {
+    display: flex;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.teacher-details-footer {
+    margin-left: 1rem;
+    text-align: left;
+}
+
+.footer-social .teacher-image-footer {
+    width: 30px !important;
+    height: 30px !important;
+    border-radius: 50% !important;
+    object-fit: cover;
+}
+
+.teacher-details-footer p {
+    color: #adb5bd;
+    font-size: 1rem;
+    margin: 0.5rem 0;
+}
+
+
