@@ -1,36 +1,101 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-1ZP8J9JBT6"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-1ZP8J9JBT6');
-</script>
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-WT2TXDWM');</script>
-<!-- End Google Tag Manager -->
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-WT2TXDWM');</script>
+    <!-- End Google Tag Manager -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Notifications</title>
+    <title>Notifications - Wacop</title>
+    <link rel="icon" href="icon/icon.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1ZP8J9JBT6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-1ZP8J9JBT6');
+    </script>
+    <script defer src="/dist/script.js"></script>
 </head>
 <body>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WT2TXDWM"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-    <div class="container page-content">
-        <h1>Page de notifications en construction</h1>
-        <a href="index.html">Retour à l'accueil</a>
-    </div>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WT2TXDWM"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <header class="main-header">
+        <div class="container">
+            <div class="logo"><a href="index.html"><img src="logo/logo.png" alt="Wacop Logo" width="200"></a></div>
+            <nav class="top-nav">
+                <div class="header-icons">
+                    <a href="search.html"><i class="fas fa-search"></i></a>
+                    <a href="notifications.html"><i class="fas fa-bell"></i></a>
+                    <a href="profile.html"><i class="fas fa-user-circle"></i></a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs">
+        <div class="container">
+            <a href="index.html">Accueil</a>
+            <span class="separator">></span>
+            <span>Notifications</span>
+        </div>
+    </nav>
+
+    <main class="container page-content" style="max-width: 600px; margin: 0 auto; text-align: center;">
+        <div style="background: white; border: 1px solid var(--border-color); padding: 3rem 2rem; border-radius: var(--radius-lg); box-shadow: var(--shadow-md); margin: 2rem 0;">
+            <div style="font-size: 4rem; color: var(--primary); margin-bottom: 1.5rem;">
+                <i class="far fa-bell"></i>
+            </div>
+            <h1 style="font-size: 1.8rem; font-weight: 700; margin-bottom: 1rem;">Vos Notifications</h1>
+            <p style="color: var(--text-muted); margin-bottom: 2rem; font-size: 1.05rem;">
+                Vous n'avez pas encore de nouvelles notifications. Vous serez averti ici lorsque de nouveaux cours, devoirs ou corrigés seront publiés par votre professeur.
+            </p>
+            <a href="index.html" class="cta-button">Retour à l'accueil</a>
+        </div>
+    </main>
+
+    <footer class="main-footer-enhanced">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <h4>Wacop</h4>
+                    <p>Votre partenaire de confiance pour le soutien scolaire au Maroc. Apprenez à votre rythme, où que vous soyez.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Liens Rapides</h4>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="about.html">À propos</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="privacy-policy.html">Politique de Confidentialité</a></li>
+                        <li><a href="terms-of-use.html">Conditions d'Utilisation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social" style="text-align: center;">
+                    <img src="slimane.jpeg" alt="Slimane" style="width: 100px; height: 100px; border-radius: 50%;">
+                    <div class="footer-info">
+                        <h4>Tachroun slimane</h4>
+                        <p style="font-size: 0.8em;">professeur de mathématiques au lycée Hassan II TIZNIT</p>
+                        <p style="font-size: 0.8em;">WHATSAP/ +212707668863</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Wacop. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
 </body>
-</html>  
-<script defer src="/dist/script.js"></script> 
+</html>
