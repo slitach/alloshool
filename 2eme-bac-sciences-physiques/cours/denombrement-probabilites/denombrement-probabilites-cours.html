@@ -1,0 +1,1753 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WT2TXDWM');</script>
+<!-- End Google Tag Manager -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1ZP8J9JBT6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-1ZP8J9JBT6');
+</script>
+
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>proba</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 80%;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+<script defer src="/dist/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" defer></script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WT2TXDWM"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<ol type="I">
+<li><p><em><strong>Dénombrement</strong></em></p></li>
+</ol>
+<ol type="1">
+<li><p><em><strong>Principe général du
+dénombrement </strong></em></p></li>
+</ol>
+<p><em>✍ Activité ①:</em><br />
+Une personne veut atteindre le point Y à partir du point X par le
+passage de trois vallées comme le montre la figure ci-dessous <span
+dir="rtl"></span>:</p>
+<p><img src="./media/image1.png"
+style="width:3.28246in;height:1.04628in"
+alt="Une image contenant diagramme Description générée automatiquement" /></p>
+<p>L'écriture
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mi>C</mi><mi>F</mi></mrow><annotation encoding="application/x-tex">ACF</annotation></semantics></math>
+signifie que cette personne est passée par le pont A, le pont C puis le
+pont F.</p>
+<ol type="1">
+<li><p>Compléter l'arbre suivant, puis déduire l'ensemble des chemins
+menant au point Y.</p></li>
+</ol>
+<blockquote>
+<p><img src="./media/image2.png"
+style="width:2.29724in;height:2.48371in"
+alt="Une image contenant diagramme Description générée automatiquement" /></p>
+</blockquote>
+<ol start="2" type="1">
+<li><p>Calculer le nombre de chemins que cette personne pourrait
+emprunter pour atteindre le point
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math>.</p></li>
+</ol>
+<p><em><strong>🖉🖉Définition :</strong></em></p>
+<p>Soit une expérience nécessitante
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mspace width="0.222em"></mspace><mi>p</mi></mrow><annotation encoding="application/x-tex">\ p</annotation></semantics></math>
+choix</p>
+<p>Si le premier choix se fait de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>n</mi><mn>1</mn></msub><annotation encoding="application/x-tex">n_{1}</annotation></semantics></math>
+manière différente et le second choix se fait de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>n</mi><mn>2</mn></msub><annotation encoding="application/x-tex">n_{2}</annotation></semantics></math>
+manière différente … et le
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>p</mi><mrow><mi>i</mi><mi>è</mi><mi>m</mi><mi>e</mi></mrow></msup><annotation encoding="application/x-tex">p^{ième}</annotation></semantics></math>
+choix se fait de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>n</mi><mi>p</mi></msub><annotation encoding="application/x-tex">n_{p}</annotation></semantics></math>
+manière différente, alors le nombre de façons dont tous ces choix sont
+faits est :</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>=</mo></mrow><annotation encoding="application/x-tex">n =</annotation></semantics></math>------------------------------</p>
+<p><em><strong>🔾 Exemple ① :</strong></em></p>
+<p>On considère les chiffres suivants :
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mspace width="0.222em"></mspace><mo>;</mo><mn>3</mn><mspace width="0.222em"></mspace><mo>;</mo><mn>4</mn><mspace width="0.222em"></mspace><mo>;</mo><mn>5</mn><mspace width="0.222em"></mspace><mo>;</mo><mn>7</mn><mspace width="0.222em"></mspace><mi>e</mi><mi>t</mi><mspace width="0.222em"></mspace><mn>8</mn></mrow><annotation encoding="application/x-tex">1\ ;3\ ;4\ ;5\ ;7\ et\ 8</annotation></semantics></math>.</p>
+<ul>
+<li><p>Déterminons le nombres codes de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>3</mn><annotation encoding="application/x-tex">3</annotation></semantics></math>
+chiffres distincts deux à deux qu’on peut former à partir des chiffres
+précédents.</p></li>
+</ul>
+<p>---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</p>
+<p>Donc d’après le principe général de dénombrement le nombre de codes
+possibles est : ------------------------------</p>
+<ul>
+<li><p>Déterminons le nombres codes pairs de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>4</mn><annotation encoding="application/x-tex">4</annotation></semantics></math>
+chiffres qu’on peut former à partir les chiffres précédents.</p></li>
+<li><p>Déterminons le nombres codes pairs de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>3</mn><annotation encoding="application/x-tex">3</annotation></semantics></math>
+chiffres distincts deux à deux qu’on peut former à partir les chiffres
+précédents.</p></li>
+</ul>
+<p><em><strong>🔾 Exemple ② :</strong></em></p>
+<p>Une personne possède trois chemises, deux cravates et trois
+pantalons.</p>
+<p>Déterminons le nombre de costumes que cette personne peut porter.
+(Chaque costume se compose d'une chemise, d'une cravate et d'un
+pantalon)</p>
+<p><img src="./media/image3.jpeg"
+style="width:2.02847in;height:1.07708in"
+alt="680 Restauration Scolaire Vectores, Ilustraciones y Gráficos - 123RF" />-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</p>
+<blockquote>
+<p><em><strong>✍ Application ① :</strong></em></p>
+</blockquote>
+<p>Dans un restaurant d’entreprise, le repas comporte un plat et un
+dessert.</p>
+<p>Le menu propose au choix deux plats et trois desserts.</p>
+<p>De combien de manière peut -on composer un repas ?</p>
+<p><img src="./media/image4.png"
+style="width:1.29236in;height:1.42222in" /><em><strong>✍
+Exercice ①:</strong></em></p>
+<p>Une urne contient cinq boules noires et 12 boules blanches
+indiscernables au toucher.</p>
+<p>On tire successivement et sans remise (sans remettre la boule après
+l'avoir tirée dans l’urne) deux boules de l’urne.</p>
+<ol type="1">
+<li><p>Construire l’arbre des choix.</p></li>
+<li><p>Quel est le nombre de tirages comportant
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>2</mn><annotation encoding="application/x-tex">2</annotation></semantics></math>
+boules de mêmes couleurs ?</p></li>
+<li><p>Quel est le nombre de tirages comportant
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>2</mn><annotation encoding="application/x-tex">2</annotation></semantics></math>
+boules de couleurs différentes ?</p></li>
+<li><p>Répéter les mêmes questions précédentes au cas où le tirage est
+successif et avec remise.</p></li>
+</ol>
+<ol start="2" type="1">
+<li><p><em><strong>Arrangement</strong></em></p></li>
+</ol>
+<ol type="a">
+<li><p><em>Arrangement sans répétition</em></p></li>
+</ol>
+<p><em>✍ Activité ②:</em></p>
+<p>On veut ranger, Trois vases parmi cinq notés
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo>,</mo><mspace width="0.222em"></mspace><mn>2</mn><mo>,</mo><mspace width="0.222em"></mspace><mn>3</mn><mo>,</mo><mspace width="0.222em"></mspace><mn>4</mn><mspace width="0.222em"></mspace><mi>e</mi><mi>t</mi><mspace width="0.222em"></mspace><mn>5</mn></mrow><annotation encoding="application/x-tex">1,\ 2,\ 3,\ 4\ et\ 5</annotation></semantics></math>
+dans un placard contenant trois tiroirs notés
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mspace width="0.222em"></mspace><mo>,</mo><mspace width="0.222em"></mspace><mi>B</mi><mspace width="0.222em"></mspace><mi>e</mi><mi>t</mi><mspace width="0.222em"></mspace><mi>C</mi></mrow><annotation encoding="application/x-tex">A\ ,\ B\ et\ C</annotation></semantics></math>.</p>
+<ol type="1">
+<li><p>Combien de rangements différents peut-on réaliser ?</p></li>
+<li><p>Combien de rangements où le vase 1 est placé dans le tiroir A
+?</p></li>
+<li><p>Combien de rangements sont effectués dans deux tiroirs ?</p></li>
+<li><p>Combien de rangements différents peut-on réaliser si on dispose
+de 5 tiroirs
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>,</mo><mspace width="0.222em"></mspace><mi>B</mi><mo>,</mo><mspace width="0.222em"></mspace><mi>C</mi><mo>,</mo><mspace width="0.222em"></mspace><mi>D</mi><mspace width="0.222em"></mspace><mi>e</mi><mi>t</mi><mspace width="0.222em"></mspace><mi>E</mi></mrow><annotation encoding="application/x-tex">A,\ B,\ C,\ D\ et\ E</annotation></semantics></math>
+?</p></li>
+</ol>
+<blockquote>
+<p><em><strong>solution :</strong></em></p>
+</blockquote>
+<ul>
+<li><p>Chaque ordre de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>p</mi><annotation encoding="application/x-tex">p</annotation></semantics></math>
+parmi
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>
+éléments (sans possibilité de répéter le même élément) est appelé un
+<em><strong>arrangement</strong></em> de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>p</mi><annotation encoding="application/x-tex">p</annotation></semantics></math>
+parmi
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>
+éléments, on note le nombre des <em><strong>arrangements</strong></em>
+de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>p</mi><annotation encoding="application/x-tex">p</annotation></semantics></math>
+éléments parmi
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>
+par 
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>A</mi><mi>n</mi><mi>p</mi></msubsup><annotation encoding="application/x-tex">A_{n}^{p}</annotation></semantics></math> et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>A</mi><mi>n</mi><mi>p</mi></msubsup><mo>=</mo><mi>n</mi><mo stretchy="false" form="prefix">(</mo><mi>n</mi><mo>−</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="prefix">(</mo><mi>n</mi><mo>−</mo><mn>2</mn><mo stretchy="false" form="postfix">)</mo><mi>.</mi><mi>.</mi><mi>.</mi><mo stretchy="false" form="prefix">(</mo><mi>n</mi><mo>−</mo><mi>p</mi><mo>+</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">A_{n}^{p} = n(n - 1)(n - 2)...(n - p + 1)</annotation></semantics></math>.</p></li>
+<li><p>Tout arrangement de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>
+éléments parmi
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>
+éléments est appelé une <em><strong>permutation.</strong></em></p></li>
+</ul>
+<p>On note le nombre de permutations de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math> par
+:
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mi>!</mi></mrow><annotation encoding="application/x-tex">n!</annotation></semantics></math> .</p>
+<p>Et on a :
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mrow><mi>n</mi><mi>!</mi><mo>=</mo><mi>A</mi></mrow><mi>n</mi><mi>n</mi></msubsup><mo>=</mo><mi>n</mi><mo>×</mo><mo stretchy="false" form="prefix">(</mo><mi>n</mi><mo>−</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>×</mo><mo stretchy="false" form="prefix">(</mo><mi>n</mi><mo>−</mo><mn>2</mn><mo stretchy="false" form="postfix">)</mo><mo>×</mo><mi>.</mi><mi>.</mi><mi>.</mi><mo>×</mo><mn>2</mn><mo>×</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">{n! = A}_{n}^{n} = n \times (n - 1) \times (n - 2) \times ... \times 2 \times 1</annotation></semantics></math>.</p>
+<p><em><strong>🔾 Remarques :</strong></em></p>
+<ul>
+<li><p>Par convention :
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>A</mi><mi>n</mi><mn>0</mn></msubsup><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">A_{n}^{0} = 1</annotation></semantics></math>
+et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mi>!</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">0! = 1</annotation></semantics></math>.</p></li>
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mi>!</mi></mrow><annotation encoding="application/x-tex">n!</annotation></semantics></math>
+se lit ‘factorielle
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>’
+.</p></li>
+<li><p>L’ordre est important dans tout arrangement.</p></li>
+</ul>
+<blockquote>
+<p><em><strong>✍ Application ② :</strong></em></p>
+</blockquote>
+<ol type="1">
+<li><p>Calculer les nombres
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>A</mi><mn>5</mn><mn>3</mn></msubsup><annotation encoding="application/x-tex">A_{5}^{3}</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>A</mi><mn>9</mn><mn>4</mn></msubsup><annotation encoding="application/x-tex">A_{9}^{4}</annotation></semantics></math>
+,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>A</mi><mn>7</mn><mn>1</mn></msubsup><annotation encoding="application/x-tex">A_{7}^{1}</annotation></semantics></math>
+et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>5</mn><mi>!</mi></mrow><annotation encoding="application/x-tex">5!</annotation></semantics></math>.</p></li>
+<li><p>Comparer
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mfrac><mrow><mn>7</mn><mi>!</mi></mrow><mrow><mo stretchy="false" form="prefix">(</mo><mn>7</mn><mo>−</mo><mn>5</mn><mo stretchy="false" form="postfix">)</mo><mi>!</mi></mrow></mfrac><annotation encoding="application/x-tex">\frac{7!}{(7 - 5)!}</annotation></semantics></math>
+et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mspace width="0.222em"></mspace><msubsup><mi>A</mi><mn>7</mn><mn>5</mn></msubsup></mrow><annotation encoding="application/x-tex">\ A_{7}^{5}</annotation></semantics></math>.</p></li>
+</ol>
+<ol type="1">
+<li><p>Calcul des nombres
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>A</mi><mn>5</mn><mn>3</mn></msubsup><annotation encoding="application/x-tex">A_{5}^{3}</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>A</mi><mn>9</mn><mn>4</mn></msubsup><annotation encoding="application/x-tex">A_{9}^{4}</annotation></semantics></math>
+,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>A</mi><mn>7</mn><mn>1</mn></msubsup><annotation encoding="application/x-tex">A_{7}^{1}</annotation></semantics></math>
+et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>5</mn><mi>!</mi></mrow><annotation encoding="application/x-tex">5!</annotation></semantics></math>.</p></li>
+<li><p>Comparons
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mfrac><mrow><mn>7</mn><mi>!</mi></mrow><mrow><mo stretchy="false" form="prefix">(</mo><mn>7</mn><mo>−</mo><mn>5</mn><mo stretchy="false" form="postfix">)</mo><mi>!</mi></mrow></mfrac><annotation encoding="application/x-tex">\frac{7!}{(7 - 5)!}</annotation></semantics></math>
+et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mspace width="0.222em"></mspace><msubsup><mi>A</mi><mn>7</mn><mn>5</mn></msubsup></mrow><annotation encoding="application/x-tex">\ A_{7}^{5}</annotation></semantics></math>.</p></li>
+</ol>
+<blockquote>
+<p><em><strong>✍ Application ③ :</strong></em></p>
+</blockquote>
+<p>On veut former des mots à trois lettres distinctes, avec les lettres
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>,</mo><mspace width="0.222em"></mspace><mi>B</mi><mo>,</mo><mspace width="0.222em"></mspace><mi>C</mi><mo>,</mo><mspace width="0.222em"></mspace><mi>D</mi><mo>,</mo><mspace width="0.222em"></mspace><mi>E</mi><mspace width="0.222em"></mspace><mi>e</mi><mi>t</mi><mspace width="0.222em"></mspace><mi>F</mi></mrow><annotation encoding="application/x-tex">A,\ B,\ C,\ D,\ E\ et\ F</annotation></semantics></math>.</p>
+<p>Déterminer le nombre de mots possibles.</p>
+<blockquote>
+<p><em><strong>✍ Application ④ :</strong></em></p>
+</blockquote>
+<p>Un parking comporte sept places libres repérées par les numéros 1 à
+7.</p>
+<p>De combien de façons peut-on garer :</p>
+<ol type="1">
+<li><p>Une voiture ?</p></li>
+<li><p>Trois voitures ?</p></li>
+<li><p>Sept voitures ?</p></li>
+</ol>
+<blockquote>
+<p><em><strong>✍ Application</strong></em> ⑤
+<em><strong>:</strong></em></p>
+</blockquote>
+<ol start="4" type="1">
+<li><p><img src="./media/image5.jpeg"
+style="width:1.68542in;height:0.90486in"
+alt="Salon de jardin POLY extensible table 135-270 CM et 12 chaises bois et gris anthracite" /></p></li>
+</ol>
+<ol type="1">
+<li><p>De combien de façons peut-on faire asseoir six personnes sur une
+table douze chaises ?</p></li>
+<li><p>De combien de façons peut-on faire asseoir douze personnes sur
+table de douze chaises ?</p></li>
+</ol>
+<blockquote>
+<p><em><strong>✍ Application ⑥:</strong></em></p>
+</blockquote>
+<p>Une urne contient quatre boules blanches, trois boules Jaunes et une
+boule noire indiscernables au toucher. On tire successivement et sans
+remise trois boules de l’urne.</p>
+<p>Donner le nombre de tirages possibles.</p>
+<ol start="2" type="a">
+<li><p><em>Arrangement avec répétition</em></p></li>
+</ol>
+<p><em><strong>🖉🖉 Propriété :</strong></em></p>
+<p>Pour tout entier
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>
+et tout entier
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>p</mi><annotation encoding="application/x-tex">p</annotation></semantics></math>
+tel que :
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo>≤</mo><mi>p</mi><mo>≤</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">1 \leq p \leq n</annotation></semantics></math>.</p>
+<p>Le nombre des arrangements avec répétition
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>p</mi><annotation encoding="application/x-tex">p</annotation></semantics></math>
+éléments parmi
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>
+est :
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>n</mi><mi>p</mi></msup><annotation encoding="application/x-tex">n^{p}</annotation></semantics></math>.</p>
+<blockquote>
+<p><em><strong>✍ Application ⑦:</strong></em></p>
+</blockquote>
+<p>Une urne contient quatre boules blanches, trois boules Jaunes et une
+boule noire indiscernables au toucher. On tire successivement et avec
+remise trois boules de l’urne.</p>
+<p>Donner le nombre de tirages possibles.</p>
+<p>-------------------------------------------------</p>
+<ol start="3" type="1">
+<li><p><em><strong>Combinaison</strong></em></p></li>
+</ol>
+<p><em>✍ Activité ③:</em></p>
+<p>Un groupe se compose de quatre personnes
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">{</mo><mi>a</mi><mspace width="0.222em"></mspace><mo>;</mo><mi>b</mi><mo>;</mo><mi>c</mi><mo>;</mo><mi>d</mi><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">\{ a\ ;b;c;d\}</annotation></semantics></math>.</p>
+<p>Nous voulons former un comité de trois personnes pour effectuer une
+tâche.</p>
+<ol type="1">
+<li><p>Déterminer les comités qu’on peut former. </p></li>
+<li><p>Calculer
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mfrac><msubsup><mi>A</mi><mn>4</mn><mn>3</mn></msubsup><mrow><mn>3</mn><mi>!</mi></mrow></mfrac><annotation encoding="application/x-tex">\frac{A_{4}^{3}}{3!}</annotation></semantics></math>.
+Conclure.</p></li>
+</ol>
+<p><em><strong>🖉🖉 Définition et propriété :</strong></em></p>
+<p>Soient
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mrow><mo mathvariant="double-struck">∈</mo><mi>ℕ</mi></mrow></mrow><annotation encoding="application/x-tex">n\mathbb{\in N}</annotation></semantics></math>
+et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>E</mi><annotation encoding="application/x-tex">E</annotation></semantics></math>
+un ensemble fini de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>
+éléments et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>p</mi><annotation encoding="application/x-tex">p</annotation></semantics></math>
+un entier vérifiant :
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo>≤</mo><mi>p</mi><mo>≤</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">1 \leq p \leq n</annotation></semantics></math></p>
+<p>On appelle <strong>combinaison</strong> de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>p</mi><annotation encoding="application/x-tex">p</annotation></semantics></math>
+éléments parmi
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>
+éléments de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>E</mi><annotation encoding="application/x-tex">E</annotation></semantics></math>
+toute partie de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>E</mi><annotation encoding="application/x-tex">E</annotation></semantics></math>
+possédant
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>p</mi><annotation encoding="application/x-tex">p</annotation></semantics></math>
+éléments.</p>
+<p>Le nombre de combinaisons de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>p</mi><annotation encoding="application/x-tex">p</annotation></semantics></math>
+éléments parmi
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>
+est égal à
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>C</mi><mi>n</mi><mi>p</mi></msubsup><annotation encoding="application/x-tex">C_{n}^{p}</annotation></semantics></math> et
+on a :
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>C</mi><mi>n</mi><mi>p</mi></msubsup><mo>=</mo><mfrac><msubsup><mi>A</mi><mi>n</mi><mi>p</mi></msubsup><mrow><mi>p</mi><mi>!</mi></mrow></mfrac><mo>=</mo><mfrac><mrow><mi>n</mi><mi>!</mi></mrow><mrow><mi>p</mi><mi>!</mi><mo>×</mo><mo stretchy="false" form="prefix">(</mo><mi>n</mi><mo>−</mo><mi>p</mi><mo stretchy="false" form="postfix">)</mo><mi>!</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">C_{n}^{p} = \frac{A_{n}^{p}}{p!} = \frac{n!}{p! \times (n - p)!}</annotation></semantics></math>.</p>
+<p><em><strong>🔾 Remarques :</strong></em></p>
+<ul>
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>C</mi><mi>n</mi><mn>0</mn></msubsup><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">C_{n}^{0} = 1</annotation></semantics></math><em>.</em></p></li>
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>C</mi><mi>n</mi><mi>p</mi></msubsup><mo>=</mo><msubsup><mi>C</mi><mi>n</mi><mrow><mi>n</mi><mo>−</mo><mi>p</mi></mrow></msubsup></mrow><annotation encoding="application/x-tex">C_{n}^{p} = C_{n}^{n - p}</annotation></semantics></math><em>,</em>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>C</mi><mi>n</mi><mn>1</mn></msubsup><mo>=</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">C_{n}^{1} = n</annotation></semantics></math>
+<em>et</em>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>C</mi><mi>n</mi><mi>n</mi></msubsup><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">C_{n}^{n} = 1</annotation></semantics></math><em>.</em></p></li>
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>C</mi><mi>n</mi><mi>p</mi></msubsup><mo>=</mo><msubsup><mi>C</mi><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow><mrow><mi>p</mi><mo>−</mo><mn>1</mn></mrow></msubsup><mo>+</mo><msubsup><mi>C</mi><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow><mi>p</mi></msubsup></mrow><annotation encoding="application/x-tex">C_{n}^{p} = C_{n - 1}^{p - 1} + C_{n - 1}^{p}</annotation></semantics></math><em>.</em></p></li>
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>C</mi><mi>n</mi><mi>p</mi></msubsup><annotation encoding="application/x-tex">C_{n}^{p}</annotation></semantics></math>
+représente le nombre de façons de choisir
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>p</mi><annotation encoding="application/x-tex">p</annotation></semantics></math>
+objets parmi
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>
+(L’ordre n’est pas important et il n’y a pas de répétition)</p></li>
+</ul>
+<p><strong>🔾 <em>Exemples :</em></strong></p>
+<ul>
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>C</mi><mn>5</mn><mn>3</mn></msubsup><mo>=</mo></mrow><annotation encoding="application/x-tex">C_{5}^{3} =</annotation></semantics></math>
+-----------------------------------------------------</p></li>
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>C</mi><mn>4</mn><mn>3</mn></msubsup><mo>=</mo><mspace width="0.222em"></mspace><msubsup><mi>C</mi><mn>4</mn><mi>…</mi></msubsup><mo>=</mo></mrow><annotation encoding="application/x-tex">C_{4}^{3} = \ C_{4}^{\ldots} =</annotation></semantics></math>
+----------------------------------------------</p></li>
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>C</mi><mn>7</mn><mn>7</mn></msubsup><mo>=</mo></mrow><annotation encoding="application/x-tex">C_{7}^{7} =</annotation></semantics></math>
+-----------------------------------------------------</p></li>
+</ul>
+<blockquote>
+<p><em><strong>✍ Application ⑧:</strong></em></p>
+</blockquote>
+<p>Dans une classe est composée de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>4</mn><annotation encoding="application/x-tex">4</annotation></semantics></math>
+filles et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>6</mn><annotation encoding="application/x-tex">6</annotation></semantics></math>
+garçons.</p>
+<p>Le professeur voulait choisir
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>3</mn><annotation encoding="application/x-tex">3</annotation></semantics></math>
+élèves pour faire un exposé.</p>
+<ol type="1">
+<li><p>Déterminer le nombre de groupes que le professeur peut
+créer.</p></li>
+<li><p>Déterminer le nombre de groupes composés par les garçons
+uniquement.</p></li>
+<li><p>Déterminer le nombre de groupes qui contiennent deux filles
+exactement.</p></li>
+<li><p>Déterminer le nombre de groupes qui contiennent au moins un
+garçon.</p></li>
+<li><p>Déterminer le nombre de groupes qui contiennent aux plus trois
+filles.</p></li>
+</ol>
+<p><em><strong>✍ Exercice ②:</strong></em></p>
+<p>Une urne contient quatre boules rouges et trois boules vertes. On
+tire simultanément trois boules de l’urne.</p>
+<ol type="1">
+<li><p>Déterminer le nombre de tirages possibles.</p></li>
+<li><p>Déterminer le nombre de tirages comportant exactement une boule
+rouge.</p></li>
+<li><p>Déterminer le nombre de tirages comportant au moins une boule
+verte.</p></li>
+</ol>
+<ol start="3" type="1">
+<li><p><em>Type de tirage :</em></p></li>
+</ol>
+<p>On tire
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>p</mi><annotation encoding="application/x-tex">p</annotation></semantics></math>
+éléments parmi
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>.</p>
+<table>
+<colgroup>
+<col style="width: 36%" />
+<col style="width: 39%" />
+<col style="width: 23%" />
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: center;"><em><strong>Type de
+Tirage</strong></em></th>
+<th style="text-align: center;"><em><strong>Nombre de tirages
+possible</strong></em></th>
+<th style="text-align: center;"><em><strong>L’ordre</strong></em></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Simultané</strong></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>Successif sans
+remise</strong></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>Successif avec
+remise</strong></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+<p><em><strong>🔾 Remarque : permutation avec
+répétition</strong></em></p>
+<p>Si
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>p</mi><annotation encoding="application/x-tex">p</annotation></semantics></math>
+est le nombre de boules tirées (<strong>Successif sans remise ou avec
+remise</strong>) où
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>p</mi><mn>1</mn></msub><annotation encoding="application/x-tex">p_{1}</annotation></semantics></math>
+est le nombre de boules de type 1,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>p</mi><mn>2</mn></msub><annotation encoding="application/x-tex">p_{2}</annotation></semantics></math>
+est le nombre de boules de type 2,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>p</mi><mn>3</mn></msub><annotation encoding="application/x-tex">p_{3}</annotation></semantics></math>
+est le nombre de boules de type 3, alors le nombre de permutations est
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mfrac><mrow><mi>p</mi><mi>!</mi></mrow><mrow><msub><mi>p</mi><mn>1</mn></msub><mi>!</mi><mo>×</mo><msub><mi>p</mi><mn>2</mn></msub><mi>!</mi><mo>×</mo><msub><mi>p</mi><mn>3</mn></msub><mi>!</mi></mrow></mfrac><annotation encoding="application/x-tex">\frac{p!}{p_{1}! \times p_{2}! \times p_{3}!}</annotation></semantics></math>.</p>
+<p><img src="./media/image6.jpeg" style="width:1.02986in;height:1.05in"
+alt="Jeton Casino Vectoriels et illustrations libres de droits ..." /><em><strong>✍
+Exercice ③:</strong></em></p>
+<p>Une urne contient six jetons verts et cinq jetons rouges et trois
+jetons bleus indiscernables au toucher.</p>
+<p>On tire successivement et sans remise quatre jetons de l’urne.</p>
+<ol type="1">
+<li><p>Déterminer le nombre de tirages possibles.</p></li>
+<li><p>Déterminer le nombre de tirages où les trois premiers jetons sont
+verts.</p></li>
+<li><p>Déterminer le nombre de tirages où le premier jeton est
+vert.</p></li>
+<li><p>Déterminer le nombre de tirages comportant exactement un jeton
+vert.</p></li>
+<li><p>Déterminer le nombre de tirages comportant au moins un jeton
+vert.</p></li>
+</ol>
+<ol start="2" type="I">
+<li><p><em><strong>Expériences aléatoires – Probabilité d’un
+événement</strong></em></p></li>
+</ol>
+<ol type="1">
+<li><p><em><strong>Vocabulaires</strong></em></p></li>
+</ol>
+<ol type="a">
+<li><p><em>Expérience <strong>aléatoire</strong> -
+événement</em></p></li>
+</ol>
+<p>Une <strong>expérience aléatoire</strong> est une expérience dont les
+résultats possibles sont connus sans que l'on puisse déterminer lequel
+sera réalisé.</p>
+<ul>
+<li><p>Une <strong>issue</strong> est un des résultats possibles d'une
+expérience aléatoire.</p></li>
+<li><p>Un événement est un ensemble des issues.</p></li>
+<li><p>Tout événement formé d’une seule issue est appelé un événement
+élémentaire.</p></li>
+<li><p>L'<strong>univers</strong> associé à une expérience aléatoire est
+l'ensemble de toutes ses issues possibles. On le note souvent par
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="normal">Ω</mi><annotation encoding="application/x-tex">\Omega</annotation></semantics></math>.</p></li>
+</ul>
+<p><img src="./media/image7.jpeg"
+style="width:0.61319in;height:0.61319in"
+alt="Lancer de Dés:Amazon.fr:Appstore for Android" /><em><strong>🔾
+Exemple :</strong></em></p>
+<p>On lance un dé cubique dont les faces sont numérotées de 1 à 6 et on
+observe le nombre obtenu.</p>
+<p>Cette expérience a 6 issues possibles et l'univers associé
+est <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Ω</mi><mo>=</mo><mo stretchy="false" form="prefix" mathvariant="bold">{</mo><mn>1</mn><mo mathvariant="bold">;</mo><mn>2</mn><mo mathvariant="bold">;</mo><mn>3</mn><mo mathvariant="bold">;</mo><mn>4</mn><mo mathvariant="bold">;</mo><mn>5</mn><mo mathvariant="bold">;</mo><mn>6</mn><mo stretchy="false" form="postfix">}</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">\Omega = \mathbf{\{}1\mathbf{;}2\mathbf{;}3\mathbf{;}4\mathbf{;}5\mathbf{;}6\}.</annotation></semantics></math></p>
+<ul>
+<li><p>A :  « Obtenir un nombre impair » est un événement. Il regroupe
+les issues
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix" mathvariant="bold">{</mo><mn>1</mn><mo mathvariant="bold">;</mo><mn>3</mn><mo mathvariant="bold">;</mo><mn>5</mn><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">\mathbf{\{}1\mathbf{;}3\mathbf{;}5\}</annotation></semantics></math>
+on écrit
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>=</mo><mo stretchy="false" form="prefix" mathvariant="bold">{</mo><mn>1</mn><mo mathvariant="bold">;</mo><mn>3</mn><mo mathvariant="bold">;</mo><mn>5</mn><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">A = \mathbf{\{}1\mathbf{;}3\mathbf{;}5\}</annotation></semantics></math>.</p></li>
+<li><p>B :  « Obtenir un nombre multiple de 5 » est un événement
+élémentaire et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>B</mi><mo>=</mo><mo stretchy="false" form="prefix" mathvariant="bold">{</mo><mn>5</mn><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">B = \mathbf{\{}5\}</annotation></semantics></math>.</p></li>
+</ul>
+<ol start="2" type="a">
+<li><p><em><strong>Vocabulaire des événements</strong></em></p></li>
+</ol>
+<p>Soient
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
+et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>
+deux événements d’une expérience aléatoire.</p>
+<ul>
+<li><p>L’événement contraire de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
+est l’événement noté
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>A</mi><mo accent="true">¯</mo></mover><annotation encoding="application/x-tex">\overline{A}</annotation></semantics></math>
+formé de tous les éléments de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="normal">Ω</mi><annotation encoding="application/x-tex">\Omega</annotation></semantics></math>
+n’appartenant pas à
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math></p></li>
+<li><p>L’intersection des événements
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
+et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>,
+noté
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>∩</mo><mi>B</mi></mrow><annotation encoding="application/x-tex">A \cap B</annotation></semantics></math>,
+est l’événement formé de tous les éléments de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="normal">Ω</mi><annotation encoding="application/x-tex">\Omega</annotation></semantics></math>
+appartenant à
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
+et à
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>.</p></li>
+<li><p>La réunion des événement
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
+et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>,
+noté
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>∪</mo><mi>B</mi></mrow><annotation encoding="application/x-tex">A \cup B</annotation></semantics></math>,
+est l’événement formé de tous les éléments de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="normal">Ω</mi><annotation encoding="application/x-tex">\Omega</annotation></semantics></math>
+appartenant à
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
+ou à
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>.</p></li>
+<li><p>On dit que les événements
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
+et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>
+sont incompatible si
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>∩</mo><mi>B</mi><mo>=</mo><mi>⌀</mi></mrow><annotation encoding="application/x-tex">A \cap B = \varnothing</annotation></semantics></math>.</p></li>
+<li><p>L’ensemble vide
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>⌀</mi><annotation encoding="application/x-tex">\varnothing</annotation></semantics></math>
+est appelé événement impossible.</p></li>
+<li><p>L’univers
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="normal">Ω</mi><annotation encoding="application/x-tex">\Omega</annotation></semantics></math>
+est appelé événement certain.</p></li>
+</ul>
+<p><img src="./media/image8.jpeg"
+style="width:0.94261in;height:0.87586in"
+alt="Zwölfseitiger Würfel Stock Vector | Adobe Stock" /><em><strong>🔾
+Exemple :</strong></em></p>
+<p>On lance un dé dodécaédrique dont les faces sont numérotées
+de 1 à 12 et on observe le nombre obtenu.</p>
+<p>On considère les événements suivants :</p>
+<ul>
+<li><p>A :  « Obtenir un nombre pair ».</p></li>
+<li><p>B :  « Obtenir un nombre divisible par 3 ».</p></li>
+<li><p>C :  « Obtenir un nombre multiple de 5 ».</p></li>
+<li><p>D :  « Obtenir un nombre supérieur de 13 ».</p></li>
+</ul>
+<p>On a :</p>
+<ul>
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>=</mo></mrow><annotation encoding="application/x-tex">A =</annotation></semantics></math>------------------------------------------------------------</p></li>
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>B</mi><mo>=</mo></mrow><annotation encoding="application/x-tex">B =</annotation></semantics></math>------------------------------------------------------------</p></li>
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mo>=</mo></mrow><annotation encoding="application/x-tex">C =</annotation></semantics></math>------------------------------------------------------------</p></li>
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>A</mi><mo accent="true">¯</mo></mover><mo>=</mo></mrow><annotation encoding="application/x-tex">\overline{A} =</annotation></semantics></math>------------------------------------------------------------</p></li>
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>C</mi><mo accent="true">¯</mo></mover><mo>=</mo></mrow><annotation encoding="application/x-tex">\overline{C} =</annotation></semantics></math>------------------------------------------------------------</p></li>
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi><mo>=</mo></mrow><annotation encoding="application/x-tex">D =</annotation></semantics></math>------------------------------------------------------------</p></li>
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>∪</mo><mi>B</mi><mo>=</mo></mrow><annotation encoding="application/x-tex">A \cup B =</annotation></semantics></math>-------------------------------------------------------</p></li>
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>B</mi><mo>∪</mo><mi>C</mi><mo>=</mo></mrow><annotation encoding="application/x-tex">B \cup C =</annotation></semantics></math>-------------------------------------------------------</p></li>
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>∩</mo><mi>B</mi><mo>=</mo></mrow><annotation encoding="application/x-tex">A \cap B =</annotation></semantics></math>-------------------------------------------------------</p></li>
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>B</mi><mo>∩</mo><mi>C</mi><mo>=</mo></mrow><annotation encoding="application/x-tex">B \cap C =</annotation></semantics></math>-------------------------------------------------------</p></li>
+</ul>
+<blockquote>
+<p><em><strong>✍ Application ⑨:</strong></em></p>
+</blockquote>
+<p>On lance un dé cubique non truqué deux fois successives. On note les
+résultats de cette expérience aléatoire par le couple
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo>;</mo><mi>b</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(a;b)</annotation></semantics></math>,
+où
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>a</mi><annotation encoding="application/x-tex">a</annotation></semantics></math>
+est le résultat du premier lancer et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>b</mi><annotation encoding="application/x-tex">b</annotation></semantics></math>
+est le résultat du second lancer.</p>
+<ol type="1">
+<li><p>Déterminer
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="normal">Ω</mi><annotation encoding="application/x-tex">\Omega</annotation></semantics></math>
+l’univers de cette expérience.</p></li>
+<li><p>Déterminer les événements suivants :</p></li>
+</ol>
+<ul>
+<li><p>A :  « Obtenir deux nombres égaux ».</p></li>
+<li><p>B :  « Obtenir deux nombres pairs».</p></li>
+<li><p>C :  « Obtenir deux nombres dont le produit est 12 ».</p></li>
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>∩</mo><mi>B</mi></mrow><annotation encoding="application/x-tex">A \cap B</annotation></semantics></math>
+,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>∪</mo><mi>B</mi></mrow><annotation encoding="application/x-tex">A \cup B</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>∩</mo><mi>C</mi></mrow><annotation encoding="application/x-tex">A \cap C</annotation></semantics></math>
+et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>∪</mo><mi>C</mi></mrow><annotation encoding="application/x-tex">A \cup C</annotation></semantics></math>.</p></li>
+</ul>
+<blockquote>
+<p><em><strong>Probabilité d’un événement </strong></em></p>
+</blockquote>
+<p><img src="./media/image9.png"
+style="width:1.12222in;height:1.16667in"
+alt="Probabilités : exercices de maths en 3ème corrigés en PDF." />La
+probabilité d’un événement
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
+est un nombre compris entre
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0</mn><annotation encoding="application/x-tex">0</annotation></semantics></math>
+et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>1</mn><annotation encoding="application/x-tex">1</annotation></semantics></math>
+et qui exprime « la chance que l’événement
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
+se produire » et la note par
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">P(A)</annotation></semantics></math>.</p>
+<p><em><strong>🔾 Exemple introductif :</strong></em></p>
+<p>La roue de loterie ci-dessous est équilibrée et partagée en dix
+secteurs identiques.<br />
+On fait tourner la roue et on observe le numéro repéré.</p>
+<p>On considère les événements suivants :</p>
+<p>A :  « Obtenir le nombre 9 » et B :  « Obtenir un nombre divisible
+par 3 ».</p>
+<p>Déterminons
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">P(A)</annotation></semantics></math>
+et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false" form="prefix">(</mo><mi>B</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">P(B)</annotation></semantics></math>.</p>
+<p>On a
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>=</mo><mrow><mo stretchy="true" form="prefix">{</mo><mn>9</mn><mo stretchy="true" form="postfix">}</mo></mrow></mrow><annotation encoding="application/x-tex">A = \left\{ 9 \right\}</annotation></semantics></math>,
+puisque tous les secteurs ont les mêmes chances, alors le secteur
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>9</mn><annotation encoding="application/x-tex">9</annotation></semantics></math>
+à une chance parmi
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>10</mn><annotation encoding="application/x-tex">10</annotation></semantics></math>
+pour être repéré. Ainsi
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mn>1</mn><mn>10</mn></mfrac></mrow><annotation encoding="application/x-tex">P(A) = \frac{1}{10}</annotation></semantics></math>.</p>
+<p>On a
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>B</mi><mo>=</mo><mrow><mo stretchy="true" form="prefix">{</mo><mn>3</mn><mo>;</mo><mn>6</mn><mo>;</mo><mn>9</mn><mo stretchy="true" form="postfix">}</mo></mrow></mrow><annotation encoding="application/x-tex">B = \left\{ 3;6;9 \right\}</annotation></semantics></math>,
+donc l’événement
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>
+à trois chances parmi
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>10</mn><annotation encoding="application/x-tex">10</annotation></semantics></math>
+pour être réaliser. Ainsi
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false" form="prefix">(</mo><mi>B</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mn>3</mn><mn>10</mn></mfrac></mrow><annotation encoding="application/x-tex">P(B) = \frac{3}{10}</annotation></semantics></math>.</p>
+<p>On remarque :</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mrow><mo stretchy="true" form="prefix">(</mo><mrow><mo stretchy="true" form="prefix">{</mo><mn>3</mn><mo stretchy="true" form="postfix">}</mo></mrow><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><mi>P</mi><mrow><mo stretchy="true" form="prefix">(</mo><mrow><mo stretchy="true" form="prefix">{</mo><mn>6</mn><mo stretchy="true" form="postfix">}</mo></mrow><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><mi>P</mi><mrow><mo stretchy="true" form="prefix">(</mo><mrow><mo stretchy="true" form="prefix">{</mo><mn>9</mn><mo stretchy="true" form="postfix">}</mo></mrow><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mfrac><mn>1</mn><mn>10</mn></mfrac><mo>+</mo><mfrac><mn>1</mn><mn>10</mn></mfrac><mo>+</mo><mfrac><mn>1</mn><mn>10</mn></mfrac><mo>=</mo><mfrac><mn>3</mn><mn>10</mn></mfrac></mrow><annotation encoding="application/x-tex">P\left( \left\{ 3 \right\} \right) + P\left( \left\{ 6 \right\} \right) + P\left( \left\{ 9 \right\} \right) = \frac{1}{10} + \frac{1}{10} + \frac{1}{10} = \frac{3}{10}</annotation></semantics></math>.</p>
+<p>Ainsi
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false" form="prefix">(</mo><mi>B</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>P</mi><mrow><mo stretchy="true" form="prefix">(</mo><mrow><mo stretchy="true" form="prefix">{</mo><mn>3</mn><mo stretchy="true" form="postfix">}</mo></mrow><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><mi>P</mi><mrow><mo stretchy="true" form="prefix">(</mo><mrow><mo stretchy="true" form="prefix">{</mo><mn>6</mn><mo stretchy="true" form="postfix">}</mo></mrow><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><mi>P</mi><mrow><mo stretchy="true" form="prefix">(</mo><mrow><mo stretchy="true" form="prefix">{</mo><mn>9</mn><mo stretchy="true" form="postfix">}</mo></mrow><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">P(B) = P\left( \left\{ 3 \right\} \right) + P\left( \left\{ 6 \right\} \right) + P\left( \left\{ 9 \right\} \right)</annotation></semantics></math>.</p>
+<p><em><strong>🖉🖉 Définition :</strong></em></p>
+<p>La probabilité d’un évènement
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
+est la somme des probabilités des événements élémentaires qui le
+constituent, on la note
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">P(A)</annotation></semantics></math>.</p>
+<p><em><strong>🔾 Remarques :</strong></em></p>
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr>
+<th><p>Soit
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="normal">Ω</mi><annotation encoding="application/x-tex">\Omega</annotation></semantics></math>
+l’univers d’une expérience aléatoire.</p>
+<ul>
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false" form="prefix">(</mo><mi mathvariant="normal">Ω</mi><mspace width="0.222em"></mspace><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>1</mn><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mi>e</mi><mi>t</mi><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mi>P</mi><mo stretchy="false" form="prefix">(</mo><mi>⌀</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">P(\Omega\ ) = 1\ \ \ et\ \ P(\varnothing) = 0</annotation></semantics></math><em>.</em></p></li>
+<li><p>Pour tout événement
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math> :
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mo>≤</mo><mi>P</mi><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo stretchy="false" form="postfix">)</mo><mo>≤</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">0 \leq P(A) \leq 1</annotation></semantics></math>.</p></li>
+</ul></th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<p><em><strong>🔾 Exemple :</strong></em></p>
+<p>On lance un dé cubique non truqué dont les faces sont numérotées
+de 1 à 6. </p>
+<p>On considère les événements :</p>
+<ul>
+<li><p>A : « Obtenir un nombre pair et multiple de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>3</mn><annotation encoding="application/x-tex">3</annotation></semantics></math> ».</p></li>
+<li><p>B :  « Obtenir un nombre premier » .</p></li>
+</ul>
+<p>On a
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>=</mo></mrow><annotation encoding="application/x-tex">A =</annotation></semantics></math>---------------------
+et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>B</mi><mo>=</mo></mrow><annotation encoding="application/x-tex">B =</annotation></semantics></math>--------------------------</p>
+<p><img src="./media/image10.gif"
+style="width:0.98958in;height:0.80208in"
+alt="C:\Users\amonet\Desktop\df_img02.gif" />Donc :</p>
+<ul>
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo></mrow><annotation encoding="application/x-tex">P(A) =</annotation></semantics></math>
+-------------------------------------------------------</p></li>
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false" form="prefix">(</mo><mi>B</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo></mrow><annotation encoding="application/x-tex">P(B) =</annotation></semantics></math>
+<em>-------------------------------------------------------</em></p></li>
+</ul>
+<blockquote>
+<p><em><strong>✍ Application ①⓪ :</strong></em></p>
+</blockquote>
+<p>On lance un dé tétraédrique dont les faces sont numérotées de 1 à 4
+tel que
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mrow><mo stretchy="true" form="prefix">(</mo><mrow><mo stretchy="true" form="prefix">{</mo><mn>1</mn><mo stretchy="true" form="postfix">}</mo></mrow><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>0</mn><mo>,</mo><mn>3</mn></mrow><annotation encoding="application/x-tex">P\left( \left\{ 1 \right\} \right) = 0,3</annotation></semantics></math> ;
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mrow><mo stretchy="true" form="prefix">(</mo><mrow><mo stretchy="true" form="prefix">{</mo><mn>2</mn><mo stretchy="true" form="postfix">}</mo></mrow><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>0</mn><mo>,</mo><mn>1</mn><mspace width="0.222em"></mspace></mrow><annotation encoding="application/x-tex">P\left( \left\{ 2 \right\} \right) = 0,1\ </annotation></semantics></math>;
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mrow><mo stretchy="true" form="prefix">(</mo><mrow><mo stretchy="true" form="prefix">{</mo><mn>3</mn><mo stretchy="true" form="postfix">}</mo></mrow><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>0</mn><mo>,</mo><mn>4</mn></mrow><annotation encoding="application/x-tex">P\left( \left\{ 3 \right\} \right) = 0,4</annotation></semantics></math>
+et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mrow><mo stretchy="true" form="prefix">(</mo><mrow><mo stretchy="true" form="prefix">{</mo><mn>4</mn><mo stretchy="true" form="postfix">}</mo></mrow><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>0</mn><mo>,</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">P\left( \left\{ 4 \right\} \right) = 0,2</annotation></semantics></math>.</p>
+<p>Calculer la probabilité des événements suivants
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>=</mo><mrow><mo stretchy="true" form="prefix">{</mo><mn>2</mn><mo>,</mo><mn>4</mn><mo stretchy="true" form="postfix">}</mo></mrow><mspace width="0.222em"></mspace></mrow><annotation encoding="application/x-tex">A = \left\{ 2,4 \right\}\ </annotation></semantics></math>;
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>B</mi><mo>=</mo><mrow><mo stretchy="true" form="prefix">{</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo>,</mo><mn>4</mn><mo stretchy="true" form="postfix">}</mo></mrow></mrow><annotation encoding="application/x-tex">B = \left\{ 1,2,4 \right\}</annotation></semantics></math>
+et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mo>=</mo><mrow><mo stretchy="true" form="prefix">{</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo>,</mo><mn>3</mn><mo>,</mo><mn>4</mn><mo stretchy="true" form="postfix">}</mo></mrow></mrow><annotation encoding="application/x-tex">C = \left\{ 1,2,3,4 \right\}</annotation></semantics></math>.</p>
+<p><em><strong>🖉🖉 Propriété :</strong></em></p>
+<p>Soient
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
+et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>
+deux événements de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="normal">Ω</mi><annotation encoding="application/x-tex">\Omega</annotation></semantics></math>.
+On a :</p>
+<ul>
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo>∪</mo><mi>B</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>P</mi><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mi>P</mi><mo stretchy="false" form="prefix">(</mo><mi>B</mi><mo stretchy="false" form="postfix">)</mo><mo>−</mo><mi>P</mi><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo>∩</mo><mi>B</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">P(A \cup B) = P(A) + P(B) - P(A \cap B)</annotation></semantics></math>.</p></li>
+<li><p>Si
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>∩</mo><mi>B</mi><mo>=</mo><mi>⌀</mi></mrow><annotation encoding="application/x-tex">A \cap B = \varnothing</annotation></semantics></math>,
+alors 
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo>∪</mo><mi>B</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>P</mi><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mi>P</mi><mo stretchy="false" form="prefix">(</mo><mi>B</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">P(A \cup B) = P(A) + P(B)</annotation></semantics></math>.</p></li>
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false" form="prefix">(</mo><mover><mi>A</mi><mo accent="true">¯</mo></mover><mspace width="0.222em"></mspace><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>1</mn><mo>−</mo><mi>P</mi><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">P(\overline{A}\ ) = 1 - P(A)</annotation></semantics></math>.</p></li>
+</ul>
+<blockquote>
+<p><em><strong>✍ Application ①① :</strong></em></p>
+</blockquote>
+<p>On lance une pièce de monnaie non truquée trois fois successives. On
+considère les événements suivants :</p>
+<ul>
+<li><p>A :  <span dir="rtl">"</span>Obtenir la face
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>F</mi><annotation encoding="application/x-tex">F</annotation></semantics></math>
+exactement une fois<span dir="rtl">"</span>.</p></li>
+<li><p>B :  <span dir="rtl">"</span>Obtenir la face
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>P</mi><annotation encoding="application/x-tex">P</annotation></semantics></math>
+au maximum deux fois<span dir="rtl">"</span>.</p></li>
+</ul>
+<ol type="1">
+<li><p>À l'aide de l'arbre des choix, déterminer l'univers des
+possibilités.</p></li>
+<li><p>Calculer la probabilité des événements :
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>A</mi><mo accent="true">¯</mo></mover><annotation encoding="application/x-tex">\overline{A}</annotation></semantics></math>
+,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>B</mi><mo accent="true">¯</mo></mover><annotation encoding="application/x-tex">\overline{B}</annotation></semantics></math>
+, A∩B et A∪B.</p></li>
+</ol>
+<ol start="2" type="1">
+<li><p><em><strong>Hypothèse d’équiprobabilité :</strong></em></p></li>
+</ol>
+<p><em><strong>🖉🖉 Propriété :</strong></em></p>
+<p>Soit une expérience aléatoire d'univers
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="normal">Ω</mi><annotation encoding="application/x-tex">\Omega</annotation></semantics></math>
+où tous les événements élémentaires ont même probabilité.</p>
+<ul>
+<li><p>La probabilité d’un évènement
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
+de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="normal">Ω</mi><annotation encoding="application/x-tex">\Omega</annotation></semantics></math>
+est
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mrow><mi>c</mi><mi>a</mi><mi>r</mi><mi>d</mi><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo stretchy="false" form="postfix">)</mo></mrow><mrow><mi>c</mi><mi>a</mi><mi>r</mi><mi>d</mi><mo stretchy="false" form="prefix">(</mo><mi mathvariant="normal">Ω</mi><mo stretchy="false" form="postfix">)</mo></mrow></mfrac></mrow><annotation encoding="application/x-tex">P(A) = \frac{card(A)}{card(\Omega)}</annotation></semantics></math>.</p></li>
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>c</mi><mi>a</mi><mi>r</mi><mi>d</mi><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">card(A)</annotation></semantics></math>
+se lit « cardinal de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math> »
+et représente le nombre des éléments de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>.</p></li>
+</ul>
+<blockquote>
+<p><em><strong>✍ Application ①② :</strong></em></p>
+</blockquote>
+<p>Un sac contient 4 boules rouges, 3 boules vertes et 2 boules blanches
+indiscernables au toucher. On tire simultanément et au hasard 3 boules
+du sac.</p>
+<ol type="1">
+<li><p>Combien y' a-t-il de résultats possibles ?</p></li>
+<li><p>Calculer la probabilité de chaque événement :</p></li>
+</ol>
+<ul>
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>:"
+Obtenir 3 boules rouges ".</p></li>
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>:"
+Obtenir 3 boules de même couleur ".</p></li>
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>C</mi><annotation encoding="application/x-tex">C</annotation></semantics></math>
+:" Obtenir 3 boules de couleurs distinctes deux à deux "</p></li>
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>D</mi><annotation encoding="application/x-tex">D</annotation></semantics></math>
+:" Obtenir exactement une boule rouge "</p></li>
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>E</mi><annotation encoding="application/x-tex">E</annotation></semantics></math>
+:" Obtenir au moins une boule blanche "</p></li>
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi><mo>∩</mo><mi>D</mi></mrow><annotation encoding="application/x-tex">E \cap D</annotation></semantics></math>
+et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi><mo>∪</mo><mi>D</mi></mrow><annotation encoding="application/x-tex">E \cup D</annotation></semantics></math>.</p></li>
+</ul>
+<p><em><strong>✍ Exercice ④:</strong></em></p>
+<p>Un sac contient trois jetons blancs portant les numéros 1, 1, 2 et
+quatre jetons noirs portant les numéros 1, 2, 2, 2. On tire
+successivement et sans remise trois jetons du sac.</p>
+<p>Sachant que les jetons sont jetons indiscernables au toucher,
+calculer les probabilités des événements suivants :</p>
+<ul>
+<li><p>A : "Obtenir trois jetons de la même couleur".</p></li>
+<li><p>B : "Obtenir au moins un jeton blanc".</p></li>
+<li><p>C : "Obtenir trois jetons du même nombre".</p></li>
+<li><p>D : "Obtenir trois jetons dont la somme est paire".</p></li>
+<li><p>E "Obtenir trois jetons dont la somme est un nombre
+impair".</p></li>
+</ul>
+<ol start="3" type="I">
+<li><p><em><strong>Probabilité conditionnelle- indépendance de deux
+événements :</strong></em></p></li>
+</ol>
+<ol type="1">
+<li><p><em><strong>Probabilité conditionnelle</strong></em></p></li>
+</ol>
+<p><em>✍ Activité ④:</em></p>
+<p>Une classe est composée de 23 élevés répartis selon le tableau
+suivant :</p>
+<table>
+<colgroup>
+<col style="width: 23%" />
+<col style="width: 30%" />
+<col style="width: 24%" />
+<col style="width: 22%" />
+</colgroup>
+<thead>
+<tr>
+<th></th>
+<th style="text-align: center;"><em>Redoublements</em></th>
+<th style="text-align: center;"><em>Nouveaux</em></th>
+<th style="text-align: center;"><em>Total</em></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>Garçons</em></td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">11</td>
+</tr>
+<tr>
+<td><em>Filles</em></td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">12</td>
+</tr>
+<tr>
+<td><em>Total</em></td>
+<td style="text-align: center;">15</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">23</td>
+</tr>
+</tbody>
+</table>
+<ol type="1">
+<li><p>On sélectionne au hasard un élève de la classe, on suppose que
+tous les élèves ont la même probabilité d'être sélectionnés.</p>
+<ol type="a">
+<li><p>Calculer la probabilité de chacun des événements suivants
+:</p></li>
+</ol></li>
+</ol>
+<p>G : "Sélection d'un garçon "</p>
+<p>F : "Sélection d'une fille ".</p>
+<p>I : "Sélection d’un élève redoublant ".</p>
+<ol start="2" type="a">
+<li><p>Calculer
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false" form="prefix">(</mo><mi>G</mi><mo>∩</mo><mi>I</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">P(G \cap I)</annotation></semantics></math>
+et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false" form="prefix">(</mo><mi>F</mi><mo>∩</mo><mi>I</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">P(F \cap I)</annotation></semantics></math>.</p></li>
+</ol>
+<ol start="2" type="1">
+<li><p>a. Sachant que l’élève choisi est un garçon. Quelle est la
+probabilité qu'il soit un redoublant ? notons cette probabilité <span
+dir="rtl"></span>par
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>P</mi><mi>G</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>I</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">P_{G}(I)</annotation></semantics></math>
+.</p>
+<ol start="2" type="a">
+<li><p>Vérifier que :
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>P</mi><mi>G</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>I</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mrow><mi>P</mi><mo stretchy="false" form="prefix">(</mo><mi>G</mi><mo>∩</mo><mi>I</mi><mo stretchy="false" form="postfix">)</mo></mrow><mrow><mi>P</mi><mo stretchy="false" form="prefix">(</mo><mi>G</mi><mo stretchy="false" form="postfix">)</mo></mrow></mfrac></mrow><annotation encoding="application/x-tex">P_{G}(I) = \frac{P(G \cap I)}{P(G)}</annotation></semantics></math>.</p></li>
+<li><p>Que représentent les probabilités suivantes :
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>P</mi><mi>F</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>I</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">P_{F}(I)</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>P</mi><mi>I</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>F</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">P_{I}(F)</annotation></semantics></math>
+et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>P</mi><mi>I</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>G</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">P_{I}(G)</annotation></semantics></math>?
+Calculer ces probabilités.</p></li>
+</ol></li>
+</ol>
+<p><em><strong>🖉🖉 Définition :</strong></em></p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
+et<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mspace width="0.222em"></mspace><mi>B</mi></mrow><annotation encoding="application/x-tex">\ B</annotation></semantics></math>
+sont deux événements d’un univers
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="normal">Ω</mi><annotation encoding="application/x-tex">\mathrm{\Omega}</annotation></semantics></math>
+d’une expérience aléatoire tel que
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo stretchy="false" form="postfix">)</mo><mo>≠</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">P(A) \neq 0</annotation></semantics></math>.</p>
+<p>La probabilité de l’événement
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>
+sachant que l’événement
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
+est réalisé
+est :<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mfrac><mrow><mi>P</mi><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo>∩</mo><mi>B</mi><mo stretchy="false" form="postfix">)</mo></mrow><mrow><mi>P</mi><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo stretchy="false" form="postfix">)</mo></mrow></mfrac><annotation encoding="application/x-tex">\frac{P(A \cap B)}{P(A)}</annotation></semantics></math> ,
+on la note
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>P</mi><mi>A</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>B</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">P_{A}(B)</annotation></semantics></math>
+ou
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false" form="prefix">(</mo><mi>B</mi><mi>/</mi><mi>A</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">P(B/A)</annotation></semantics></math>.</p>
+<blockquote>
+<p><em><strong>✍ Application ①③ :</strong></em></p>
+</blockquote>
+<p>Un sac contient cinq jetons blancs avec les numéros 1,1,1,0,0, quatre
+jetons rouges avec les numéros 1,1,0,0 et deux jetons verts avec les
+numéros 0,1.</p>
+<p>On tire successivement et avec remise trois jetons du sac.</p>
+<ol type="1">
+<li><p>Sachant que les jetons sont jetons indiscernables au toucher,
+calculer les probabilités des événements suivants :</p></li>
+</ol>
+<p>• A : "Obtenir trois jetons de la même couleur".</p>
+<p>• B : « Obtenir trois jetons de même numéro ».</p>
+<p>• C : "Obtenir trois jetons de couleurs différentes, deux à
+deux."</p>
+<ol start="2" type="1">
+<li><p>Sachant que les boules ont la même couleur, quelle est la
+probabilité qu'elles aient le même numéro ?</p></li>
+<li><p>Sachant que les boules tirées portent le même numéro, quelle est
+la probabilité qu'elles soient de couleurs différentes, deux à deux
+?</p></li>
+</ol>
+<p><em><strong>solution :</strong></em></p>
+<p><em><strong>✍ Exercice ⑤:</strong></em></p>
+<p>Une personne lave des gobelets dans un café.</p>
+<p>La probabilité qu'il casse la première tasse qu'il lave est de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mfrac><mn>2</mn><mn>7</mn></mfrac><annotation encoding="application/x-tex">\frac{2}{7}</annotation></semantics></math>.</p>
+<p>Lorsqu'il casse le premier gobelet, son attention augmente de sorte
+que la probabilité de casser le deuxième est de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mfrac><mn>1</mn><mn>5</mn></mfrac><annotation encoding="application/x-tex">\frac{1}{5}</annotation></semantics></math>
+.</p>
+<p>S'il ne casse pas le premier gobelet, la probabilité de casser le
+deuxième est de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mfrac><mn>3</mn><mn>7</mn></mfrac><annotation encoding="application/x-tex">\frac{3}{7}</annotation></semantics></math>.</p>
+<p>On considère les événements suivants :</p>
+<p>A : « casser le premier gobelet » ;</p>
+<p>B : « Casser le second gobelet ».</p>
+<ol type="1">
+<li><p>Construire un arbre de probabilité.</p></li>
+<li><p>Calculer la probabilité de casser le premier et le second
+gobelet.</p></li>
+<li><p>Calculer la probabilité de casser le second gobelet.</p></li>
+<li><p>Calculer la probabilité que le second gobelet reste intact étant
+donné que le premier gobelet reste intact.</p></li>
+</ol>
+<p><em><strong>✍ Exercice ⑥:</strong></em></p>
+<p>Un sac
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>u</mi><mn>1</mn></msub><annotation encoding="application/x-tex">u_{1}</annotation></semantics></math>
+contient quatre boules blanches et une boule noire, et un autre sac
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>u</mi><mrow><mn>2</mn><mspace width="0.222em"></mspace></mrow></msub><annotation encoding="application/x-tex">u_{2\ }</annotation></semantics></math>contient
+deux boules blanches et trois boules noires.</p>
+<p>On choisit au hasard l'un des deux sacs puis on y tire une boule.</p>
+<ol type="1">
+<li><p>Construire un arbre de probabilité<span
+dir="rtl">.</span></p></li>
+<li><p>Calculer la probabilité de choisir le sac
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>u</mi><mn>1</mn></msub><annotation encoding="application/x-tex">u_{1}</annotation></semantics></math>
+et d'obtenir une boule noire<span dir="rtl">.</span></p></li>
+<li><p>Calculer la probabilité d'obtenir une boule noire<span
+dir="rtl">.</span></p></li>
+<li><p>En déduire la probabilité d'obtenir une boule blanche<span
+dir="rtl">.</span></p></li>
+<li><p>La boule tirée est noire, quelle est la probabilité qu'elle soit
+tirée du sac
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>u</mi><mn>1</mn></msub><mspace width="0.222em"></mspace></mrow><annotation encoding="application/x-tex">u_{1}\ </annotation></semantics></math>?</p></li>
+</ol>
+<ol start="2" type="1">
+<li><p><em><strong>Indépendance de deux
+événements</strong></em></p></li>
+</ol>
+<p><em><strong>🖉🖉 Définition :</strong></em></p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
+et<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mspace width="0.222em"></mspace><mi>B</mi></mrow><annotation encoding="application/x-tex">\ B</annotation></semantics></math>
+sont deux événements d’un univers
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="normal">Ω</mi><annotation encoding="application/x-tex">\mathrm{\Omega}</annotation></semantics></math>
+d’une expérience aléatoire.</p>
+<p>On dit que
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
+et<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mspace width="0.222em"></mspace><mi>B</mi></mrow><annotation encoding="application/x-tex">\ B</annotation></semantics></math>
+sont indépendants si :</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo>∩</mo><mi>B</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>P</mi><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo stretchy="false" form="postfix">)</mo><mo>×</mo><mi>P</mi><mo stretchy="false" form="prefix">(</mo><mi>B</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">P(A \cap B) = P(A) \times P(B)</annotation></semantics></math></p>
+<p><em><strong>🔾 Conséquence :</strong></em></p>
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr>
+<th><p>Soient
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
+et<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mspace width="0.222em"></mspace><mi>B</mi></mrow><annotation encoding="application/x-tex">\ B</annotation></semantics></math>
+sont deux événements tel que
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo stretchy="false" form="postfix">)</mo><mo>≠</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">P(A) \neq 0</annotation></semantics></math>.</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
+et<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mspace width="0.222em"></mspace><mi>B</mi></mrow><annotation encoding="application/x-tex">\ B</annotation></semantics></math>
+sont indépendants si et seulement si</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mspace width="0.222em"></mspace><msub><mi>𝒫</mi><mi>A</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>B</mi><mo stretchy="false" form="postfix">)</mo><mrow><mo mathvariant="script">=</mo><mspace width="0.222em"></mspace><mi>𝒫</mi></mrow><mo stretchy="false" form="prefix">(</mo><mi>B</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\ \mathcal{P}_{A}(B)\mathcal{= \ P}(B)</annotation></semantics></math></p></th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<p><em><strong>🔾 Exemple :</strong></em></p>
+<p>On lance un dé cubique non truqué dont les faces sont numérotées
+de 1 à 6. </p>
+<p>On considère les événements :</p>
+<ul>
+<li><p>A : « Obtenir un nombre impair ».</p></li>
+<li><p>B :  « Obtenir le nombre 3 » .</p></li>
+</ul>
+<p>On a
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo>∩</mo><mi>B</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo></mrow><annotation encoding="application/x-tex">P(A \cap B) =</annotation></semantics></math>--------
+et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo stretchy="false" form="postfix">)</mo><mo>×</mo><mi>P</mi><mo stretchy="false" form="prefix">(</mo><mi>B</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo></mrow><annotation encoding="application/x-tex">P(A) \times P(B) =</annotation></semantics></math>------------------.</p>
+<p>Donc
+----------------------------------------------------------------------------------------------------------------------------------------------</p>
+<blockquote>
+<p><em><strong>✍ Application ①④ :</strong></em></p>
+<p>Un sac contient neuf boules indiscernables au toucher :</p>
+<p>Deux boules blanches portant le numéro 1, trois boules rouges portant
+les numéros 1, 1 et 2 et quatre boules noires portant les numéros 1, 1,
+2 et 2.</p>
+<p>On tire simultanément et au hasard 3 boules du sac.</p>
+</blockquote>
+<ol type="1">
+<li><p>Calculer la probabilité des événements suivants :</p></li>
+</ol>
+<blockquote>
+<p>A : "Obtenir trois boules de couleurs différentes, deux à deux."</p>
+</blockquote>
+<p>B : "Obtenir trois boules portant le même numéro "</p>
+<ol start="2" type="1">
+<li><p>Les événements A et B sont-ils indépendants ?</p></li>
+</ol>
+<ol start="3" type="1">
+<li><p><em><strong>Epreuves répétées</strong></em></p></li>
+</ol>
+<p><em><strong>🖉🖉 Propriété :</strong></em></p>
+<p>Soit
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
+un événement de probabilité
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>p</mi><annotation encoding="application/x-tex">p</annotation></semantics></math>
+dans une épreuve aléatoire.</p>
+<p>Si cette épreuve est répétée
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>
+fois, alors la probabilité que A se produise exactement
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>k</mi><annotation encoding="application/x-tex">k</annotation></semantics></math>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>k</mi><mo>≤</mo><mi>n</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(k \leq n)</annotation></semantics></math>
+fois est
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>C</mi><mi>n</mi><mi>k</mi></msubsup><msup><mi>p</mi><mi>k</mi></msup><msup><mrow><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>−</mo><mi>p</mi><mo stretchy="false" form="postfix">)</mo></mrow><mrow><mi>n</mi><mo>−</mo><mi>k</mi></mrow></msup></mrow><annotation encoding="application/x-tex">C_{n}^{k}p^{k}{(1 - p)}^{n - k}</annotation></semantics></math>.</p>
+<p><em><strong>🔾 Exemple :</strong></em></p>
+<p>Lorsqu’on lance un dé cubique non truqué quatre fois successives, la
+probabilité d'obtenir le chiffre 2 trois fois est :
+---------------------------------------------------------------------</p>
+<blockquote>
+<p><em><strong>✍ Application ①⑤ :</strong></em></p>
+</blockquote>
+<p><img src="./media/image11.jpeg"
+style="width:1.73472in;height:1.22917in"
+alt="Archer Avec Arc Et Flèche Visant à La Cible De La Cible à L&#39;extérieur Archer Tireur Avec Formation De Pointage D&#39;arc Long Activité De Loisirs De Tir à L&#39;arc Illustration Vectorielle Plane" />La
+probabilité qu'un tireur d’arc touche la cible est de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mfrac><mn>2</mn><mn>3</mn></mfrac><annotation encoding="application/x-tex">\frac{2}{3}</annotation></semantics></math>
+<span dir="rtl"></span>.</p>
+<p>Ce tireur a fait dix tentatives.</p>
+<p>Quelle est la probabilité d'atteindre la cible exactement six fois
+?</p>
+<p><em><strong>✍ Exercice ⑦:</strong></em></p>
+<p>Un sac contient six boules blanches et quatre boules noires. On
+considère le jeu suivant :</p>
+<p>Le joueur tire 3 boules simultanément du sac, et le joueur est
+considéré comme gagnant si les trois boules tirées sont blanches.</p>
+<p>Ahmed a joué ce jeu 4 fois. Quelle est la probabilité de gagner
+exactement 3 fois ?</p>
+<ol start="4" type="I">
+<li><p><em><strong>Variable aléatoire- variable aléatoire
+binomiale :</strong></em></p></li>
+</ol>
+<ol type="1">
+<li><p><em><strong>Variable aléatoire</strong></em></p></li>
+</ol>
+<p><em>✍ Activité ⑤:</em></p>
+<blockquote>
+<p>On lance une pièce de monnaie trois fois successives. On note
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>
+le nombre de fois que la face
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>F</mi><annotation encoding="application/x-tex">F</annotation></semantics></math>
+apparaît.</p>
+</blockquote>
+<ol type="1">
+<li><p>Déterminer l'univers
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="normal">Ω</mi><annotation encoding="application/x-tex">\mathrm{\Omega}</annotation></semantics></math>
+puis en déduire les valeurs que peut prendre la variable
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>.</p></li>
+<li><p>Que signifient les événements
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo>=</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(X = 1)</annotation></semantics></math>
+et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo>=</mo><mn>2</mn><mo stretchy="false" form="postfix">)</mo><mspace width="0.222em"></mspace></mrow><annotation encoding="application/x-tex">(X = 2)\ </annotation></semantics></math>?</p></li>
+<li><p>a. Vérifier que
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo>=</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mn>3</mn><mn>8</mn></mfrac></mrow><annotation encoding="application/x-tex">P(X = 1) = \frac{3}{8}</annotation></semantics></math>.</p></li>
+</ol>
+<blockquote>
+<p>b. Remplir le tableau suivant :</p>
+</blockquote>
+<table>
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 20%" />
+<col style="width: 18%" />
+<col style="width: 17%" />
+<col style="width: 24%" />
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: center;">3</th>
+<th style="text-align: center;">2</th>
+<th style="text-align: center;">1</th>
+<th style="text-align: center;">0</th>
+<th
+style="text-align: center;"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>x</mi><mi>i</mi></msub><annotation encoding="application/x-tex">x_{i}</annotation></semantics></math></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td
+style="text-align: center;"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>X</mi><mo>=</mo><msub><mi>x</mi><mi>i</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">P\left( X = x_{i} \right)</annotation></semantics></math></td>
+</tr>
+</tbody>
+</table>
+<p><em><strong>🖉🖉 Définition :</strong></em></p>
+<p>Une <em><strong>variable aléatoire</strong></em> est
+une fonction de Ω à valeurs
+dans <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ℝ</mi><annotation encoding="application/x-tex">\mathbb{R}</annotation></semantics></math> qui
+à chaque issue de Ω associe un nombre.</p>
+<p>On note
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo stretchy="false" form="prefix">(</mo><mi mathvariant="normal">Ω</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">X(\Omega)</annotation></semantics></math>
+l’ensemble des valeurs possibles de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>.</p>
+<p><em><strong>🔾 Remarque :</strong></em></p>
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr>
+<th><p>Soit
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>
+une variable aléatoire prenant les valeurs
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>x</mi><mn>1</mn></msub><annotation encoding="application/x-tex">x_{1}</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>x</mi><mn>2</mn></msub><annotation encoding="application/x-tex">x_{2}</annotation></semantics></math>,
+…,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>x</mi><mi>n</mi></msub><annotation encoding="application/x-tex">x_{n}</annotation></semantics></math>
+.</p>
+<p>La loi de probabilité de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>
+est donnée par toutes les probabilités
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>X</mi><mo>=</mo><msub><mi>x</mi><mi>i</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">P\left( X = x_{i} \right)</annotation></semantics></math>.</p></th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<p><em><strong>🔾 Exemple :</strong></em></p>
+<p>Une urne contient 6 jetons, numérotés de 1 à 6 indiscernables au
+toucher. Un joueur pioche un jeton.</p>
+<ul>
+<li><p>Si le numéro est pair, il gagne 5 Dh.</p></li>
+<li><p>S'il prélève le numéro 1, il gagne 40 Dh.</p></li>
+<li><p>Sinon il perd 15 Dh.</p></li>
+</ul>
+<p>Soit <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math> la
+variable aléatoire égale au gain algébrique du joueur.</p>
+<p>La variable
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>
+peut prendre les valeurs ------------------------</p>
+<p>Donc
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo stretchy="false" form="prefix">(</mo><mi mathvariant="normal">Ω</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo></mrow><annotation encoding="application/x-tex">X(\Omega) =</annotation></semantics></math>
+--------------------------------------------- et on a :</p>
+<ul>
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo>=</mo><mi>…</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo></mrow><annotation encoding="application/x-tex">P(X = \ldots) =</annotation></semantics></math>--------------------------------------------</p></li>
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo>=</mo><mi>…</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo></mrow><annotation encoding="application/x-tex">P(X = \ldots) =</annotation></semantics></math>--------------------------------------------</p></li>
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo>=</mo><mi>…</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo></mrow><annotation encoding="application/x-tex">P(X = \ldots) =</annotation></semantics></math>--------------------------------------------</p></li>
+</ul>
+<p>On résume ces calculs dans le tableau :</p>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 23%" />
+<col style="width: 21%" />
+<col style="width: 30%" />
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th
+style="text-align: center;"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>x</mi><mi>i</mi></msub><annotation encoding="application/x-tex">x_{i}</annotation></semantics></math></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td
+style="text-align: center;"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>X</mi><mo>=</mo><msub><mi>x</mi><mi>i</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">P\left( X = x_{i} \right)</annotation></semantics></math></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><em><strong>✍ Application ①⑥ :</strong></em></p>
+</blockquote>
+<p>Un sachet contient 6 boules blanches et 2 boules noires. On tire
+successivement et sans remise deux boules du sac.</p>
+<p>Soit
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>
+la variable aléatoire qui relie chaque tirage au nombre de boules
+blanches tirées.</p>
+<ol type="1">
+<li><p>Déterminer
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo stretchy="false" form="prefix">(</mo><mi mathvariant="normal">Ω</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">X(\Omega)</annotation></semantics></math>.</p></li>
+<li><p>Donner la loi de probabilité
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>.</p></li>
+</ol>
+<p><em><strong>✍ Exercice ⑧:</strong></em></p>
+<p>On considère le jeu suivant :</p>
+<p>"Un sac contient quatre boules blanches et deux boules noires
+indiscernables au toucher.</p>
+<p>Le joueur doit tirer simultanément trois boules.</p>
+<p>A chaque tirage, le joueur gagne un dirham (+1) pour chaque boule
+blanche et perd un dirham pour chaque boule noire."</p>
+<p>Soit
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>
+la variable aléatoire qui relie chaque tirage au gain du joueur.</p>
+<ol type="1">
+<li><p>Déterminer
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo stretchy="false" form="prefix">(</mo><mi mathvariant="normal">Ω</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">X(\Omega)</annotation></semantics></math>.</p></li>
+<li><p>Donner la loi de probabilité
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>.</p></li>
+</ol>
+<p><em><strong>✍ Exercice ⑨: normale 2017</strong></em></p>
+<p><img src="./media/image12.png"
+style="width:1.34444in;height:0.61667in"
+alt="Une image contenant texte Description générée automatiquement" />Une
+urne contient huit boules indiscernables au toucher portant chacune un
+nombre comme indiqué sur la figure ci-contre</p>
+<p>On tire au hasard, simultanément, trois boules de l’urne.</p>
+<ol type="1">
+<li><p>Soit
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
+l’événement :</p></li>
+</ol>
+<p>« Parmi les trois boules tirées, aucune ne porte le nombre
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0</mn><annotation encoding="application/x-tex">0</annotation></semantics></math> »
+et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>
+l’événement :</p>
+<p>« Le produit des nombres portés par les trois boules tirées est égale
+à 8»</p>
+<p>Montrer que
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mn>5</mn><mn>14</mn></mfrac></mrow><annotation encoding="application/x-tex">p(A) = \frac{5}{14}</annotation></semantics></math>
+et que
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo stretchy="false" form="prefix">(</mo><mi>B</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mn>1</mn><mn>7</mn></mfrac></mrow><annotation encoding="application/x-tex">p(B) = \frac{1}{7}</annotation></semantics></math>.
+<strong>(1,5 pt )</strong></p>
+<ol start="2" type="1">
+<li><p>Soit
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>
+la variable aléatoire qui à chaque tirage associe le produit des nombres
+portés par les trois boules tirées.</p></li>
+</ol>
+<ol type="a">
+<li><p>Montrer que
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo>=</mo><mn>16</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mn>3</mn><mn>28</mn></mfrac></mrow><annotation encoding="application/x-tex">p(X = 16) = \frac{3}{28}</annotation></semantics></math>.
+<strong>(0,5 pt )</strong></p></li>
+<li><p><img src="./media/image13.png"
+style="width:2.10347in;height:0.77292in" />Le tableau ci-contre concerne
+la loi de probabilité de la variable aléatoire
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>.</p></li>
+</ol>
+<p>Recopier sur votre copie et compléter le tableau en justifiant chaque
+réponse. <strong>(1 pt )</strong></p>
+<p><em><strong>🖉🖉 Définition :</strong></em></p>
+<p>Soit
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>
+une variable aléatoire définie sur un univers
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi mathvariant="normal">Ω</mi><annotation encoding="application/x-tex">\Omega</annotation></semantics></math>
+d’une expérience aléatoire et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo stretchy="false" form="prefix">(</mo><mi mathvariant="normal">Ω</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mo stretchy="false" form="prefix">{</mo><msub><mi>x</mi><mn>1</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>x</mi><mi>n</mi></msub><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">X(\Omega) = \{ x_{1},\ldots,x_{n}\}</annotation></semantics></math>.</p>
+<ul>
+<li><p>L’<em><strong>espérance mathématique</strong></em> de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>
+est le nombre :</p></li>
+</ul>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msub><mi>x</mi><mn>1</mn></msub><mo>×</mo><mi>P</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>X</mi><mo>=</mo><msub><mi>x</mi><mn>1</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><msub><mi>x</mi><mn>2</mn></msub><mo>×</mo><mi>P</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>X</mi><mo>=</mo><msub><mi>x</mi><mn>2</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><mi>…</mi><mo>+</mo><msub><mi>x</mi><mi>n</mi></msub><mo>×</mo><mi>P</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>X</mi><mo>=</mo><msub><mi>x</mi><mi>n</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">E(X) = x_{1} \times P\left( X = x_{1} \right) + x_{2} \times P\left( X = x_{2} \right) + \ldots + x_{n} \times P\left( X = x_{n} \right)</annotation></semantics></math></p>
+<ul>
+<li><p>La <em><strong>variance</strong></em> de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>
+est le nombre positif :</p></li>
+</ul>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msup><msub><mi>x</mi><mn>1</mn></msub><mn>2</mn></msup><mo>×</mo><mi>P</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>X</mi><mo>=</mo><msub><mi>x</mi><mn>1</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><msup><msub><mi>x</mi><mn>2</mn></msub><mn>2</mn></msup><mo>×</mo><mi>P</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>X</mi><mo>=</mo><msub><mi>x</mi><mn>2</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><mi>…</mi><mo>+</mo><msup><msub><mi>x</mi><mi>n</mi></msub><mn>2</mn></msup><mo>×</mo><mi>P</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>X</mi><mo>=</mo><msub><mi>x</mi><mi>n</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><msup><mrow><mi>E</mi><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo stretchy="false" form="postfix">)</mo></mrow><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">V(X) = {x_{1}}^{2} \times P\left( X = x_{1} \right) + {x_{2}}^{2} \times P\left( X = x_{2} \right) + \ldots + {x_{n}}^{2} \times P\left( X = x_{n} \right) - {E(X)}^{2}</annotation></semantics></math></p>
+<ul>
+<li><p>L’<em><strong>écart-type</strong></em> de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>est
+le nombre :
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>σ</mi><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msqrt><mrow><mi>V</mi><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo stretchy="false" form="postfix">)</mo></mrow></msqrt></mrow><annotation encoding="application/x-tex">\sigma(X) = \sqrt{V(X)}</annotation></semantics></math></p></li>
+</ul>
+<p><em><strong>🔾 Exemple :</strong></em></p>
+<p>Soit
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>
+une variable aléatoire de loi de probabilité :</p>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 23%" />
+<col style="width: 21%" />
+<col style="width: 30%" />
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: center;">2</th>
+<th style="text-align: center;">1</th>
+<th style="text-align: center;">-1</th>
+<th
+style="text-align: center;"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>x</mi><mi>i</mi></msub><annotation encoding="application/x-tex">x_{i}</annotation></semantics></math></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td
+style="text-align: center;"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mfrac><mn>1</mn><mn>4</mn></mfrac><annotation encoding="application/x-tex">\frac{1}{4}</annotation></semantics></math></td>
+<td
+style="text-align: center;"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mfrac><mn>1</mn><mn>4</mn></mfrac><annotation encoding="application/x-tex">\frac{1}{4}</annotation></semantics></math></td>
+<td
+style="text-align: center;"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mfrac><mn>1</mn><mn>2</mn></mfrac><annotation encoding="application/x-tex">\frac{1}{2}</annotation></semantics></math></td>
+<td
+style="text-align: center;"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>X</mi><mo>=</mo><msub><mi>x</mi><mi>i</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">P\left( X = x_{i} \right)</annotation></semantics></math></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p>L’espérance mathématique de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>
+est :</p></li>
+</ul>
+<blockquote>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo></mrow><annotation encoding="application/x-tex">E(X) =</annotation></semantics></math>------------------------------------------------------------------------------------------------------------------------------</p>
+</blockquote>
+<ul>
+<li><p>La variance de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>
+est :</p></li>
+</ul>
+<blockquote>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo></mrow><annotation encoding="application/x-tex">V(X) =</annotation></semantics></math>------------------------------------------------------------------------------------------------------------------------------</p>
+</blockquote>
+<ul>
+<li><p>L’écart-type de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>est :</p></li>
+</ul>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>σ</mi><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo></mrow><annotation encoding="application/x-tex">\sigma(X) =</annotation></semantics></math>----------------------------------------------</p>
+<ol start="2" type="1">
+<li><p><strong><em>Loi Binomiale</em></strong></p></li>
+</ol>
+<p>On considère une expérience constituée par la répétition du même
+épreuve n fois. Soit A un événement de cette épreuve tel que
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>p</mi></mrow><annotation encoding="application/x-tex">P(A) = p</annotation></semantics></math>.</p>
+<p>On sait que la probabilité que l'événement A, se produise
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>k</mi><annotation encoding="application/x-tex">k</annotation></semantics></math>
+fois
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>k</mi><mo>≤</mo><mi>n</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(k \leq n)</annotation></semantics></math>
+est :
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>C</mi><mi>n</mi><mi>k</mi></msubsup><msup><mi>p</mi><mi>k</mi></msup><msup><mrow><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>−</mo><mi>p</mi><mo stretchy="false" form="postfix">)</mo></mrow><mrow><mi>n</mi><mo>−</mo><mi>k</mi></mrow></msup></mrow><annotation encoding="application/x-tex">C_{n}^{k}p^{k}{(1 - p)}^{n - k}</annotation></semantics></math>.</p>
+<p>La variable aléatoire qui associe chaque résultat à
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo>=</mo><mi>k</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">P(X = k)</annotation></semantics></math>
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>k</mi><annotation encoding="application/x-tex">k</annotation></semantics></math>
+le nombre de fois que l'événement
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
+est réalisé) est appelée une <em><strong>variable aléatoire
+binomiale</strong></em>.</p>
+<p>Les nombres n et p sont appelés les paramètres de la variable
+binomiale.</p>
+<p><em><strong>🖉🖉 Propriété :</strong></em></p>
+<p>Soit
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>
+une variable aléatoire binomiale de paramètre
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>
+et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>p</mi><annotation encoding="application/x-tex">p</annotation></semantics></math>.
+On a :
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>∀</mo><mi>k</mi><mo>∈</mo><mrow><mo stretchy="true" form="prefix">{</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo>,</mo><mi>…</mi><mo>,</mo><mi>n</mi><mo stretchy="true" form="postfix">}</mo></mrow><mrow><mo mathvariant="script">:</mo><mspace width="0.222em"></mspace><mi>𝒫</mi></mrow><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo>=</mo><mi>k</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msubsup><mi>C</mi><mi>n</mi><mi>k</mi></msubsup><msup><mi>p</mi><mi>k</mi></msup><msup><mrow><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>−</mo><mi>p</mi><mo stretchy="false" form="postfix">)</mo></mrow><mrow><mi>n</mi><mo>−</mo><mi>k</mi></mrow></msup></mrow><annotation encoding="application/x-tex">\forall k \in \left\{ 0,1,\ldots,n \right\}\mathcal{:\ P}(X = k) = C_{n}^{k}p^{k}{(1 - p)}^{n - k}</annotation></semantics></math>
+et</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>n</mi><mo>×</mo><mi>p</mi></mrow><annotation encoding="application/x-tex">E(X) = n \times p</annotation></semantics></math>
+et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>n</mi><mo>×</mo><mi>p</mi><mo>×</mo><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>−</mo><mi>p</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">V(X) = n \times p \times (1 - p)</annotation></semantics></math></p>
+<p><em><strong>🔾 Exemple :</strong></em></p>
+<p>Nous lançons une pièce de monnaie 5 fois successives. Soit X la
+variable aléatoire qui associe chaque résultat au nombre de fois où la F
+est apparu.</p>
+<p>Nous avons une loi de probabilité binomiale à deux paramètres :
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>=</mo><mi>…</mi></mrow><annotation encoding="application/x-tex">n = \ldots</annotation></semantics></math>
+et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo>=</mo><mi>P</mi><mo stretchy="false" form="prefix">(</mo><mi>F</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>…</mi></mrow><annotation encoding="application/x-tex">p = P(F) = \ldots</annotation></semantics></math></p>
+<p>On a
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo stretchy="false" form="prefix">(</mo><mi mathvariant="normal">Ω</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo></mrow><annotation encoding="application/x-tex">X(\Omega) =</annotation></semantics></math>
+--------------------------------------------- et on a :</p>
+<ul>
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo>=</mo><mi>…</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo></mrow><annotation encoding="application/x-tex">P(X = \ldots) =</annotation></semantics></math>--------------------------------------------</p></li>
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo>=</mo><mi>…</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo></mrow><annotation encoding="application/x-tex">P(X = \ldots) =</annotation></semantics></math>--------------------------------------------</p></li>
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo>=</mo><mi>…</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo></mrow><annotation encoding="application/x-tex">P(X = \ldots) =</annotation></semantics></math>--------------------------------------------</p></li>
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo>=</mo><mi>…</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo></mrow><annotation encoding="application/x-tex">P(X = \ldots) =</annotation></semantics></math>--------------------------------------------</p></li>
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo>=</mo><mi>…</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo></mrow><annotation encoding="application/x-tex">P(X = \ldots) =</annotation></semantics></math>--------------------------------------------</p></li>
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo>=</mo><mi>…</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo></mrow><annotation encoding="application/x-tex">P(X = \ldots) =</annotation></semantics></math>--------------------------------------------</p></li>
+</ul>
+<p>Donc la loi de probabilité de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>
+est donnée par le tableau :</p>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<thead>
+<tr>
+<th><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>x</mi><mi>i</mi></msub><annotation encoding="application/x-tex">x_{i}</annotation></semantics></math></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>X</mi><mo>=</mo><msub><mi>x</mi><mi>i</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">P\left( X = x_{i} \right)</annotation></semantics></math></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p>L’espérance mathématique de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>
+est :</p></li>
+</ul>
+<blockquote>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo></mrow><annotation encoding="application/x-tex">E(X) =</annotation></semantics></math>---------------------------------------------------------------</p>
+</blockquote>
+<ul>
+<li><p>La variance de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>
+est :</p></li>
+</ul>
+<blockquote>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo></mrow><annotation encoding="application/x-tex">V(X) =</annotation></semantics></math>---------------------------------------------------------------</p>
+</blockquote>
+<ul>
+<li><p>L’écart-type de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>est :</p></li>
+</ul>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>σ</mi><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo></mrow><annotation encoding="application/x-tex">\sigma(X) =</annotation></semantics></math>--------------------------------------------------------</p>
+<blockquote>
+<p><em><strong>✍ Application ①⑦ :</strong></em></p>
+</blockquote>
+<p>On lance un dé cubique équilibré numéroté de 1 à 6 une seule fois. On
+considère l’événement :</p>
+<p>A : « obtenir un diviseur de 3 »</p>
+<ol type="1">
+<li><p>Calculer
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">P(A)</annotation></semantics></math>.</p></li>
+<li><p>On répète cette épreuve 3 fois de suite. Soit
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>
+la variable aléatoire qui égale au nombre de fois de la réalisation de
+l’événement
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>.</p></li>
+</ol>
+<p>Déterminer la loi de probabilité de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>.</p>
+<p><em><strong>✍ Exercice ①⓪: Rattrapage 2022</strong></em></p>
+<p>Une urne contient trois boules blanches, quatre boules rouges et cinq
+boules vertes, indiscernables au toucher. On tire au hasard et
+simultanément trois boules de l’urne.</p>
+<ol type="1">
+<li><p>On considère les événements suivants :</p></li>
+</ol>
+<p><em>A</em>: ‘’ Obtenir exactement deux boules rouges ‘’.</p>
+<p><em>B</em>: ‘’ Obtenir exactement une boule verte ‘’.</p>
+<ol type="a">
+<li><p>Montrer que
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mn>12</mn><mn>55</mn></mfrac></mrow><annotation encoding="application/x-tex">p(A) = \frac{12}{55}</annotation></semantics></math>
+et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo stretchy="false" form="prefix">(</mo><mi>B</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mn>21</mn><mn>44</mn></mfrac></mrow><annotation encoding="application/x-tex">p(B) = \frac{21}{44}</annotation></semantics></math>.
+<strong>(0.75 pt)</strong></p></li>
+<li><p>Calculer
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mi>/</mi><mi>B</mi><mo stretchy="false" form="postfix">)</mo><mspace width="0.222em"></mspace></mrow><annotation encoding="application/x-tex">p(A/B)\ </annotation></semantics></math>:
+la probabilité de l’événement <em>A</em> sachant que l’événement
+<em>B</em> est réalisé. Les événements
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
+et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>
+sont-ils indépendants ? <strong>(0.75 pt)</strong></p></li>
+</ol>
+<ol start="2" type="1">
+<li><p>Soit la variable aléatoire
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>
+qui associe à chaque tirage le nombre de boules vertes tirées.</p></li>
+</ol>
+<ol start="3" type="a">
+<li><p>Déterminer la loi de probabilité de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>.
+<strong>(1 pt)</strong></p></li>
+<li><p>Calculer la probabilité d’obtenir au moins deux boules vertes.
+<strong>(0. 5 pt)</strong></p></li>
+</ol>
+<p><em><strong>✍ Exercice ①①: normale 2018</strong></em></p>
+<p>Une urne contient 9 boules indiscernables au toucher :
+<strong><u>cinq boules rouges</u></strong> portant les nombres
+1 ;1 ;2 ;2 ;2 et <strong><u>quatre boules blanches</u></strong> portant
+les nombres 1 ;2 ;2 ;2.</p>
+<p>On considère l’experience suivante : on tire au hasard et
+simultanément trois boules de l’urne.</p>
+<p>Soient les événements :</p>
+<p><em>A</em> :  ‘’les trois boules tirées sont de meme couleur’’.</p>
+<p><em>B</em> :  ‘’les trois boules tirées portent le meme nombre’’.</p>
+<p><em>C</em> :  ‘’les trois boules tirées sont de meme couleur et
+portent le meme nombre’’.</p>
+<ol type="1">
+<li><p>Montrer que
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mn>1</mn><mn>6</mn></mfrac></mrow><annotation encoding="application/x-tex">p(A) = \frac{1}{6}</annotation></semantics></math>
+,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo stretchy="false" form="prefix">(</mo><mi>B</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mn>1</mn><mn>4</mn></mfrac></mrow><annotation encoding="application/x-tex">p(B) = \frac{1}{4}</annotation></semantics></math>
+et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo stretchy="false" form="prefix">(</mo><mi>C</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mn>1</mn><mn>42</mn></mfrac></mrow><annotation encoding="application/x-tex">p(C) = \frac{1}{42}</annotation></semantics></math>
+<strong>(1.5 pt)</strong></p></li>
+<li><p>On répète l’experience précédente trois avec remise dans l’urne
+des trois boules tirées après chaque tirage, et on considère la variable
+aléatoire
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>
+qui est égale au nombre de fois de réalisation de l’événement
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>.</p></li>
+</ol>
+<ol type="a">
+<li><p>Déterminer les paramètres de la variable alétoire binomiale
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>.
+<strong>(0.5 pt)</strong></p></li>
+<li><p>Montrer que
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo>=</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mn>25</mn><mn>72</mn></mfrac></mrow><annotation encoding="application/x-tex">p(X = 1) = \frac{25}{72}</annotation></semantics></math>
+et calculer
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo stretchy="false" form="prefix">(</mo><mi>X</mi><mo>=</mo><mn>2</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">p(X = 2)</annotation></semantics></math><strong>(1
+pt)</strong></p></li>
+</ol>
+<a href="denombrement-probabilites-cours.pdf" class="download-btn" download><i class="fas fa-file-pdf"></i> Télécharger le cours en PDF</a>
+</body>
+</html>

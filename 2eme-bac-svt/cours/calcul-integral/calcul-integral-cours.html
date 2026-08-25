@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WT2TXDWM');</script>
+<!-- End Google Tag Manager -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1ZP8J9JBT6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-1ZP8J9JBT6');
+</script>
+
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>calculintegral</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 80%;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+<script defer src="/dist/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" defer></script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WT2TXDWM"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<a href="calcul-integral-cours.pdf" class="download-btn" download><i class="fas fa-file-pdf"></i> Télécharger le cours en PDF</a>
+<table>
+<colgroup>
+<col style="width: 97%" />
+<col style="width: 2%" />
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: center;"><em><strong>Calcul
+intégral</strong></em></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><ol type="I">
+<li><p><em>Intégrale d’une fonction continue sur un
+segment :</em></p></li>
+</ol>
+<p><em><strong>✍</strong></em><em><strong>Activité ①
+:</strong></em></p>
+<p>Soit
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+la fonction numérique d’une variable réelle définie
+par <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>3</mn><msup><mi>x</mi><mn>2</mn></msup><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">f(x) = 3x^{2} - 1</annotation></semantics></math>.</p>
+<ol type="1">
+<li><p>Déterminer deux primitives
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi><mspace width="0.222em"></mspace><mi>e</mi><mi>t</mi><mspace width="0.222em"></mspace><mi>G</mi><mspace width="0.222em"></mspace></mrow><annotation encoding="application/x-tex">F\ et\ G\ </annotation></semantics></math>
+de la fonction
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+sur
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ℝ</mi><annotation encoding="application/x-tex">\mathbb{R}</annotation></semantics></math>.</p></li>
+<li><p>Calculer
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mo stretchy="false" form="postfix">)</mo><mo>−</mo><mi>F</mi><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo><mo>,</mo><mspace width="0.222em"></mspace><mi>G</mi><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mo stretchy="false" form="postfix">)</mo><mo>−</mo><mi>G</mi><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">F(2) - F(0),\ G(2) - G(0)</annotation></semantics></math>
+. Que remarquez-vous ?</p></li>
+</ol>
+<p>Le nombre
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi><mo stretchy="false" form="prefix">(</mo><mi>b</mi><mo stretchy="false" form="postfix">)</mo><mo>−</mo><mi>F</mi><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">F(b) - F(a)</annotation></semantics></math>
+ne dépend pas du choix d’une primitive de la fonction
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+.</p>
+<p>Le nombre
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi><mo stretchy="false" form="prefix">(</mo><mi>b</mi><mo stretchy="false" form="postfix">)</mo><mo>−</mo><mi>F</mi><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">F(b) - F(a)</annotation></semantics></math>
+s’appelle intégrale de la
+fonction<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mspace width="0.222em"></mspace><mi>f</mi><mspace width="0.222em"></mspace></mrow><annotation encoding="application/x-tex">\ f\ </annotation></semantics></math>
+de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>a</mi><annotation encoding="application/x-tex">a</annotation></semantics></math>
+à
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>b</mi><annotation encoding="application/x-tex">b</annotation></semantics></math>
+elle est notée
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mo>∫</mo><mi>a</mi><mi>b</mi></msubsup><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mi>d</mi><mi>x</mi></mrow></mrow><annotation encoding="application/x-tex">\int_{a}^{b}{f(x)dx}</annotation></semantics></math>.</p>
+<blockquote>
+<p><em><strong>🖉🖉Définition :</strong></em></p>
+</blockquote>
+<p>Soit
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mspace width="0.222em"></mspace></mrow><annotation encoding="application/x-tex">f\ </annotation></semantics></math>
+une fonction continue sur un segment
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">[</mo><mi>a</mi><mo>,</mo><mi>b</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">\lbrack a,b\rbrack</annotation></semantics></math>
+et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>F</mi><annotation encoding="application/x-tex">F</annotation></semantics></math>
+une primitive de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+sur
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">[</mo><mi>a</mi><mo>,</mo><mi>b</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">\lbrack a,b\rbrack</annotation></semantics></math>.</p>
+<p>Le nombre
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi><mo stretchy="false" form="prefix">(</mo><mi>b</mi><mo stretchy="false" form="postfix">)</mo><mo>−</mo><mi>F</mi><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">F(b) - F(a)</annotation></semantics></math>
+et appelé <em>intégrale</em> de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>a</mi><annotation encoding="application/x-tex">a</annotation></semantics></math>
+à
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>b</mi><annotation encoding="application/x-tex">b</annotation></semantics></math>
+et on écrit :</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mo>∫</mo><mi>a</mi><mi>b</mi></msubsup><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mi>d</mi><mi>x</mi></mrow><mo>=</mo><msubsup><mrow><mo stretchy="true" form="prefix">[</mo><mi>F</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="true" form="postfix">]</mo></mrow><mi>a</mi><mi>b</mi></msubsup><mo>=</mo><mi>F</mi><mo stretchy="false" form="prefix">(</mo><mi>b</mi><mo stretchy="false" form="postfix">)</mo><mo>−</mo><mi>F</mi><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\int_{a}^{b}{f(x)dx} = \left\lbrack F(x) \right\rbrack_{a}^{b} = F(b) - F(a)</annotation></semantics></math>.</p>
+<p><em><strong>🔿Exemple :</strong></em></p>
+<p>Calculons l’intégrale suivante 
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mo>∫</mo><mn>0</mn><mn>1</mn></msubsup><mrow><msqrt><mrow><mi>x</mi><mo>+</mo><mn>1</mn></mrow></msqrt><mi>d</mi><mi>x</mi></mrow></mrow><annotation encoding="application/x-tex">\int_{0}^{1}{\sqrt{x + 1}dx}</annotation></semantics></math>.</p>
+<p>La fonction
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>↦</mo><msqrt><mrow><mi>x</mi><mo>+</mo><mn>1</mn></mrow></msqrt></mrow><annotation encoding="application/x-tex">x \mapsto \sqrt{x + 1}</annotation></semantics></math>
+est continue sur
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">[</mo><mn>0</mn><mo>;</mo><mn>1</mn><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">\lbrack 0;1\rbrack</annotation></semantics></math>.</p>
+<p>Donc :<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mo>∫</mo><mn>0</mn><mn>1</mn></msubsup><mrow><msqrt><mrow><mi>x</mi><mo>+</mo><mn>1</mn></mrow></msqrt><mi>d</mi><mi>x</mi></mrow><mo>=</mo><msubsup><mo>∫</mo><mn>0</mn><mn>1</mn></msubsup><mrow><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>+</mo><mn>1</mn><msup><mo stretchy="false" form="postfix">)</mo><mo>′</mo></msup><msqrt><mrow><mi>x</mi><mo>+</mo><mn>1</mn></mrow></msqrt><mi>d</mi><mi>x</mi></mrow></mrow><annotation encoding="application/x-tex">\int_{0}^{1}{\sqrt{x + 1}dx} = \int_{0}^{1}{(x + 1)&#39;\sqrt{x + 1}dx}</annotation></semantics></math></p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>=</mo><msubsup><mo>∫</mo><mn>0</mn><mn>1</mn></msubsup><mrow><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>+</mo><mn>1</mn><msup><mo stretchy="false" form="postfix">)</mo><mo>′</mo></msup><msup><mrow><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>+</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo></mrow><mfrac><mn>1</mn><mn>2</mn></mfrac></msup><mi>d</mi><mi>x</mi></mrow></mrow><annotation encoding="application/x-tex">= \int_{0}^{1}{(x + 1)&#39;{(x + 1)}^{\frac{1}{2}}dx}</annotation></semantics></math></p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>=</mo><msubsup><mrow><mo stretchy="true" form="prefix">[</mo><mfrac><mn>2</mn><mn>3</mn></mfrac><msqrt><mrow><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>+</mo><mn>1</mn><msup><mo stretchy="false" form="postfix">)</mo><mn>3</mn></msup></mrow></msqrt><mo stretchy="true" form="postfix">]</mo></mrow><mn>0</mn><mn>1</mn></msubsup><mo>=</mo><mfrac><mn>2</mn><mn>3</mn></mfrac><mrow><mo stretchy="true" form="prefix">(</mo><msqrt><mn>8</mn></msqrt><mo>−</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">= \left\lbrack \frac{2}{3}\sqrt{(x + 1)^{3}} \right\rbrack_{0}^{1} = \frac{2}{3}\left( \sqrt{8} - 1 \right)</annotation></semantics></math>.</p>
+<p><em><strong>✍ Application ① :</strong></em></p>
+<p>Calculer les intégrales suivantes :</p>
+<table>
+<colgroup>
+<col style="width: 24%" />
+<col style="width: 24%" />
+<col style="width: 24%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th><ol type="a">
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mo>∫</mo><mn>0</mn><mn>2</mn></msubsup><mrow><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>+</mo><mn>4</mn><mo stretchy="false" form="postfix">)</mo><mi>d</mi><mi>x</mi></mrow></mrow><annotation encoding="application/x-tex">\int_{0}^{2}{(x + 4)dx}</annotation></semantics></math></p></li>
+</ol></th>
+<th><ol start="2" type="a">
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mo>∫</mo><mn>1</mn><mi>e</mi></msubsup><mrow><mfrac><mn>1</mn><mi>x</mi></mfrac><mi>d</mi><mi>x</mi></mrow></mrow><annotation encoding="application/x-tex">\int_{1}^{e}{\frac{1}{x}dx}</annotation></semantics></math></p></li>
+</ol></th>
+<th><ol start="3" type="a">
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mo>∫</mo><msup><mi>e</mi><mn>2</mn></msup><msup><mi>e</mi><mn>4</mn></msup></msubsup><mrow><mfrac><mrow><mrow><mi mathvariant="normal">ln</mi><mo>&#8289;</mo></mrow><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><mi>x</mi></mfrac><mi>d</mi><mi>x</mi><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mo>;</mo><mspace width="0.222em"></mspace></mrow></mrow><annotation encoding="application/x-tex">\int_{e^{2}}^{e^{4}}{\frac{\ln(x)}{x}dx\ \ ;\ }</annotation></semantics></math></p></li>
+</ol></th>
+<th><ol start="4" type="a">
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mo>∫</mo><mn>0</mn><mn>1</mn></msubsup><mrow><mfrac><msup><mi>e</mi><mi>x</mi></msup><mrow><msup><mi>e</mi><mi>x</mi></msup><mo>+</mo><mn>1</mn></mrow></mfrac><mi>d</mi><mi>x</mi></mrow></mrow><annotation encoding="application/x-tex">\int_{0}^{1}{\frac{e^{x}}{e^{x} + 1}dx}</annotation></semantics></math></p></li>
+</ol></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2"><ol start="5" type="a">
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mo>∫</mo><mn>0</mn><mfrac><mi>π</mi><mn>4</mn></mfrac></msubsup><mrow><mi>c</mi><mi>o</mi><mi>s</mi><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mi>d</mi><mi>x</mi></mrow></mrow><annotation encoding="application/x-tex">\int_{0}^{\frac{\pi}{4}}{cos(2x)dx}</annotation></semantics></math></p></li>
+</ol></td>
+<td colspan="2"><ol start="6" type="a">
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mo>∫</mo><mrow><mi>−</mi><mn>2</mn></mrow><mrow><mi>−</mi><mn>1</mn></mrow></msubsup><mrow><mi>x</mi><msup><mn>2</mn><mrow><mi>−</mi><msup><mi>x</mi><mn>2</mn></msup></mrow></msup><mi>d</mi><mi>x</mi></mrow></mrow><annotation encoding="application/x-tex">\int_{- 2}^{- 1}{x2^{- x^{2}}dx}</annotation></semantics></math></p></li>
+</ol></td>
+</tr>
+</tbody>
+</table>
+<p><em><strong>🔿Remarque :</strong></em></p>
+<p>Dans l’écriture
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mo>∫</mo><mi>a</mi><mi>b</mi></msubsup><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mi>d</mi><mi>x</mi></mrow></mrow><annotation encoding="application/x-tex">\int_{a}^{b}{f(x)dx}</annotation></semantics></math>
+, on peut remplacer la variable
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>x</mi><annotation encoding="application/x-tex">x</annotation></semantics></math>
+par n’importe quelle autre
+lettre.<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mspace width="0.222em"></mspace><msubsup><mo>∫</mo><mi>a</mi><mi>b</mi></msubsup><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mi>d</mi><mi>x</mi><mo>=</mo><msubsup><mo>∫</mo><mi>a</mi><mi>b</mi></msubsup><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mi>d</mi><mi>y</mi><mo>=</mo></mrow><msubsup><mo>∫</mo><mi>a</mi><mi>b</mi></msubsup><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo><mi>d</mi><mi>t</mi></mrow></mrow><mo>=</mo><mi>…</mi></mrow><annotation encoding="application/x-tex">\ \int_{a}^{b}{f(x)dx = \int_{a}^{b}{f(y)dy =}\int_{a}^{b}{f(t)dt}} = \ldots</annotation></semantics></math></p>
+<p><em><strong>🔿 Exercice ① :</strong></em></p>
+<p>Calculer les intégrales suivantes :</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 34%" />
+<col style="width: 31%" />
+</colgroup>
+<thead>
+<tr>
+<th><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mn>1</mn></msub><mo>=</mo><msubsup><mo>∫</mo><mrow><mi>−</mi><mn>1</mn></mrow><mn>1</mn></msubsup><mrow><mrow><mo stretchy="true" form="prefix">(</mo><mn>2</mn><msup><mi>x</mi><mn>3</mn></msup><mo>−</mo><mn>5</mn><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>2</mn><mo stretchy="true" form="postfix">)</mo></mrow><mi>d</mi><mi>x</mi><mspace width="0.222em"></mspace></mrow></mrow><annotation encoding="application/x-tex">I_{1} = \int_{- 1}^{1}{\left( 2x^{3} - 5x^{2} + 2 \right)dx\ }</annotation></semantics></math></th>
+<th><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mn>2</mn></msub><mo>=</mo><msubsup><mo>∫</mo><mn>1</mn><mn>2</mn></msubsup><mrow><mo stretchy="true" form="prefix">(</mo><mfrac><mn>1</mn><msup><mi>x</mi><mn>2</mn></msup></mfrac><mo>−</mo><mfrac><mn>2</mn><msup><mi>x</mi><mn>3</mn></msup></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mi>d</mi><mi>x</mi></mrow><annotation encoding="application/x-tex">I_{2} = \int_{1}^{2}\left( \frac{1}{x^{2}} - \frac{2}{x^{3}} \right)dx</annotation></semantics></math></th>
+<th><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mn>3</mn></msub><mo>=</mo><msubsup><mo>∫</mo><mn>0</mn><mn>1</mn></msubsup><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><mfrac><mn>1</mn><mrow><mi>x</mi><mo>+</mo><mn>1</mn></mrow></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mi>d</mi><mi>x</mi></mrow><annotation encoding="application/x-tex">I_{3} = \int_{0}^{1}\left( 1 - \frac{1}{x + 1} \right)dx</annotation></semantics></math></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mn>4</mn></msub><mo>=</mo><msubsup><mo>∫</mo><mn>0</mn><mn>4</mn></msubsup><mrow><mi>x</mi><msqrt><mrow><mn>1</mn><mo>+</mo><mi>x</mi><mi>²</mi></mrow></msqrt><mi>d</mi><mi>x</mi></mrow></mrow><annotation encoding="application/x-tex">I_{4} = \int_{0}^{4}{x\sqrt{1 + x²}dx}</annotation></semantics></math></td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mn>5</mn></msub><mo>=</mo><msubsup><mo>∫</mo><mn>0</mn><mrow><mi>l</mi><mi>n</mi><mn>3</mn></mrow></msubsup><mrow><msup><mi>e</mi><mi>x</mi></msup><msqrt><mrow><msup><mi>e</mi><mi>x</mi></msup><mo>+</mo><mn>1</mn></mrow></msqrt><mi>d</mi><mi>x</mi></mrow></mrow><annotation encoding="application/x-tex">I_{5} = \int_{0}^{ln3}{e^{x}\sqrt{e^{x} + 1}dx}</annotation></semantics></math></td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mn>6</mn></msub><mo>=</mo><msubsup><mo>∫</mo><mn>0</mn><mfrac><mi>π</mi><mn>6</mn></mfrac></msubsup><mrow><mi>c</mi><mi>o</mi><mi>s</mi><mi>x</mi><mi>.</mi><msup><mrow><mi mathvariant="normal">sin</mi><mo>&#8289;</mo></mrow><mn>5</mn></msup><mi>x</mi></mrow><mi>d</mi><mi>x</mi></mrow><annotation encoding="application/x-tex">I_{6} = \int_{0}^{\frac{\pi}{6}}{cosx.\sin^{5}x}dx</annotation></semantics></math></td>
+</tr>
+<tr>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mn>7</mn></msub><mo>=</mo><msubsup><mo>∫</mo><mn>1</mn><mn>2</mn></msubsup><mfrac><mrow><mi>x</mi><mo>−</mo><mn>1</mn></mrow><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>−</mo><mn>2</mn><mi>x</mi><mo>+</mo><mn>2</mn></mrow></mfrac><mi>d</mi><mi>x</mi></mrow><annotation encoding="application/x-tex">I_{7} = \int_{1}^{2}\frac{x - 1}{x^{2} - 2x + 2}dx</annotation></semantics></math></td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mn>8</mn></msub><mo>=</mo><msubsup><mo>∫</mo><mn>0</mn><mn>1</mn></msubsup><mrow><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>−</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><msup><mi>e</mi><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>−</mo><mn>2</mn><mi>x</mi><mo>+</mo><mn>3</mn></mrow></msup></mrow><mi>d</mi><mi>x</mi></mrow><annotation encoding="application/x-tex">I_{8} = \int_{0}^{1}{(1 - x)e^{x^{2} - 2x + 3}}dx</annotation></semantics></math></td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mn>9</mn></msub><mo>=</mo><msubsup><mo>∫</mo><mn>1</mn><msup><mi>e</mi><mn>2</mn></msup></msubsup><mfrac><mn>1</mn><mrow><mi>x</mi><msqrt><mrow><mn>1</mn><mo>+</mo><mi>l</mi><mi>n</mi><mi>x</mi></mrow></msqrt></mrow></mfrac><mi>d</mi><mi>x</mi></mrow><annotation encoding="application/x-tex">I_{9} = \int_{1}^{e^{2}}\frac{1}{x\sqrt{1 + lnx}}dx</annotation></semantics></math></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><em><strong>🖉🖉Conséquences :</strong></em></p>
+</blockquote>
+<p>Soit
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+une fonction continue sur un intervalle
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>I</mi><mi>.</mi><mspace width="0.222em"></mspace></mrow><annotation encoding="application/x-tex">I.\ </annotation></semantics></math>
+Pour tous
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>,</mo><mi>b</mi><mspace width="0.222em"></mspace><mi>e</mi><mi>t</mi><mspace width="0.222em"></mspace><mi>c</mi><mspace width="0.222em"></mspace><mi>d</mi><mi>e</mi><mspace width="0.222em"></mspace><mi>I</mi></mrow><annotation encoding="application/x-tex">a,b\ et\ c\ de\ I</annotation></semantics></math>
+on a :</p>
+<ul>
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mo>∫</mo><mi>a</mi><mi>a</mi></msubsup><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mi>d</mi><mi>x</mi><mo>=</mo><mn>0</mn><mspace width="0.222em"></mspace></mrow></mrow><annotation encoding="application/x-tex">\int_{a}^{a}{f(x)dx = 0\ }</annotation></semantics></math>
+.</p></li>
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mo>∫</mo><mi>a</mi><mi>b</mi></msubsup><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mi>d</mi><mi>x</mi><mo>=</mo><mi>−</mi><msubsup><mo>∫</mo><mi>b</mi><mi>a</mi></msubsup><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mi>d</mi><mi>x</mi></mrow></mrow></mrow><annotation encoding="application/x-tex">\int_{a}^{b}{f(x)dx = - \int_{b}^{a}{f(x)dx}}</annotation></semantics></math>.</p></li>
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mo>∫</mo><mi>a</mi><mi>b</mi></msubsup><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mi>d</mi><mi>x</mi></mrow><mo>=</mo><msubsup><mo>∫</mo><mi>a</mi><mi>c</mi></msubsup><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mi>d</mi><mi>x</mi></mrow><mo>+</mo><msubsup><mo>∫</mo><mi>c</mi><mi>b</mi></msubsup><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mi>d</mi><mi>x</mi></mrow></mrow><annotation encoding="application/x-tex">\int_{a}^{b}{f(x)dx} = \int_{a}^{c}{f(x)dx} + \int_{c}^{b}{f(x)dx}</annotation></semantics></math>
+(Relation de Chasles).</p></li>
+</ul>
+<p><em>🔿Exemple :</em></p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mo>∫</mo><mrow><mi>−</mi><mn>3</mn></mrow><mn>2</mn></msubsup><mrow><mi>∣</mi><mi>x</mi><mo>∣</mo><mi>d</mi><mi>x</mi><mo>=</mo><msubsup><mo>∫</mo><mrow><mi>−</mi><mn>3</mn></mrow><mn>0</mn></msubsup><mrow><mi>∣</mi><mi>x</mi><mo>∣</mo><mi>d</mi><mi>x</mi><mo>+</mo><msubsup><mo>∫</mo><mn>0</mn><mn>2</mn></msubsup><mrow><mi>∣</mi><mi>x</mi><mo>∣</mo><mi>d</mi><mi>x</mi></mrow></mrow></mrow><mo>=</mo><msubsup><mo>∫</mo><mrow><mi>−</mi><mn>3</mn></mrow><mn>0</mn></msubsup><mrow><mi>−</mi><mi>x</mi><mi>d</mi><mi>x</mi><mo>+</mo><msubsup><mo>∫</mo><mn>0</mn><mn>2</mn></msubsup><mrow><mi>x</mi><mi>d</mi><mi>x</mi></mrow></mrow><mo>=</mo><msubsup><mrow><mo stretchy="true" form="prefix">[</mo><mi>−</mi><mfrac><msup><mi>x</mi><mn>2</mn></msup><mn>2</mn></mfrac><mo stretchy="true" form="postfix">]</mo></mrow><mrow><mi>−</mi><mn>3</mn></mrow><mn>0</mn></msubsup><mo>+</mo><msubsup><mrow><mo stretchy="true" form="prefix">[</mo><mi>−</mi><mfrac><msup><mi>x</mi><mn>2</mn></msup><mn>2</mn></mfrac><mo stretchy="true" form="postfix">]</mo></mrow><mn>0</mn><mn>2</mn></msubsup><mo>=</mo><mfrac><mn>13</mn><mn>2</mn></mfrac></mrow><annotation encoding="application/x-tex">\int_{- 3}^{2}{\mid x \mid dx = \int_{- 3}^{0}{\mid x \mid dx + \int_{0}^{2}{\mid x \mid dx}}} = \int_{- 3}^{0}{- xdx + \int_{0}^{2}{xdx}} = \left\lbrack - \frac{x^{2}}{2} \right\rbrack_{- 3}^{0} + \left\lbrack - \frac{x^{2}}{2} \right\rbrack_{0}^{2} = \frac{13}{2}</annotation></semantics></math></p>
+<p><em><strong>✍ Application ② :</strong></em></p>
+<p>Calculer les intégrales suivantes :</p>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 30%" />
+<col style="width: 44%" />
+</colgroup>
+<thead>
+<tr>
+<th><ol type="a">
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mo>∫</mo><mrow><mi>−</mi><mn>1</mn></mrow><mn>1</mn></msubsup><mrow><mfrac><mrow><mn>2</mn><mo stretchy="false" form="prefix">|</mo><mi>x</mi><mo stretchy="false" form="prefix">|</mo></mrow><mrow><mi>x</mi><mi>²</mi><mo>+</mo><mn>1</mn></mrow></mfrac><mi>d</mi><mi>x</mi></mrow></mrow><annotation encoding="application/x-tex">\int_{- 1}^{1}{\frac{2|x|}{x² + 1}dx}</annotation></semantics></math></p></li>
+</ol></th>
+<th><ol start="2" type="a">
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mo>∫</mo><mrow><mi>−</mi><mn>1</mn></mrow><mn>5</mn></msubsup><mrow><mi>∣</mi><msup><mi>x</mi><mn>2</mn></msup><mo>−</mo><mn>4</mn><mi>x</mi><mo>∣</mo><mi>d</mi><mi>x</mi></mrow></mrow><annotation encoding="application/x-tex">\int_{- 1}^{5}{\mid x^{2} - 4x \mid dx}</annotation></semantics></math></p></li>
+</ol></th>
+<th><ol start="3" type="a">
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mo>∫</mo><mn>0</mn><mn>2</mn></msubsup><mrow><mi>∣</mi><msup><mi>e</mi><mrow><mi>−</mi><mi>x</mi><mo>+</mo><mn>1</mn></mrow></msup><mo>−</mo><mn>1</mn><mspace width="0.222em"></mspace><mo>∣</mo><mi>d</mi><mi>x</mi></mrow></mrow><annotation encoding="application/x-tex">\int_{0}^{2}{\mid e^{- x + 1} - 1\  \mid dx}</annotation></semantics></math></p></li>
+</ol></th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<p><em>🖉🖉 Propriété :</em></p>
+<p>Soient
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>g</mi><annotation encoding="application/x-tex">g</annotation></semantics></math>
+deux fonctions continues sur l’intervalle
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">[</mo><mi>a</mi><mo>,</mo><mi>b</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">\lbrack a,b\rbrack</annotation></semantics></math>
+et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><mrow><mo mathvariant="double-struck">∈</mo><mi>ℝ</mi></mrow></mrow><annotation encoding="application/x-tex">k\mathbb{\in R}</annotation></semantics></math>.</p>
+<ul>
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mo>∫</mo><mi>a</mi><mi>b</mi></msubsup><mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mi>g</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="true" form="postfix">)</mo></mrow><mi>d</mi><mi>x</mi></mrow><mo>=</mo><msubsup><mo>∫</mo><mi>a</mi><mi>b</mi></msubsup><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mi>d</mi><mi>x</mi></mrow><mo>+</mo><msubsup><mo>∫</mo><mi>a</mi><mi>b</mi></msubsup><mrow><mi>g</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mi>d</mi><mi>x</mi></mrow></mrow><annotation encoding="application/x-tex">\int_{a}^{b}{\left( f(x) + g(x) \right)dx} = \int_{a}^{b}{f(x)dx} + \int_{a}^{b}{g(x)dx}</annotation></semantics></math><em>.</em></p></li>
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mo>∫</mo><mi>a</mi><mi>b</mi></msubsup><mrow><mi>k</mi><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mi>d</mi><mi>x</mi></mrow><mo>=</mo><mi>k</mi><msubsup><mo>∫</mo><mi>a</mi><mi>b</mi></msubsup><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mi>d</mi><mi>x</mi></mrow></mrow><annotation encoding="application/x-tex">\int_{a}^{b}{kf(x)dx} = k\int_{a}^{b}{f(x)dx}</annotation></semantics></math><em>.</em></p></li>
+</ul>
+<p><em><strong>✍ Application ③:</strong></em></p>
+<p>On considère les intégrales
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>I</mi><mo>=</mo><msubsup><mo>∫</mo><mn>0</mn><mfrac><mi>π</mi><mn>4</mn></mfrac></msubsup><mrow><mi>c</mi><mi>o</mi><mi>s</mi><mo stretchy="false" form="prefix">(</mo><mn>3</mn><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mi>c</mi><mi>o</mi><mi>s</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mi>d</mi><mi>x</mi></mrow></mrow><annotation encoding="application/x-tex">I = \int_{0}^{\frac{\pi}{4}}{cos(3x)cos(x)dx}</annotation></semantics></math>
+et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>J</mi><mo>=</mo><msubsup><mo>∫</mo><mn>0</mn><mfrac><mi>π</mi><mn>4</mn></mfrac></msubsup><mrow><mi>s</mi><mi>i</mi><mi>n</mi><mo stretchy="false" form="prefix">(</mo><mn>3</mn><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mi>s</mi><mi>i</mi><mi>n</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mi>d</mi><mi>x</mi></mrow></mrow><annotation encoding="application/x-tex">J = \int_{0}^{\frac{\pi}{4}}{sin(3x)sin(x)dx}</annotation></semantics></math><em>.</em></p>
+<ol type="1">
+<li><p>Vérifier que
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">cos</mi><mo>&#8289;</mo></mrow><mo stretchy="false" form="prefix">(</mo><mn>3</mn><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mrow><mi mathvariant="normal">cos</mi><mo>&#8289;</mo></mrow><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mrow><mi mathvariant="normal">sin</mi><mo>&#8289;</mo></mrow><mo stretchy="false" form="prefix">(</mo><mn>3</mn><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mrow><mi mathvariant="normal">sin</mi><mo>&#8289;</mo></mrow><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mrow><mi mathvariant="normal">cos</mi><mo>&#8289;</mo></mrow><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\cos(3x)\cos(x) + \sin(3x)\sin(x) = \cos(2x)</annotation></semantics></math>
+pour tout
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mrow><mo mathvariant="double-struck">∈</mo><mi>ℝ</mi></mrow></mrow><annotation encoding="application/x-tex">x\mathbb{\in R}</annotation></semantics></math>.</p></li>
+<li><p>Vérifier que
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">cos</mi><mo>&#8289;</mo></mrow><mo stretchy="false" form="prefix">(</mo><mn>3</mn><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mrow><mi mathvariant="normal">cos</mi><mo>&#8289;</mo></mrow><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>−</mo><mrow><mi mathvariant="normal">sin</mi><mo>&#8289;</mo></mrow><mo stretchy="false" form="prefix">(</mo><mn>3</mn><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mrow><mi mathvariant="normal">sin</mi><mo>&#8289;</mo></mrow><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>c</mi><mi>o</mi><mi>s</mi><mo stretchy="false" form="prefix">(</mo><mn>4</mn><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\cos(3x)\cos(x) - \sin(3x)\sin(x) = cos(4x)</annotation></semantics></math>
+pour tout
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mrow><mo mathvariant="double-struck">∈</mo><mi>ℝ</mi></mrow></mrow><annotation encoding="application/x-tex">x\mathbb{\in R}</annotation></semantics></math>.</p></li>
+<li><p>Calculer
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>I</mi><mo>+</mo><mi>J</mi></mrow><annotation encoding="application/x-tex">I + J</annotation></semantics></math>
+et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>I</mi><mo>−</mo><mi>J</mi></mrow><annotation encoding="application/x-tex">I - J</annotation></semantics></math>
+puis en déduire
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>I</mi><annotation encoding="application/x-tex">I</annotation></semantics></math>
+et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>J</mi><annotation encoding="application/x-tex">J</annotation></semantics></math>.</p></li>
+</ol>
+<p><em><strong>🔿 Exercice ② :</strong></em></p>
+<p>On pose :
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mo>=</mo><msubsup><mo>∫</mo><mn>0</mn><mrow><mi>l</mi><mi>n</mi><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mo stretchy="false" form="postfix">)</mo></mrow></msubsup><mrow><mfrac><mrow><msup><mi>e</mi><mi>t</mi></msup><mo>−</mo><mn>1</mn></mrow><mrow><msup><mi>e</mi><mi>t</mi></msup><mo>+</mo><mn>1</mn></mrow></mfrac><mi>d</mi><mi>t</mi></mrow><mi>e</mi><mi>t</mi><mspace width="0.222em"></mspace><mi>L</mi><mo>=</mo><msubsup><mo>∫</mo><mn>0</mn><mrow><mi>l</mi><mi>n</mi><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mo stretchy="false" form="postfix">)</mo></mrow></msubsup><mrow><mfrac><mn>1</mn><mrow><msup><mi>e</mi><mi>t</mi></msup><mo>+</mo><mn>1</mn></mrow></mfrac><mi>d</mi><mi>t</mi></mrow></mrow><annotation encoding="application/x-tex">K = \int_{0}^{ln(2)}{\frac{e^{t} - 1}{e^{t} + 1}dt}et\ L = \int_{0}^{ln(2)}{\frac{1}{e^{t} + 1}dt}</annotation></semantics></math></p>
+<p>Calculer
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mo>+</mo><mi>L</mi><mspace width="0.222em"></mspace><mi>e</mi><mi>t</mi><mspace width="0.222em"></mspace><mi>K</mi><mo>+</mo><mn>2</mn><mi>L</mi></mrow><annotation encoding="application/x-tex">K + L\ et\ K + 2L</annotation></semantics></math>
+puis en déduire les valeurs de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mspace width="0.222em"></mspace><mi>e</mi><mi>t</mi><mspace width="0.222em"></mspace><mi>L</mi></mrow><annotation encoding="application/x-tex">K\ et\ L</annotation></semantics></math>.</p>
+<ol start="2" type="I">
+<li><p><em>Intégrale et ordre – la valeur moyenne :</em></p></li>
+</ol>
+<ol type="1">
+<li><p><em>Intégrale et ordre :</em></p></li>
+</ol>
+<p><em>🖉🖉 Propriété :</em></p>
+<p>Soient
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mi>e</mi><mi>t</mi><mspace width="0.222em"></mspace><mi>g</mi></mrow><annotation encoding="application/x-tex">fet\ g</annotation></semantics></math>
+deux fonctions continues sur l’intervalle
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">[</mo><mi>a</mi><mo>,</mo><mi>b</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">\lbrack a,b\rbrack</annotation></semantics></math>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo>≤</mo><mi>b</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(a \leq b)</annotation></semantics></math>.</p>
+<ul>
+<li><p>Si
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">(</mo><mo>∀</mo><mi>x</mi><mo>∈</mo><mo stretchy="false" form="prefix">[</mo><mi>a</mi><mo>,</mo><mi>b</mi><mo stretchy="false" form="postfix">]</mo><mo stretchy="true" form="postfix">)</mo></mrow><mspace width="0.222em"></mspace><mo>;</mo><mspace width="0.222em"></mspace><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>≥</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\left( \forall x \in \lbrack a,b\rbrack \right)\ ;\ f(x) \geq 0</annotation></semantics></math>,
+alors
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mo>∫</mo><mi>a</mi><mi>b</mi></msubsup><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mi>d</mi><mi>x</mi></mrow><mo>≥</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\int_{a}^{b}{f(x)dx} \geq 0</annotation></semantics></math>.</p></li>
+<li><p>Si
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">(</mo><mo>∀</mo><mi>x</mi><mo>∈</mo><mo stretchy="false" form="prefix">[</mo><mi>a</mi><mo>,</mo><mi>b</mi><mo stretchy="false" form="postfix">]</mo><mo stretchy="true" form="postfix">)</mo></mrow><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mo>;</mo><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>≤</mo><mi>g</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\left( \forall x \in \lbrack a,b\rbrack \right)\ \ ;\ \ f(x) \leq g(x)</annotation></semantics></math>,
+alors
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mo>∫</mo><mi>a</mi><mi>b</mi></msubsup><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mi>d</mi><mi>x</mi></mrow><mo>≤</mo><msubsup><mo>∫</mo><mi>a</mi><mi>b</mi></msubsup><mrow><mi>g</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mi>d</mi><mi>x</mi></mrow></mrow><annotation encoding="application/x-tex">\int_{a}^{b}{f(x)dx} \leq \int_{a}^{b}{g(x)dx}</annotation></semantics></math>.
+<span dir="rtl"></span></p></li>
+</ul>
+<p><em><strong>✍ Application ④ :</strong></em></p>
+<ol type="1">
+<li><p>Montrer que :
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mo>∫</mo><mn>1</mn><mn>2</mn></msubsup><mrow><mrow><mi mathvariant="normal">ln</mi><mo>&#8289;</mo></mrow><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mi>²</mi><mo>+</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mi>d</mi><mi>x</mi></mrow><mo>≥</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\int_{1}^{2}{\ln(x² + 1)dx} \geq 0</annotation></semantics></math>.</p></li>
+<li><p>Montrer que :
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mfrac><mn>1</mn><mn>2</mn></mfrac><mo>≤</mo><msubsup><mo>∫</mo><mn>1</mn><mn>2</mn></msubsup><mrow><mfrac><mrow><mi>s</mi><mi>i</mi><mi>n</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><msup><mi>x</mi><mn>2</mn></msup></mfrac><mi>d</mi><mi>x</mi></mrow><mo>≤</mo><mfrac><mn>1</mn><mn>2</mn></mfrac></mrow><annotation encoding="application/x-tex">- \frac{1}{2} \leq \int_{1}^{2}{\frac{sin(x)}{x^{2}}dx} \leq \frac{1}{2}</annotation></semantics></math>.</p></li>
+</ol>
+<ol start="2" type="1">
+<li><p><em>Valeur moyenne d’une fonction continue sur un
+segment :</em></p></li>
+</ol>
+<blockquote>
+<p><em>🖉🖉Définition :</em></p>
+</blockquote>
+<p>Soit
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+une fonction continue sur un segment
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">[</mo><mi>a</mi><mo>,</mo><mi>b</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">\lbrack a,b\rbrack</annotation></semantics></math>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo>≤</mo><mi>b</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(a \leq b)</annotation></semantics></math>.</p>
+<p>l existe au moins un réel
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>c</mi><mo>∈</mo><mo stretchy="false" form="prefix">[</mo><mi>a</mi><mo>,</mo><mi>b</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">c \in \lbrack a,b\rbrack</annotation></semantics></math>
+tel que :
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>c</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mn>1</mn><mrow><mi>b</mi><mo>−</mo><mi>a</mi></mrow></mfrac><msubsup><mo>∫</mo><mi>a</mi><mi>b</mi></msubsup><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mi>d</mi><mi>x</mi></mrow></mrow><annotation encoding="application/x-tex">f(c) = \frac{1}{b - a}\int_{a}^{b}{f(x)dx}</annotation></semantics></math>.</p>
+<p>Le nombre
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mn>1</mn><mrow><mi>b</mi><mo>−</mo><mi>a</mi></mrow></mfrac><msubsup><mo>∫</mo><mi>a</mi><mi>b</mi></msubsup><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mi>d</mi><mi>x</mi></mrow></mrow><annotation encoding="application/x-tex">\frac{1}{b - a}\int_{a}^{b}{f(x)dx}</annotation></semantics></math>
+est appelé <em>valeur moyenne</em> de la fonction
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+sur l’intervalle
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">[</mo><mi>a</mi><mo>,</mo><mi>b</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">\lbrack a,b\rbrack</annotation></semantics></math></p>
+<p><strong> <em>🔿Exemple :</em></strong></p>
+<p>La valeur moyenne de la fonction
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>↦</mo><mfrac><mrow><mn>2</mn><mi>x</mi></mrow><mrow><mn>1</mn><mo>+</mo><msup><mi>x</mi><mn>2</mn></msup></mrow></mfrac></mrow><annotation encoding="application/x-tex">x \mapsto \frac{2x}{1 + x^{2}}</annotation></semantics></math>
+sur l’intervalle
+[<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo>,</mo><mn>3</mn><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">1,3\rbrack</annotation></semantics></math>
+est
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mn>1</mn><mn>2</mn></mfrac><msubsup><mo>∫</mo><mn>1</mn><mn>3</mn></msubsup><mrow><mfrac><mrow><mn>2</mn><mi>x</mi></mrow><mrow><mn>1</mn><mo>+</mo><msup><mi>x</mi><mn>2</mn></msup></mrow></mfrac><mspace width="0.222em"></mspace><mi>d</mi><mi>x</mi></mrow></mrow><annotation encoding="application/x-tex">\frac{1}{2}\int_{1}^{3}{\frac{2x}{1 + x^{2}}\ dx}</annotation></semantics></math></p>
+<p>C’est-à-dire :
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mn>1</mn><mn>2</mn></mfrac><msubsup><mrow><mo stretchy="true" form="prefix">[</mo><mi>l</mi><mi>n</mi><mo stretchy="false" form="prefix">(</mo><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo stretchy="true" form="postfix">]</mo></mrow><mn>1</mn><mn>3</mn></msubsup><mo>=</mo><mfrac><mrow><mrow><mi mathvariant="normal">ln</mi><mo>&#8289;</mo></mrow><mo stretchy="false" form="prefix">(</mo><mn>5</mn><mo stretchy="false" form="postfix">)</mo></mrow><mn>2</mn></mfrac></mrow><annotation encoding="application/x-tex">\frac{1}{2}\left\lbrack ln(x^{2} + 1) \right\rbrack_{1}^{3} = \frac{\ln(5)}{2}</annotation></semantics></math>.</p>
+<p><em><strong>✍ Application ⑤ :</strong></em></p>
+<p>Calculer la valeur moyenne de la fonction
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>↦</mo><mfrac><mrow><mi>l</mi><msup><mi>n</mi><mn>2</mn></msup><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mi>x</mi></mrow><mi>x</mi></mfrac></mrow><annotation encoding="application/x-tex">x \mapsto \frac{ln^{2}(x) + x}{x}</annotation></semantics></math>
+sur l’intervalle
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">[</mo><mn>1</mn><mo>,</mo><mi>e</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">\lbrack 1,e\rbrack</annotation></semantics></math>.</p>
+<ol start="3" type="I">
+<li><p><em>Techniques de calcul d’intégrales :</em></p></li>
+</ol>
+<ol type="1">
+<li><p><em>Utilisation des primitives</em> :</p></li>
+</ol>
+<p><em><strong>✍ Application ⑥:</strong></em></p>
+<ol type="1">
+<li><p>Calculer les intégrales suivantes :</p></li>
+</ol>
+<blockquote>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>I</mi><mo>=</mo><msubsup><mo>∫</mo><mn>2</mn><mi>e</mi></msubsup><mrow><mfrac><mn>1</mn><mrow><mi>x</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi mathvariant="normal">ln</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow></mrow></mfrac><mi>d</mi><mi>x</mi></mrow><mspace width="0.222em"></mspace></mrow><annotation encoding="application/x-tex">I = \int_{2}^{e}{\frac{1}{x\left( \ln(x) + 1 \right)}dx}\ </annotation></semantics></math>;
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>J</mi><mo>=</mo><msubsup><mo>∫</mo><mn>0</mn><mn>1</mn></msubsup><mrow><mi>t</mi><msup><mi>e</mi><msup><mi>t</mi><mn>2</mn></msup></msup><mi>d</mi><mi>t</mi></mrow><mspace width="0.222em"></mspace></mrow><annotation encoding="application/x-tex">J = \int_{0}^{1}{te^{t^{2}}dt}\ </annotation></semantics></math>;
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mo>=</mo><msubsup><mo>∫</mo><mn>0</mn><mfrac><mi>π</mi><mn>3</mn></mfrac></msubsup><mrow><mi>t</mi><mi>a</mi><mi>n</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><mi>d</mi><mi>x</mi></mrow><annotation encoding="application/x-tex">K = \int_{0}^{\frac{\pi}{3}}{tan(x)}dx</annotation></semantics></math>
+et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi><mo>=</mo><msubsup><mo>∫</mo><mn>0</mn><mn>1</mn></msubsup><mrow><mfrac><mrow><mn>2</mn><mi>x</mi><mo>+</mo><mn>2</mn></mrow><mrow><mo stretchy="false" form="prefix">(</mo><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>2</mn><mi>x</mi><mo>+</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mi>²</mi></mrow></mfrac><mi>d</mi><mi>x</mi></mrow></mrow><annotation encoding="application/x-tex">L = \int_{0}^{1}{\frac{2x + 2}{(x^{2} + 2x + 1)²}dx}</annotation></semantics></math><em>.</em></p>
+</blockquote>
+<ol start="2" type="1">
+<li><p><em><strong>a-</strong></em> Vérifier que :
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">(</mo><mo>∀</mo><mi>x</mi><mrow><mo mathvariant="double-struck">∈</mo><mi>ℝ</mi></mrow><mo stretchy="true" form="postfix">)</mo></mrow><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mfrac><mrow><msup><mi>e</mi><mrow><mn>2</mn><mi>x</mi></mrow></msup><mo>−</mo><mn>1</mn></mrow><mrow><msup><mi>e</mi><mrow><mn>2</mn><mi>x</mi></mrow></msup><mo>+</mo><mn>1</mn></mrow></mfrac><mo>=</mo><mfrac><mrow><msup><mi>e</mi><mi>x</mi></msup><mo>−</mo><msup><mi>e</mi><mrow><mi>−</mi><mi>x</mi></mrow></msup></mrow><mrow><msup><mi>e</mi><mrow><mspace width="0.222em"></mspace><mi>x</mi></mrow></msup><mo>+</mo><msup><mi>e</mi><mrow><mi>−</mi><mi>x</mi></mrow></msup></mrow></mfrac></mrow><annotation encoding="application/x-tex">\left( \forall x\mathbb{\in R} \right)\ \ \frac{e^{2x} - 1}{e^{2x} + 1} = \frac{e^{x} - e^{- x}}{e^{\ x} + e^{- x}}</annotation></semantics></math>.</p></li>
+</ol>
+<p><em><strong>b-</strong></em> En déduire la valeur de
+l’intégrale <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mo>∫</mo><mn>0</mn><mn>1</mn></msubsup><mrow><mfrac><mrow><msup><mi>e</mi><mrow><mn>2</mn><mi>x</mi></mrow></msup><mo>−</mo><mn>1</mn></mrow><mrow><msup><mi>e</mi><mrow><mn>2</mn><mi>x</mi></mrow></msup><mo>+</mo><mn>1</mn></mrow></mfrac><mi>d</mi><mi>x</mi></mrow></mrow><annotation encoding="application/x-tex">\int_{0}^{1}{\frac{e^{2x} - 1}{e^{2x} + 1}dx}</annotation></semantics></math><span
+dir="rtl">.</span></p>
+<p><em><strong>🔿 Exercice ③ : Bac 2002</strong></em></p>
+<ol type="1">
+<li><p>Calculer l’integrale
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mo>∫</mo><mfrac><mi>π</mi><mn>4</mn></mfrac><mfrac><mi>π</mi><mn>3</mn></mfrac></msubsup><mrow><mrow><mo stretchy="true" form="prefix">(</mo><mfrac><mn>1</mn><mrow><mi>c</mi><mi>o</mi><msup><mi>s</mi><mn>2</mn></msup><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow></mfrac><mo>−</mo><mn>4</mn><mi mathvariant="normal">cos</mi><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="true" form="postfix">)</mo></mrow><mi>d</mi><mi>x</mi></mrow></mrow><annotation encoding="application/x-tex">\int_{\frac{\pi}{4}}^{\frac{\pi}{3}}{\left( \frac{1}{cos^{2}(x)} - 4\cos(2x) \right)dx}</annotation></semantics></math>.</p></li>
+<li><p>Montrer que
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mrow><mo stretchy="true" form="prefix">(</mo><mfrac><mi>x</mi><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>1</mn></mrow></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mo>′</mo></msup><mo>=</mo><mfrac><mrow><mn>1</mn><mo>−</mo><msup><mi>x</mi><mn>2</mn></msup></mrow><msup><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup></mfrac></mrow><annotation encoding="application/x-tex">\left( \frac{x}{x^{2} + 1} \right)&#39; = \frac{1 - x^{2}}{\left( x^{2} + 1 \right)^{2}}</annotation></semantics></math>
+pour tout réel
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>x</mi><annotation encoding="application/x-tex">x</annotation></semantics></math>
+puis calculer
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mo>∫</mo><mn>1</mn><msqrt><mn>3</mn></msqrt></msubsup><mrow><mfrac><mrow><mn>1</mn><mo>−</mo><msup><mi>x</mi><mn>2</mn></msup></mrow><msup><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup></mfrac><mi>d</mi><mi>x</mi></mrow></mrow><annotation encoding="application/x-tex">\int_{1}^{\sqrt{3}}{\frac{1 - x^{2}}{\left( x^{2} + 1 \right)^{2}}dx}</annotation></semantics></math>.</p></li>
+</ol>
+<ol start="2" type="1">
+<li><p><em>Décomposition des fractions rationnelles en une somme de
+fractions rationnelles :</em></p></li>
+</ol>
+<p><em><strong>✍ Application ⑦ :</strong></em></p>
+<p>Soit
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+la fonction définie sur
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi>ℝ</mi><mo mathvariant="double-struck">∖</mo></mrow><mtext mathvariant="normal">{</mtext><mn>1</mn><mo stretchy="false" form="postfix">}</mo><mspace width="0.222em"></mspace></mrow><annotation encoding="application/x-tex">\mathbb{R\backslash}\text{\{}1\}\ </annotation></semantics></math>par :
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>−</mo><mn>6</mn><mi>x</mi><mo>+</mo><mn>4</mn></mrow><mrow><mi>x</mi><mo>−</mo><mn>1</mn></mrow></mfrac></mrow><annotation encoding="application/x-tex">f(x) = \frac{x^{2} - 6x + 4}{x - 1}</annotation></semantics></math>.</p>
+<ol type="1">
+<li><p>Déterminer les nombres réels
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>,</mo><mi>b</mi><mo>,</mo><mi>e</mi><mi>t</mi><mspace width="0.222em"></mspace><mi>c</mi><mspace width="0.222em"></mspace></mrow><annotation encoding="application/x-tex">a,b,et\ c\ </annotation></semantics></math>pour
+que l’on ait pour tout
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mspace width="0.222em"></mspace><mi>d</mi><mi>e</mi><mrow><mspace width="0.222em"></mspace><mi>ℝ</mi><mo mathvariant="double-struck">∖</mo></mrow><mtext mathvariant="normal">{</mtext><mn>1</mn><mo stretchy="false" form="postfix">}</mo><mspace width="0.222em"></mspace><mo>:</mo></mrow><annotation encoding="application/x-tex">x\ de\mathbb{\ R\backslash}\text{\{}1\}\ :</annotation></semantics></math></p></li>
+</ol>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>a</mi><mi>x</mi><mo>+</mo><mi>b</mi><mo>+</mo><mfrac><mi>c</mi><mrow><mi>x</mi><mo>−</mo><mn>1</mn></mrow></mfrac></mrow><annotation encoding="application/x-tex">f(x) = ax + b + \frac{c}{x - 1}</annotation></semantics></math>.</p>
+<ol start="2" type="1">
+<li><p>En déduire la valeur de l’intégrale :
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mo>∫</mo><mn>2</mn><mn>3</mn></msubsup><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mi>d</mi><mi>x</mi></mrow></mrow><annotation encoding="application/x-tex">\int_{2}^{3}{f(x)dx}</annotation></semantics></math>.</p></li>
+</ol>
+<ol start="3" type="1">
+<li><p><em>Linéarisation des fonctions trigonométriques :</em></p></li>
+</ol>
+<p><em><strong>✍ Application ⑧ :</strong></em></p>
+<p>Linéariser le polynôme trigonométrique <span
+dir="rtl"></span><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mrow><mi mathvariant="normal">cos</mi><mo>&#8289;</mo></mrow><mn>3</mn></msup><mi>x</mi></mrow><annotation encoding="application/x-tex">\cos^{3}x</annotation></semantics></math>
+puis calculer
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mo>∫</mo><mn>0</mn><mfrac><mi>π</mi><mn>4</mn></mfrac></msubsup><mrow><msup><mrow><mi mathvariant="normal">cos</mi><mo>&#8289;</mo></mrow><mn>3</mn></msup><mi>x</mi><mi>d</mi><mi>x</mi></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">\int_{0}^{\frac{\pi}{4}}{\cos^{3}xdx}.</annotation></semantics></math></p>
+<p><em><strong>🔿 Exercice ④ : Bac 2003</strong></em></p>
+<p>Vérifier, pour tout réel
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>x</mi><annotation encoding="application/x-tex">x</annotation></semantics></math>,
+que :
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mi>i</mi><msup><mi>n</mi><mn>2</mn></msup><mi>x</mi><mi>.</mi><msup><mrow><mi mathvariant="normal">cos</mi><mo>&#8289;</mo></mrow><mn>3</mn></msup><mi>x</mi><mo>=</mo><mrow><mi mathvariant="normal">cos</mi><mo>&#8289;</mo></mrow><mi>x</mi><mi>.</mi><mi>s</mi><mi>i</mi><msup><mi>n</mi><mn>2</mn></msup><mi>x</mi><mo>−</mo><mrow><mi mathvariant="normal">cos</mi><mo>&#8289;</mo></mrow><mi>x</mi><mi>.</mi><msup><mrow><mi mathvariant="normal">sin</mi><mo>&#8289;</mo></mrow><mn>4</mn></msup><mi>x</mi></mrow><annotation encoding="application/x-tex">sin^{2}x.\cos^{3}x = \cos x.sin^{2}x - \cos x.\sin^{4}x</annotation></semantics></math>.</p>
+<p>Calculer l’integrale
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>I</mi><mo>=</mo><msubsup><mo>∫</mo><mn>0</mn><mfrac><mi>π</mi><mn>2</mn></mfrac></msubsup><mrow><mi>s</mi><mi>i</mi><msup><mi>n</mi><mn>2</mn></msup><mi>x</mi><mi>.</mi><msup><mrow><mi mathvariant="normal">cos</mi><mo>&#8289;</mo></mrow><mn>3</mn></msup><mi>x</mi><mi>d</mi><mi>x</mi></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">I = \int_{0}^{\frac{\pi}{2}}{sin^{2}x.\cos^{3}xdx}.</annotation></semantics></math></p>
+<ol start="4" type="1">
+<li><p><em>Intégration par parties :</em></p></li>
+</ol>
+<p>Soit
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>u</mi><mspace width="0.222em"></mspace><mi>e</mi><mi>t</mi><mspace width="0.222em"></mspace><mi>v</mi></mrow><annotation encoding="application/x-tex">u\ et\ v</annotation></semantics></math>
+deux fonctions dérivables sur un intervalle
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">[</mo><mi>a</mi><mo>,</mo><mi>b</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">\lbrack a,b\rbrack</annotation></semantics></math>
+telles que
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>u</mi><mo>′</mo></msup><mi>e</mi><mi>t</mi><mspace width="0.222em"></mspace><msup><mi>v</mi><mo>′</mo></msup></mrow><annotation encoding="application/x-tex">u&#39;et\ v&#39;</annotation></semantics></math>
+continues sur
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mo stretchy="false" form="prefix">[</mo><annotation encoding="application/x-tex">\lbrack</annotation></semantics></math>a,
+b].</p>
+<p>On a :
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">(</mo><mo>∀</mo><mi>x</mi><mo>∈</mo><mo stretchy="false" form="prefix">[</mo><mi>a</mi><mo>,</mo><mi>b</mi><mo stretchy="false" form="postfix">]</mo><mo stretchy="true" form="postfix">)</mo></mrow><mo>;</mo><msup><mrow><mspace width="0.222em"></mspace><mrow><mo stretchy="true" form="prefix">(</mo><mi>u</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mi>v</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="true" form="postfix">)</mo></mrow></mrow><mo>′</mo></msup><mo>=</mo><msup><mi>u</mi><mo>′</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mi>v</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mi>u</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><msup><mi>v</mi><mo>′</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\left( \forall x \in \lbrack a,b\rbrack \right);{\ \left( u(x)v(x) \right)}&#39; = u&#39;(x)v(x) + u(x)v&#39;(x)</annotation></semantics></math><span
+dir="rtl">.</span></p>
+<p>Alors :
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mo>∫</mo><mi>a</mi><mi>b</mi></msubsup><mrow><msup><mrow><mspace width="0.222em"></mspace><mrow><mo stretchy="true" form="prefix">(</mo><mi>u</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mi>v</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="true" form="postfix">)</mo></mrow></mrow><mo>′</mo></msup><mi>d</mi><mi>x</mi><mo>=</mo></mrow><msubsup><mo>∫</mo><mi>a</mi><mi>b</mi></msubsup><mrow><msup><mi>u</mi><mo>′</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mi>v</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mi>d</mi><mi>x</mi></mrow><mo>+</mo><msubsup><mo>∫</mo><mi>a</mi><mi>b</mi></msubsup><mrow><msup><mi>u</mi><mspace width="0.222em"></mspace></msup><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><msup><mi>v</mi><mrow><mi>′</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow></msup><mi>d</mi><mi>x</mi></mrow></mrow><annotation encoding="application/x-tex">\int_{a}^{b}{{\ \left( u(x)v(x) \right)}&#39;dx =}\int_{a}^{b}{u&#39;(x)v(x)dx} + \int_{a}^{b}{u^{\ }(x)v^{&#39;(x)}dx}</annotation></semantics></math></p>
+<p>D’où
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mo>∫</mo><mi>a</mi><mi>b</mi></msubsup><mrow><msup><mi>u</mi><mo>′</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mi>v</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mi>d</mi><mi>x</mi><mo>=</mo><msubsup><mrow><mo stretchy="true" form="prefix">[</mo><mi>u</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mi>v</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="true" form="postfix">]</mo></mrow><mi>a</mi><mi>b</mi></msubsup></mrow><mo>−</mo><msubsup><mo>∫</mo><mi>a</mi><mi>b</mi></msubsup><mrow><msup><mi>u</mi><mspace width="0.222em"></mspace></msup><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><msup><mi>v</mi><mo>′</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mi>d</mi><mi>x</mi></mrow></mrow><annotation encoding="application/x-tex">\int_{a}^{b}{u&#39;(x)v(x)dx = \left\lbrack u(x)v(x) \right\rbrack_{a}^{b}} - \int_{a}^{b}{u^{\ }(x)v&#39;(x)dx}</annotation></semantics></math><span
+dir="rtl">.</span></p>
+<p><em>🖉🖉 Propriété :</em></p>
+<p>Soient
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>u</mi><mspace width="0.222em"></mspace><mi>e</mi><mi>t</mi><mspace width="0.222em"></mspace><mi>v</mi></mrow><annotation encoding="application/x-tex">u\ et\ v</annotation></semantics></math>
+deux fonctions dérivables sur un intervalle
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>I</mi><annotation encoding="application/x-tex">I</annotation></semantics></math>
+telles que ses dérivées
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>u</mi><mo>′</mo></msup><mi>e</mi><mi>t</mi><mspace width="0.222em"></mspace><msup><mi>v</mi><mo>′</mo></msup></mrow><annotation encoding="application/x-tex">u&#39;et\ v&#39;</annotation></semantics></math>
+sont continues sur
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>I</mi><annotation encoding="application/x-tex">I</annotation></semantics></math>.</p>
+<p>Pour tout
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo>,</mo><mi>b</mi><mo stretchy="false" form="postfix">)</mo><mo>∈</mo><msup><mi>I</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">(a,b) \in I^{2}</annotation></semantics></math>
+on a :
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mo>∫</mo><mi>a</mi><mi>b</mi></msubsup><mrow><msup><mi>u</mi><mo>′</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mi>v</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mi>d</mi><mi>x</mi><mo>=</mo><msubsup><mrow><mo stretchy="true" form="prefix">[</mo><mi>u</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mi>v</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="true" form="postfix">]</mo></mrow><mi>a</mi><mi>b</mi></msubsup></mrow><mo>−</mo><msubsup><mo>∫</mo><mi>a</mi><mi>b</mi></msubsup><mrow><msup><mi>u</mi><mspace width="0.222em"></mspace></msup><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><msup><mi>v</mi><mo>′</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mi>d</mi><mi>x</mi></mrow></mrow><annotation encoding="application/x-tex">\int_{a}^{b}{u&#39;(x)v(x)dx = \left\lbrack u(x)v(x) \right\rbrack_{a}^{b}} - \int_{a}^{b}{u^{\ }(x)v&#39;(x)dx}</annotation></semantics></math>.</p>
+<p><em><strong>🔿Exemple :</strong></em></p>
+<p>Calculons l’intégrale 
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>I</mi><mo>=</mo><msubsup><mo>∫</mo><mn>0</mn><mn>1</mn></msubsup><mrow><mi>x</mi><msup><mi>e</mi><mi>x</mi></msup><mi>d</mi><mi>x</mi></mrow></mrow><annotation encoding="application/x-tex">I = \int_{0}^{1}{xe^{x}dx}</annotation></semantics></math>.</p>
+<p>Posons
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">{</mo><mtable><mtr><mtd columnalign="right" style="text-align: right"><msup><mi>u</mi><mo>′</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msup><mi>e</mi><mi>x</mi></msup></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"><mi>v</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>x</mi></mtd></mtr></mtable></mrow><mspace width="0.222em"></mspace></mrow><annotation encoding="application/x-tex">\left\{ \begin{array}{r}
+u&#39;(x) = e^{x} \\
+v(x) = x
+\end{array} \right.\ </annotation></semantics></math>, alors
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">{</mo><mtable><mtr><mtd columnalign="right" style="text-align: right"><mi>u</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msup><mi>e</mi><mi>x</mi></msup></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"><msup><mi>v</mi><mo>′</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>1</mn></mtd></mtr></mtable></mrow><mspace width="0.222em"></mspace></mrow><annotation encoding="application/x-tex">\left\{ \begin{array}{r}
+u(x) = e^{x} \\
+v&#39;(x) = 1
+\end{array} \right.\ </annotation></semantics></math>.</p>
+<p>Il s’ensuit 
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>I</mi><mo>=</mo><msubsup><mrow><mo stretchy="true" form="prefix">[</mo><mi>x</mi><msup><mi>e</mi><mi>x</mi></msup><mo stretchy="true" form="postfix">]</mo></mrow><mn>0</mn><mn>1</mn></msubsup><mo>−</mo><msubsup><mo>∫</mo><mn>0</mn><mn>1</mn></msubsup><mrow><msup><mi>e</mi><mi>x</mi></msup><mi>d</mi><mi>x</mi><mo>=</mo><msubsup><mrow><mo stretchy="true" form="prefix">[</mo><mi>x</mi><msup><mi>e</mi><mi>x</mi></msup><mo stretchy="true" form="postfix">]</mo></mrow><mn>0</mn><mn>1</mn></msubsup><mo>−</mo><msubsup><mrow><mo stretchy="true" form="prefix">[</mo><msup><mi>e</mi><mi>x</mi></msup><mo stretchy="true" form="postfix">]</mo></mrow><mn>0</mn><mn>1</mn></msubsup><mo>=</mo><mi>e</mi><mo>−</mo><mi>e</mi><mo>+</mo><mn>1</mn><mo>=</mo><mn>1</mn></mrow></mrow><annotation encoding="application/x-tex">I = \left\lbrack xe^{x} \right\rbrack_{0}^{1} - \int_{0}^{1}{e^{x}dx = \left\lbrack xe^{x} \right\rbrack_{0}^{1} - \left\lbrack e^{x} \right\rbrack_{0}^{1} = e - e + 1 = 1}</annotation></semantics></math>.</p>
+<p><em><strong>🔿Remarque :</strong></em></p>
+<p>Le choix des fonctions
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>u</mi><mo>′</mo></msup><annotation encoding="application/x-tex">u&#39;</annotation></semantics></math>
+et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>v</mi><annotation encoding="application/x-tex">v</annotation></semantics></math>
+n'est pas arbitraire. Leur bonne sélection joue un rôle clé dans cette
+technique.</p>
+<p>Dans l’exemple précédent si notre choix est
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">{</mo><mtable><mtr><mtd columnalign="right" style="text-align: right"><msup><mi>u</mi><mo>′</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>x</mi></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"><mi>v</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msup><mi>e</mi><mi>x</mi></msup></mtd></mtr></mtable></mrow><mspace width="0.222em"></mspace></mrow><annotation encoding="application/x-tex">\left\{ \begin{array}{r}
+u&#39;(x) = x \\
+v(x) = e^{x}
+\end{array} \right.\ </annotation></semantics></math>, alors
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">{</mo><mtable><mtr><mtd columnalign="right" style="text-align: right"><mi>u</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>x</mi><mi>²</mi></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"><msup><mi>v</mi><mo>′</mo></msup><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msup><mi>e</mi><mi>x</mi></msup></mtd></mtr></mtable></mrow><mspace width="0.222em"></mspace></mrow><annotation encoding="application/x-tex">\left\{ \begin{array}{r}
+u(x) = \frac{1}{2}x² \\
+v&#39;(x) = e^{x}
+\end{array} \right.\ </annotation></semantics></math>.</p>
+<p>On obtient donc
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mo>∫</mo><mn>0</mn><mn>1</mn></msubsup><mrow><mi>x</mi><msup><mi>e</mi><mi>x</mi></msup><mi>d</mi><mi>x</mi></mrow><mo>=</mo><mspace width="0.222em"></mspace><msubsup><mrow><mo stretchy="true" form="prefix">[</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>x</mi><mi>²</mi><msup><mi>e</mi><mi>x</mi></msup><mo stretchy="true" form="postfix">]</mo></mrow><mn>0</mn><mn>1</mn></msubsup><mo>−</mo><msubsup><mo>∫</mo><mi>a</mi><mi>b</mi></msubsup><mrow><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>x</mi><mi>²</mi><msup><mi>e</mi><mi>x</mi></msup><mi>d</mi><mi>x</mi></mrow></mrow><annotation encoding="application/x-tex">\int_{0}^{1}{xe^{x}dx} = \ \left\lbrack \frac{1}{2}x²e^{x} \right\rbrack_{0}^{1} - \int_{a}^{b}{\frac{1}{2}x²e^{x}dx}</annotation></semantics></math>
+ce qui rend le calcul de l’intégrale voulue est très compliqué.</p>
+<p><em><strong>✍ Application ⑨:</strong></em></p>
+<p>En utilisant la formule d’intégration par parties, Calculer les
+intégrales suivantes :</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mn>1</mn></msub><mo>=</mo><msubsup><mo>∫</mo><mn>1</mn><mi>e</mi></msubsup><mrow><mi>x</mi><mi>²</mi><mi>l</mi><mi>n</mi><mi>x</mi><mi>d</mi><mi>x</mi></mrow></mrow><annotation encoding="application/x-tex">I_{1} = \int_{1}^{e}{x²lnxdx}</annotation></semantics></math> ;
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mn>2</mn></msub><mo>=</mo><msubsup><mo>∫</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mn>1</mn></msubsup><mrow><mo stretchy="false" form="prefix">(</mo><mn>2</mn><mi>x</mi><mo>−</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><msup><mi>e</mi><mrow><mi>−</mi><mfrac><mi>x</mi><mn>2</mn></mfrac></mrow></msup><mi>d</mi><mi>x</mi></mrow><mspace width="0.222em"></mspace></mrow><annotation encoding="application/x-tex">I_{2} = \int_{\frac{1}{2}}^{1}{(2x - 1)e^{- \frac{x}{2}}dx}\ </annotation></semantics></math>;
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mn>3</mn></msub><mo>=</mo><msubsup><mo>∫</mo><mn>2</mn><mi>e</mi></msubsup><mrow><mrow><mi mathvariant="normal">ln</mi><mo>&#8289;</mo></mrow><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>+</mo><mn>2</mn><mo stretchy="false" form="postfix">)</mo><mi>d</mi><mi>x</mi></mrow></mrow><annotation encoding="application/x-tex">I_{3} = \int_{2}^{e}{\ln(x + 2)dx}</annotation></semantics></math>
+et<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mn>4</mn></msub><mo>=</mo><msubsup><mo>∫</mo><mn>0</mn><mi>π</mi></msubsup><mrow><mi>x</mi><mi>²</mi><mi>c</mi><mi>o</mi><mi>s</mi><mi>x</mi><mi>d</mi><mi>x</mi></mrow></mrow><annotation encoding="application/x-tex">I_{4} = \int_{0}^{\pi}{x²cosxdx}</annotation></semantics></math>
+.</p>
+<p><em><strong>🔿 Exercice ⑤ : Bac 2001</strong></em></p>
+<ol type="1">
+<li><p>Vérifier, pour tout
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>∈</mo><mo stretchy="false" form="prefix">[</mo><mn>0</mn><mo>;</mo><mn>1</mn><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">x \in \lbrack 0;1\rbrack</annotation></semantics></math>,
+que :
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mrow><msup><mi>x</mi><mn>3</mn></msup><mo>+</mo><mi>x</mi></mrow><mrow><mi>x</mi><mo>+</mo><mn>1</mn></mrow></mfrac><mo>=</mo><msup><mi>x</mi><mn>2</mn></msup><mo>−</mo><mi>x</mi><mo>+</mo><mn>2</mn><mo>−</mo><mfrac><mn>2</mn><mrow><mi>x</mi><mo>+</mo><mn>1</mn></mrow></mfrac></mrow><annotation encoding="application/x-tex">\frac{x^{3} + x}{x + 1} = x^{2} - x + 2 - \frac{2}{x + 1}</annotation></semantics></math>.</p></li>
+<li><p>En utilisant la formule d’intégration par parties, Calculer
+l’integrale
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>I</mi><mo>=</mo><msubsup><mo>∫</mo><mn>0</mn><mn>1</mn></msubsup><mrow><mrow><mo stretchy="true" form="prefix">(</mo><mn>3</mn><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mi mathvariant="normal">ln</mi><mo>&#8289;</mo></mrow><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>+</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mi>d</mi><mi>x</mi></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">I = \int_{0}^{1}{\left( 3x^{2} + 1 \right)\ln(x + 1)dx}.</annotation></semantics></math></p></li>
+</ol>
+<p><em><strong>🔿 Exercice ⑥ :</strong></em></p>
+<p>En utilisant la formule d’intégration par parties, Calculer les
+integrales suivantes :</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th><ul>
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mn>1</mn></msub><mo>=</mo><msubsup><mo>∫</mo><mn>1</mn><msup><mi>e</mi><mn>2</mn></msup></msubsup><mrow><mi>x</mi><mo stretchy="false" form="prefix">(</mo><mi>l</mi><mi>n</mi><mi>x</mi><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup><mi>d</mi><mi>x</mi></mrow></mrow><annotation encoding="application/x-tex">I_{1} = \int_{1}^{e^{2}}{x(lnx)^{2}dx}</annotation></semantics></math></p></li>
+</ul></th>
+<th><ul>
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mn>2</mn></msub><mo>=</mo><msubsup><mo>∫</mo><mn>1</mn><mn>2</mn></msubsup><mrow><mi>x</mi><msqrt><mrow><mn>3</mn><mo>−</mo><mi>x</mi></mrow></msqrt><mi>d</mi><mi>x</mi></mrow></mrow><annotation encoding="application/x-tex">I_{2} = \int_{1}^{2}{x\sqrt{3 - x}dx}</annotation></semantics></math></p></li>
+</ul></th>
+<th><ul>
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mn>3</mn></msub><mo>=</mo><msubsup><mo>∫</mo><msqrt><mi>e</mi></msqrt><mi>e</mi></msubsup><mrow><mfrac><mrow><mi>x</mi><mrow><mi mathvariant="normal">ln</mi><mo>&#8289;</mo></mrow><mi>x</mi></mrow><msup><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup></mfrac><mi>d</mi><mi>x</mi></mrow><mspace width="0.222em"></mspace></mrow><annotation encoding="application/x-tex">I_{3} = \int_{\sqrt{e}}^{e}{\frac{x\ln x}{\left( x^{2} + 1 \right)^{2}}dx}\ </annotation></semantics></math></p></li>
+</ul></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><ul>
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mn>4</mn></msub><mo>=</mo><msubsup><mo>∫</mo><mn>1</mn><mn>2</mn></msubsup><mrow><mfrac><mrow><mrow><mi mathvariant="normal">ln</mi><mo>&#8289;</mo></mrow><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>+</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo></mrow><msup><mi>t</mi><mn>2</mn></msup></mfrac><mi>d</mi><mi>t</mi></mrow><mspace width="0.222em"></mspace></mrow><annotation encoding="application/x-tex">I_{4} = \int_{1}^{2}{\frac{\ln(1 + t)}{t^{2}}dt}\ </annotation></semantics></math></p></li>
+</ul></td>
+<td><ul>
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mn>5</mn></msub><mo>=</mo><msubsup><mo>∫</mo><mn>0</mn><mfrac><mi>π</mi><mn>4</mn></mfrac></msubsup><mrow><mfrac><mi>x</mi><msup><mrow><mi>c</mi><mi>o</mi><mi>s</mi><mi>x</mi></mrow><mn>2</mn></msup></mfrac><mi>d</mi><mi>x</mi></mrow><mspace width="0.222em"></mspace></mrow><annotation encoding="application/x-tex">I_{5} = \int_{0}^{\frac{\pi}{4}}{\frac{x}{{cosx}^{2}}dx}\ </annotation></semantics></math></p></li>
+</ul></td>
+<td><ul>
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mn>6</mn></msub><mo>=</mo><msubsup><mo>∫</mo><mn>1</mn><mn>2</mn></msubsup><mrow><mi>x</mi><msup><mn>2</mn><mi>x</mi></msup><mi>d</mi><mi>x</mi></mrow></mrow><annotation encoding="application/x-tex">I_{6} = \int_{1}^{2}{x2^{x}dx}</annotation></semantics></math></p></li>
+</ul></td>
+</tr>
+<tr>
+<td><ul>
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mn>7</mn></msub><mo>=</mo><msubsup><mo>∫</mo><mn>0</mn><mn>1</mn></msubsup><mrow><mi>l</mi><mi>n</mi><mrow><mo stretchy="true" form="prefix">(</mo><mfrac><mrow><mi>x</mi><mo>+</mo><mn>1</mn></mrow><mrow><mi>x</mi><mo>+</mo><mn>2</mn></mrow></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mi>d</mi><mi>x</mi></mrow></mrow><annotation encoding="application/x-tex">I_{7} = \int_{0}^{1}{ln\left( \frac{x + 1}{x + 2} \right)dx}</annotation></semantics></math></p></li>
+</ul></td>
+<td><ul>
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mn>8</mn></msub><mo>=</mo><msubsup><mo>∫</mo><mn>0</mn><mn>1</mn></msubsup><mrow><msup><mi>x</mi><mn>2</mn></msup><msup><mi>e</mi><mi>x</mi></msup><mi>d</mi><mi>x</mi></mrow></mrow><annotation encoding="application/x-tex">I_{8} = \int_{0}^{1}{x^{2}e^{x}dx}</annotation></semantics></math></p></li>
+</ul></td>
+<td><ul>
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mn>9</mn></msub><mo>=</mo><msubsup><mo>∫</mo><mfrac><mi>π</mi><mn>2</mn></mfrac><mi>π</mi></msubsup><mrow><msup><mrow><mi>s</mi><mi>i</mi><mi>n</mi><mi>x</mi><mi>e</mi></mrow><mi>x</mi></msup><mi>d</mi><mi>x</mi></mrow></mrow><annotation encoding="application/x-tex">I_{9} = \int_{\frac{\pi}{2}}^{\pi}{{sinxe}^{x}dx}</annotation></semantics></math></p></li>
+</ul></td>
+</tr>
+</tbody>
+</table>
+<ol start="4" type="I">
+<li><p><em>Calcul d’aires et de volumes :</em></p></li>
+</ol>
+<ol type="1">
+<li><p><em>Calcul des aires :</em></p></li>
+</ol>
+<p><em><strong>✍Activité ②:</strong></em></p>
+<p>On considéra la fonction définie par :
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>−</mi><mi>x</mi><mo>+</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">f(x) = - x + 2</annotation></semantics></math>
+et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>C</mi><mi>f</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\left( C_{f} \right)</annotation></semantics></math>
+la courbe représentative de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+dans le plan rapporté à un repère orthonormé
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>O</mi><mo>,</mo><mover><mi>i</mi><mo accent="true">→</mo></mover><mo>,</mo><mover><mi>j</mi><mo accent="true">→</mo></mover><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(O,\overrightarrow{i},\overrightarrow{j})</annotation></semantics></math>
+unité (1cm)</p>
+<ol type="1">
+<li><p>Tracer
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>C</mi><mi>f</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\left( C_{f} \right)</annotation></semantics></math>
+et colorier le domaine délimité par l'axe des abscisses, la courbe et
+les droites d'équations
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mspace width="0.222em"></mspace><mo>=</mo><mspace width="0.222em"></mspace><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">x\  = \  - 1</annotation></semantics></math>
+et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mspace width="0.222em"></mspace><mo>=</mo><mspace width="0.222em"></mspace><mn>3</mn></mrow><annotation encoding="application/x-tex">x\  = \ 3</annotation></semantics></math>,
+puis donner une valeur de son aire en unités d’aires.</p></li>
+<li><p>Calculer
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mo>∫</mo><mrow><mi>−</mi><mn>1</mn></mrow><mn>3</mn></msubsup><mrow><mrow><mo stretchy="true" form="prefix">|</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="true" form="postfix">|</mo></mrow><mi>d</mi><mi>x</mi></mrow><mo>×</mo><mrow><mo stretchy="true" form="prefix">∥</mo><mover><mi>i</mi><mo accent="true">→</mo></mover><mo stretchy="true" form="postfix">∥</mo></mrow><mo>×</mo><mrow><mo stretchy="true" form="prefix">∥</mo><mover><mi>j</mi><mo accent="true">→</mo></mover><mo stretchy="true" form="postfix">∥</mo></mrow></mrow><annotation encoding="application/x-tex">\int_{- 1}^{3}{\left| f(x) \right|dx} \times \left\| \overrightarrow{i} \right\| \times \left\| \overrightarrow{j} \right\|</annotation></semantics></math>
+. Qu'est-ce qu'on peut déduire ?</p></li>
+</ol>
+<p><em>🖉🖉 Propriété :</em></p>
+<p>Soit
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+une fonction continue sur un segment
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">[</mo><mi>a</mi><mo>,</mo><mi>b</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">\lbrack a,b\rbrack</annotation></semantics></math>
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>&lt;</mo><mi>b</mi></mrow><annotation encoding="application/x-tex">a &lt; b</annotation></semantics></math>).
+et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>C</mi><mi>f</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\left( C_{f} \right)</annotation></semantics></math>
+sa courbe représentative dans un repère orthogonal.</p>
+<p>L’aire du domaine délimité par
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><msub><mi>C</mi><mi>f</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(C_{f})</annotation></semantics></math>
+, l’axe des abscisses et les droites d’équations
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mi>a</mi><mspace width="0.222em"></mspace><mi>e</mi><mi>t</mi><mspace width="0.222em"></mspace><mi>x</mi><mo>=</mo><mi>b</mi></mrow><annotation encoding="application/x-tex">x = a\ et\ x = b</annotation></semantics></math>
+est égale à
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mo>∫</mo><mi>a</mi><mi>b</mi></msubsup><mrow><mi>∣</mi><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>∣</mo><mi>d</mi><mi>x</mi><mspace width="0.222em"></mspace><mrow><mo stretchy="true" form="prefix">(</mo><mspace width="0.222em"></mspace><mi>e</mi><mi>n</mi><mspace width="0.222em"></mspace><mi>u</mi><mi>n</mi><mi>i</mi><mi>t</mi><mi>é</mi><mspace width="0.222em"></mspace><msup><mi>d</mi><mo>′</mo></msup><mi>a</mi><mi>i</mi><mi>r</mi><mi>e</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow></mrow><annotation encoding="application/x-tex">\int_{a}^{b}{\mid f(x) \mid dx\ \left( \ en\ unité\ d&#39;aire \right)}</annotation></semantics></math></p>
+<p><img src="./media/image1.png"
+style="width:3.5625in;height:1.625in" /></p>
+<p><em><strong>✍ Application ①⓪ :</strong></em></p>
+<p>Le plan est apporté à un repère orthonormé
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><mi>O</mi><mo>,</mo><mover><mi>i</mi><mo accent="true">→</mo></mover><mo>,</mo><mover><mi>j</mi><mo accent="true">→</mo></mover><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\left( O,\overrightarrow{i},\overrightarrow{j} \right)</annotation></semantics></math>
+avec <span
+dir="rtl"></span><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">∥</mo><mover><mi>i</mi><mo accent="true">→</mo></mover><mo stretchy="true" form="postfix">∥</mo></mrow><mo>=</mo><mn>1</mn><mi>c</mi><mi>m</mi></mrow><annotation encoding="application/x-tex">\left\| \overrightarrow{i} \right\| = 1cm</annotation></semantics></math> et
+<span
+dir="rtl"></span><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">∥</mo><mover><mi>j</mi><mo accent="true">→</mo></mover><mo stretchy="true" form="postfix">∥</mo></mrow><mo>=</mo><msqrt><mn>2</mn></msqrt><mi>c</mi><mi>m</mi></mrow><annotation encoding="application/x-tex">\left\| \overrightarrow{j} \right\| = \sqrt{2}cm</annotation></semantics></math></p>
+<p>Soit
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mspace width="0.222em"></mspace></mrow><annotation encoding="application/x-tex">f\ </annotation></semantics></math>
+la fonction définie par :
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mrow><mi mathvariant="normal">sin</mi><mo>&#8289;</mo></mrow><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">f(x) = \sin(x)</annotation></semantics></math></p>
+<p>Calculer l’aire du domaine délimité par la courbe de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+et les droites d’équations :
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mfrac><mi>π</mi><mn>2</mn></mfrac><mspace width="0.222em"></mspace><mi>e</mi><mi>t</mi><mspace width="0.222em"></mspace><mi>x</mi><mo>=</mo><mi>−</mi><mfrac><mi>π</mi><mn>2</mn></mfrac></mrow><annotation encoding="application/x-tex">x = \frac{\pi}{2}\ et\ x = - \frac{\pi}{2}</annotation></semantics></math>.</p>
+<p><em><strong>🔿Exercice ⑦ : Bac 2015</strong></em></p>
+<p>Soit
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mspace width="0.222em"></mspace><mi>f</mi></mrow><annotation encoding="application/x-tex">\ f</annotation></semantics></math>
+la fonction définie sur
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">]</mo><mn>0</mn><mo>;</mo><mi>e</mi><mo stretchy="true" form="postfix">[</mo></mrow><mo>∪</mo><mrow><mo stretchy="true" form="prefix">]</mo><mi>e</mi><mo>;</mo><mi>+</mi><mi>∞</mi><mo stretchy="true" form="postfix">[</mo></mrow></mrow><annotation encoding="application/x-tex">\left\rbrack 0;e \right\lbrack \cup \left\rbrack e; + \infty \right\lbrack</annotation></semantics></math>
+par:
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mn>1</mn><mrow><mi>x</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>−</mo><mi>l</mi><mi>n</mi><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow></mfrac></mrow><annotation encoding="application/x-tex">f(x) = \frac{1}{x(1 - lnx)}</annotation></semantics></math>
+et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>C</mi><mi>f</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\left( C_{f} \right)</annotation></semantics></math>
+la courbe de la fonction
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+dans un repère orthonormé
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>O</mi><mo>;</mo><mover><mi>i</mi><mo accent="true">→</mo></mover><mo>;</mo><mover><mi>j</mi><mo accent="true">→</mo></mover><mo stretchy="true" form="postfix">)</mo></mrow><mspace width="0.222em"></mspace></mrow><annotation encoding="application/x-tex">\left( O;\overrightarrow{i};\overrightarrow{j} \right)\ </annotation></semantics></math>tel
+que
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">∥</mo><mover><mi>i</mi><mo accent="true">→</mo></mover><mo stretchy="true" form="postfix">∥</mo></mrow><mo>=</mo><mn>2</mn><mi>c</mi><mi>m</mi></mrow><annotation encoding="application/x-tex">\left\| \overrightarrow{i} \right\| = 2cm</annotation></semantics></math>.</p>
+<ol type="1">
+<li><p>Montrer que
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mo>∫</mo><mn>1</mn><msqrt><mi>e</mi></msqrt></msubsup><mfrac><mn>1</mn><mrow><mi>x</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>−</mo><mi>l</mi><mi>n</mi><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow></mfrac><mi>d</mi><mi>x</mi><mo>=</mo><mrow><mi mathvariant="normal">ln</mi><mo>&#8289;</mo></mrow><mn>2</mn></mrow><annotation encoding="application/x-tex">\int_{1}^{\sqrt{e}}\frac{1}{x(1 - lnx)}dx = \ln 2</annotation></semantics></math>
+. (Remarquer que
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mn>1</mn><mrow><mi>x</mi><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>−</mo><mi>l</mi><mi>n</mi><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow></mfrac><mo>=</mo><mfrac><mfrac><mn>1</mn><mi>x</mi></mfrac><mrow><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>−</mo><mi>l</mi><mi>n</mi><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow></mfrac></mrow><annotation encoding="application/x-tex">\frac{1}{x(1 - lnx)} = \frac{\frac{1}{x}}{(1 - lnx)}</annotation></semantics></math>)</p></li>
+<li><p>Calculer, en
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>c</mi><msup><mi>m</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">cm^{2}</annotation></semantics></math>,
+l’aire du domaine plan délimité par
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>C</mi><mi>f</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\left( C_{f} \right)</annotation></semantics></math>,
+l’axe des abscisses et les droites d’équations
+:<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mspace width="0.222em"></mspace><mi>x</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">\ x = 1</annotation></semantics></math>
+et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><msqrt><mi>e</mi></msqrt><mi>.</mi></mrow><annotation encoding="application/x-tex">x = \sqrt{e}.</annotation></semantics></math></p></li>
+</ol>
+<p><em>🖉🖉 Propriété :</em></p>
+<p>Soient
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>g</mi><annotation encoding="application/x-tex">g</annotation></semantics></math>
+deux fonctions continues sur un segment
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">[</mo><mi>a</mi><mo>,</mo><mi>b</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">\lbrack a,b\rbrack</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>C</mi><mi>f</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mi>e</mi><mi>t</mi><mspace width="0.222em"></mspace><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>C</mi><mi>g</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\left( C_{f} \right)et\ \left( C_{g} \right)</annotation></semantics></math>
+les courbes représentatives de
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>g</mi><annotation encoding="application/x-tex">g</annotation></semantics></math>
+dans un repère orthogonal.</p>
+<p>Soit
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi mathvariant="normal">Δ</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(\Delta)</annotation></semantics></math>
+le domaine délimité par les courbes
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>C</mi><mi>f</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mi>e</mi><mi>t</mi><mspace width="0.222em"></mspace><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>C</mi><mi>g</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\left( C_{f} \right)et\ \left( C_{g} \right)</annotation></semantics></math>
+et les droites d’équations
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mi>a</mi><mspace width="0.222em"></mspace><mi>e</mi><mi>t</mi><mspace width="0.222em"></mspace><mi>x</mi><mo>=</mo><mi>b</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">x = a\ et\ x = b.</annotation></semantics></math></p>
+<p>L’aire du domaine
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi mathvariant="normal">Δ</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(\Delta)</annotation></semantics></math>
+en unités d’aire est donnée par :
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo stretchy="false" form="prefix">(</mo><mi mathvariant="normal">Δ</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msubsup><mo>∫</mo><mi>a</mi><mi>b</mi></msubsup><mrow><mrow><mo stretchy="true" form="prefix">|</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>−</mo><mi>g</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="true" form="postfix">|</mo></mrow><mi>d</mi><mi>x</mi></mrow></mrow><annotation encoding="application/x-tex">A(\Delta) = \int_{a}^{b}{\left| f(x) - g(x) \right|dx}</annotation></semantics></math>.</p>
+<p><img src="./media/image2.png"
+style="width:3in;height:1.57361in" /></p>
+<p><em><strong>✍ Application ①① :</strong></em></p>
+<p>Le plan est rapporté à un repère orthogonal
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><mi>O</mi><mo>,</mo><mover><mi>i</mi><mo accent="true">→</mo></mover><mo>,</mo><mover><mi>j</mi><mo accent="true">→</mo></mover><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\left( O,\overrightarrow{i},\overrightarrow{j} \right)</annotation></semantics></math>
+avec <span
+dir="rtl"></span><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">∥</mo><mover><mi>i</mi><mo accent="true">→</mo></mover><mo stretchy="true" form="postfix">∥</mo></mrow><mo>=</mo><mn>2</mn><mi>c</mi><mi>m</mi></mrow><annotation encoding="application/x-tex">\left\| \overrightarrow{i} \right\| = 2cm</annotation></semantics></math> et
+<span
+dir="rtl"></span><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">∥</mo><mover><mi>j</mi><mo accent="true">→</mo></mover><mo stretchy="true" form="postfix">∥</mo></mrow><mo>=</mo><mn>2</mn><mi>c</mi><mi>m</mi></mrow><annotation encoding="application/x-tex">\left\| \overrightarrow{j} \right\| = 2cm</annotation></semantics></math></p>
+<p>On considère les fonctions
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mspace width="0.222em"></mspace><mi>e</mi><mi>t</mi><mspace width="0.222em"></mspace><mi>g</mi><mspace width="0.222em"></mspace></mrow><annotation encoding="application/x-tex">f\ et\ g\ </annotation></semantics></math>
+définie par :
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mn>2</mn><mi>x</mi><mi>²</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">f(x) = 2x² + 1</annotation></semantics></math>
+<em>et</em>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>x</mi><mi>²</mi><mo>+</mo><mi>x</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">g(x) = x² + x + 1</annotation></semantics></math></p>
+<p>Calculer l’aire du domaine délimité par les courbes des fonctions
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mspace width="0.222em"></mspace><mi>e</mi><mi>t</mi><mspace width="0.222em"></mspace><mi>g</mi></mrow><annotation encoding="application/x-tex">f\ et\ g</annotation></semantics></math>
+et l’axe des abscisses et les droites d’équations
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mn>0</mn><mspace width="0.222em"></mspace><mi>e</mi><mi>t</mi><mspace width="0.222em"></mspace><mi>x</mi><mo>=</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">x = 0\ et\ x = 2</annotation></semantics></math>
+.</p>
+<p><em><strong>🔿 Exercice ⑧ :</strong></em> <em><strong>Session
+Rattrapage 2017</strong></em></p>
+<p>Soit
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+la fonction numérique définie sur
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ℝ</mi><annotation encoding="application/x-tex">\mathbb{R}</annotation></semantics></math>
+par:
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>x</mi><mo>+</mo><mn>1</mn><mo>−</mo><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow><msup><mi>e</mi><mi>x</mi></msup></mrow><annotation encoding="application/x-tex">f(x) = x + 1 - \left( x^{2} + 1 \right)e^{x}</annotation></semantics></math>.</p>
+<p>Et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>C</mi><mi>f</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\left( C_{f} \right)</annotation></semantics></math>
+la courbe de la fonction
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+dans un repère orthonormé
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>O</mi><mo>;</mo><mover><mi>i</mi><mo accent="true">→</mo></mover><mo>;</mo><mover><mi>j</mi><mo accent="true">→</mo></mover><mo stretchy="true" form="postfix">)</mo></mrow><mspace width="0.222em"></mspace></mrow><annotation encoding="application/x-tex">\left( O;\overrightarrow{i};\overrightarrow{j} \right)\ </annotation></semantics></math>tel
+que
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">∥</mo><mover><mi>i</mi><mo accent="true">→</mo></mover><mo stretchy="true" form="postfix">∥</mo></mrow><mo>=</mo><mn>2</mn><mi>c</mi><mi>m</mi></mrow><annotation encoding="application/x-tex">\left\| \overrightarrow{i} \right\| = 2cm</annotation></semantics></math></p>
+<ol type="1">
+<li><p>Montrer que
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>H</mi><mo>:</mo><mi>x</mi><mo>↦</mo><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo>−</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><msup><mi>e</mi><mi>x</mi></msup></mrow><annotation encoding="application/x-tex">H:x \mapsto (x - 1)e^{x}</annotation></semantics></math>est
+une fonction primitive de la fonction
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mo>:</mo><mi>x</mi><mo>↦</mo><mi>x</mi><msup><mi>e</mi><mi>x</mi></msup></mrow><annotation encoding="application/x-tex">h:x \mapsto xe^{x}</annotation></semantics></math>
+sur
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ℝ</mi><annotation encoding="application/x-tex">\mathbb{R}</annotation></semantics></math>,puis
+en déduire que:
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mo>∫</mo><mrow><mi>−</mi><mn>1</mn></mrow><mn>0</mn></msubsup><mrow><mi>x</mi><msup><mi>e</mi><mi>x</mi></msup></mrow><mi>d</mi><mi>x</mi><mo>=</mo><mfrac><mn>2</mn><mi>e</mi></mfrac><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">\int_{- 1}^{0}{xe^{x}}dx = \frac{2}{e} - 1</annotation></semantics></math>.</p></li>
+<li><p>En utilisant une intégration par parties, Montrer
+que:<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mo>∫</mo><mrow><mi>−</mi><mn>1</mn></mrow><mn>0</mn></msubsup><mrow><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow><msup><mi>e</mi><mi>x</mi></msup></mrow><mi>d</mi><mi>x</mi><mo>=</mo><mn>3</mn><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><mfrac><mn>2</mn><mi>e</mi></mfrac><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\int_{- 1}^{0}{\left( x^{2} + 1 \right)e^{x}}dx = 3\left( 1 - \frac{2}{e} \right)</annotation></semantics></math>.</p></li>
+<li><p>3) Calculer en
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>c</mi><msup><mi>m</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">cm^{2}</annotation></semantics></math>,l’aire
+du Domaine plan délimité
+par<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>C</mi><mi>f</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\left( C_{f} \right)</annotation></semantics></math>,
+la droite
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>D</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(D)</annotation></semantics></math>
+d’équation
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>=</mo><mi>x</mi><mo>+</mo><mn>1</mn><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace></mrow><annotation encoding="application/x-tex">y = x + 1\ \ </annotation></semantics></math>et
+les droites d’équations :
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mi>−</mi><mn>1</mn></mrow><annotation encoding="application/x-tex">x = - 1</annotation></semantics></math>
+et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">x = 0</annotation></semantics></math>.</p></li>
+</ol>
+<ol start="2" type="1">
+<li><p><em>Calcul des volumes :</em></p></li>
+</ol>
+<p><em>🖉🖉 Propriété :</em></p>
+<p>L’espace est rapporté à un repère orthonormé
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><mi>O</mi><mo>,</mo><mover><mi>i</mi><mo accent="true">→</mo></mover><mo>,</mo><mover><mi>j</mi><mo accent="true">→</mo></mover><mo>,</mo><mover><mi>k</mi><mo accent="true">→</mo></mover><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\left( O,\overrightarrow{i},\overrightarrow{j},\overrightarrow{k} \right)</annotation></semantics></math>
+. Soit
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo>,</mo><mi>b</mi><mo stretchy="false" form="postfix">)</mo><mo>∈</mo><msup><mi>ℝ</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">(a,b) \in \mathbb{R}^{2}</annotation></semantics></math>
+tel que
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>&lt;</mo><mi>b</mi></mrow><annotation encoding="application/x-tex">a &lt; b</annotation></semantics></math>.</p>
+<p>Soit
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi mathvariant="normal">Σ</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(\Sigma)</annotation></semantics></math>
+un solide limité par deux plans
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>z</mi><mo>=</mo><mi>a</mi></mrow><annotation encoding="application/x-tex">z = a</annotation></semantics></math>
+et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>z</mi><mo>=</mo><mi>b</mi></mrow><annotation encoding="application/x-tex">z = b</annotation></semantics></math>
+et soit
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">S(t)</annotation></semantics></math>
+est l’aire de l’intersection du solide
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>S</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(S)</annotation></semantics></math>
+avec le plan
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>z</mi><mo>=</mo><mi>t</mi><mspace width="0.222em"></mspace><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo>≤</mo><mi>t</mi><mo>≤</mo><mi>b</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">z = t\ (a \leq t \leq b)</annotation></semantics></math>
+.</p>
+<p>le volume de ce solide est (en unités de volume) :
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>v</mi><mo stretchy="false" form="prefix">(</mo><mi>s</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msubsup><mo>∫</mo><mi>a</mi><mi>b</mi></msubsup><mrow><mi>S</mi><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo><mi>d</mi><mi>t</mi></mrow></mrow><annotation encoding="application/x-tex">v(s) = \int_{a}^{b}{S(t)dt}</annotation></semantics></math>.</p>
+<p><em><strong>🔿Exemple :</strong></em> volume
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>V</mi><annotation encoding="application/x-tex">V</annotation></semantics></math>
+d’un cylindre de rayon
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>R</mi><annotation encoding="application/x-tex">R</annotation></semantics></math>
+et de hauteur
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>h</mi><annotation encoding="application/x-tex">h</annotation></semantics></math>.</p>
+<p><img src="./media/image3.png"
+style="width:1.66597in;height:1.53125in" />L’intersection du plan <span
+dir="rtl"></span><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>z</mi><mo>=</mo><mi>t</mi></mrow><annotation encoding="application/x-tex">z = t</annotation></semantics></math>
+<span dir="rtl"></span>avec le cylindre est un disque d’aire <span
+dir="rtl"></span><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>π</mi><mi>R</mi><mi>²</mi></mrow><annotation encoding="application/x-tex">S(t) = \pi R²</annotation></semantics></math><span
+dir="rtl">.</span></p>
+<p>Puisque
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mo>→</mo><mi>S</mi><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">t \rightarrow S(t)</annotation></semantics></math>
+est continue sur
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">[</mo><mn>0</mn><mo>,</mo><mi>h</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">\lbrack 0,h\rbrack</annotation></semantics></math>
+alors le volume de cylindre est :</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo>=</mo><msubsup><mo>∫</mo><mn>0</mn><mi>h</mi></msubsup><mrow><mi>S</mi><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo><mi>d</mi><mi>t</mi></mrow><mo>=</mo><msubsup><mo>∫</mo><mn>0</mn><mi>h</mi></msubsup><mrow><mi>π</mi><msup><mi>R</mi><mn>2</mn></msup><mi>d</mi><mi>t</mi></mrow><mo>=</mo><mi>π</mi><msup><mi>R</mi><mn>2</mn></msup><msubsup><mo>∫</mo><mn>0</mn><mi>h</mi></msubsup><mrow><mi>d</mi><mi>t</mi></mrow><mo>=</mo><mi>π</mi><msup><mi>R</mi><mn>2</mn></msup><mi>h</mi><mspace width="0.222em"></mspace><msup><mrow><mi>c</mi><mi>m</mi></mrow><mn>3</mn></msup></mrow><annotation encoding="application/x-tex">V = \int_{0}^{h}{S(t)dt} = \int_{0}^{h}{\pi R^{2}dt} = \pi R^{2}\int_{0}^{h}{dt} = \pi R^{2}h\ {cm}^{3}</annotation></semantics></math>.</p>
+<p><em>🖉🖉 Propriété :</em></p>
+<p>Soit
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+une fonction continue sur un segment
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">[</mo><mi>a</mi><mo>,</mo><mi>b</mi><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">\lbrack a,b\rbrack</annotation></semantics></math>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo>&lt;</mo><mi>b</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(a &lt; b)</annotation></semantics></math>
+, et
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><msub><mi>C</mi><mi>f</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(C_{f})</annotation></semantics></math>
+sa courbe représentative . Le volume du solide engendré par la rotation
+de la courbe
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><msub><mi>C</mi><mi>f</mi></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(C_{f})</annotation></semantics></math>autour
+de l’axe des abscisses un tour complet est donné par la formule :
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo>=</mo><mi>π</mi><msubsup><mo>∫</mo><mi>a</mi><mi>b</mi></msubsup><mrow><msup><mrow><mo stretchy="false" form="prefix">(</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo></mrow><mn>2</mn></msup><mi>d</mi><mi>x</mi></mrow></mrow><annotation encoding="application/x-tex">V = \pi\int_{a}^{b}{{(f(x))}^{2}dx}</annotation></semantics></math>
+(en unités de volume).</p>
+<p><img src="./media/image4.png"
+style="width:3.89181in;height:1.71294in" /></p>
+<p><em>🔿Exemple :</em></p>
+<p>Le volume du solide engendré par la rotation de la courbe de la
+fonction
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>→</mo><msup><mi>e</mi><mi>x</mi></msup></mrow><annotation encoding="application/x-tex">x \rightarrow e^{x}</annotation></semantics></math>
+sur [0,1]</p>
+<p>Autour de l’axe des abscisses un tour complet est donné par :</p>
+<p>:
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo>=</mo><mi>π</mi><msubsup><mo>∫</mo><mn>0</mn><mn>1</mn></msubsup><mrow><msup><mrow><mo stretchy="false" form="prefix">(</mo><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="postfix">)</mo></mrow><mn>2</mn></msup><mi>d</mi><mi>x</mi></mrow><mo>=</mo><mi>π</mi><msubsup><mo>∫</mo><mn>0</mn><mn>1</mn></msubsup><mrow><msup><mrow><mo stretchy="false" form="prefix">(</mo><msup><mi>e</mi><mi>x</mi></msup><mo stretchy="false" form="postfix">)</mo></mrow><mn>2</mn></msup><mi>d</mi><mi>x</mi><mo>=</mo><mi>π</mi><msubsup><mo>∫</mo><mn>0</mn><mn>1</mn></msubsup><mrow><msup><mi>e</mi><mrow><mn>2</mn><mi>x</mi></mrow></msup><mi>d</mi><mi>x</mi></mrow><mo>=</mo><mfrac><mi>π</mi><mn>2</mn></mfrac><msubsup><mrow><mo stretchy="true" form="prefix">[</mo><msup><mi>e</mi><mrow><mn>2</mn><mi>x</mi></mrow></msup><mo stretchy="true" form="postfix">]</mo></mrow><mn>0</mn><mn>1</mn></msubsup><mo>=</mo><mfrac><mrow><mi>π</mi><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>e</mi><mn>2</mn></msup><mo>−</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow></mrow><mn>2</mn></mfrac></mrow><mspace width="0.222em"></mspace><mi>u</mi><mi>.</mi><mi>a</mi></mrow><annotation encoding="application/x-tex">V = \pi\int_{0}^{1}{{(f(x))}^{2}dx} = \pi\int_{0}^{1}{{(e^{x})}^{2}dx = \pi\int_{0}^{1}{e^{2x}dx} = \frac{\pi}{2}\left\lbrack e^{2x} \right\rbrack_{0}^{1} = \frac{\pi\left( e^{2} - 1 \right)}{2}}\ u.a</annotation></semantics></math></p>
+<p><em><strong>✍ Application ①② :</strong></em></p>
+<p>Soit
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>g</mi><annotation encoding="application/x-tex">g</annotation></semantics></math>
+la fonction numérique définie sur
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">[</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">\lbrack 0,1\rbrack</annotation></semantics></math>
+par :
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mi>x</mi><msup><mi>e</mi><mrow><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>x</mi></mrow></msup></mrow><annotation encoding="application/x-tex">f(x) = xe^{\frac{1}{2}x}</annotation></semantics></math><span
+dir="rtl">.</span></p>
+<p>Calculer Le volume du solide engendré par la rotation de la courbe de
+la fonction
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mspace width="0.222em"></mspace><mi>a</mi></mrow><annotation encoding="application/x-tex">g\ a</annotation></semantics></math>utour
+de l’axe des abscisses un tour complet.</p>
+<p>Répondre à la même question pour la fonction <span
+dir="rtl"></span><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mspace width="0.222em"></mspace><mi>f</mi><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><msqrt><mi>x</mi></msqrt><mrow><mrow><mi mathvariant="normal">cos</mi><mo>&#8289;</mo></mrow><mo stretchy="false" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="postfix">)</mo></mrow></mfrac></mrow><annotation encoding="application/x-tex">\ f(x) = \frac{\sqrt{x}}{\cos(x)}</annotation></semantics></math>
+sur l’intervalle
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">[</mo><mn>0</mn><mo>,</mo><mfrac><mi>π</mi><mn>4</mn></mfrac><mo stretchy="true" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">\left\lbrack 0,\frac{\pi}{4} \right\rbrack</annotation></semantics></math><span
+dir="rtl">.</span></p></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>

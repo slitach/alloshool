@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WT2TXDWM');</script>
+<!-- End Google Tag Manager -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Gérez votre profil élève et suivez votre progression en mathématiques sur Wacop. Suivi de chapitres complétés et historique de quiz.">
+    <title>Mon Profil & Progression - Wacop</title>
+    <link rel="icon" href="icon/icon.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/profile.css">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1ZP8J9JBT6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-1ZP8J9JBT6');
+</script>
+<script defer src="/dist/script.js"></script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WT2TXDWM"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+    <!-- Header -->
+    <header class="main-header">
+        <div class="container">
+            <div class="logo"><a href="index.html"><img src="logo/logo.png" alt="Wacop Logo" width="200"></a></div>
+            <nav class="top-nav">
+                <div class="header-icons">
+                    <a href="search.html"><i class="fas fa-search"></i></a>
+                    <a href="notifications.html"><i class="fas fa-bell"></i></a>
+                    <a href="profile.html"><i class="fas fa-user-circle"></i></a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="container page-content" style="max-width: 1000px; margin: 2rem auto; padding: 0 1rem;">
+        
+        <div class="profile-grid">
+            
+            <!-- Left Panel: User Profile Card -->
+            <div class="user-card">
+                <div class="user-avatar">
+                    <i class="fas fa-user-graduate"></i>
+                </div>
+                <h3>Élève Wacop</h3>
+                <p>Apprenant actif sur la plateforme</p>
+                
+                <div style="text-align: left; margin-bottom: 0.5rem;">
+                    <label style="font-size: 0.8rem; font-weight: 700; color: #6c757d; text-transform: uppercase;">Niveau d'étude :</label>
+                </div>
+                <select id="level-select" class="level-badge-select">
+                    <option value="tc">Tronc Commun</option>
+                    <option value="1bac">1ère Année Bac</option>
+                    <option value="2bac">2ème Année Bac</option>
+                </select>
+            </div>
+            
+            <!-- Right Panel: Statistics & Progression -->
+            <div class="dashboard-panel">
+                
+                <!-- Stats row -->
+                <div class="stats-row">
+                    <div class="profile-stat-card">
+                        <div class="stat-icon-box green">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div>
+                            <p class="stat-info-title">Cours Complétés</p>
+                            <h4 id="stat-completed" class="stat-info-val">0 / 0</h4>
+                        </div>
+                    </div>
+                    
+                    <div class="profile-stat-card">
+                        <div class="stat-icon-box blue">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                        <div>
+                            <p class="stat-info-title">Précision Moyenne</p>
+                            <h4 id="stat-avg-score" class="stat-info-val">--</h4>
+                        </div>
+                    </div>
+                    
+                    <div class="profile-stat-card">
+                        <div class="stat-icon-box purple">
+                            <i class="fas fa-history"></i>
+                        </div>
+                        <div>
+                            <p class="stat-info-title">Quiz Effectués</p>
+                            <h4 id="stat-total-quizzes" class="stat-info-val">0</h4>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Checklist card -->
+                <div class="checklist-card">
+                    <h4><i class="fas fa-clipboard-list" style="color: #28a745;"></i> Progression par Chapitre</h4>
+                    <p style="color: #6c757d; font-size: 0.95rem; margin-bottom: 1.5rem;">Cochez les chapitres que vous avez étudiés pour suivre votre avancement.</p>
+                    
+                    <div class="checklist-progress-bar">
+                        <div id="progress-fill" class="checklist-progress-fill"></div>
+                    </div>
+                    <p style="text-align: right; font-size: 0.9rem; font-weight: 700; color: #495057; margin-bottom: 1.5rem;" id="progress-count">0 sur 0 (0%)</p>
+                    
+                    <ul id="checklist-list" class="checklist-list">
+                        <!-- Checklist items injected dynamically -->
+                    </ul>
+                </div>
+                
+            </div>
+            
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer-enhanced">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <h4>Wacop</h4>
+                    <p>Votre partenaire de confiance pour le soutien scolaire au Maroc. Apprenez à votre rythme, où que vous soyez.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Liens Rapides</h4>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="about.html">À propos</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="quiz.html">Quiz interactifs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social" style="text-align: center;">
+                    <img src="slimane.jpeg" alt="Slimane" style="width: 100px; height: 100px; border-radius: 50%;">
+                    <div class="footer-info">
+                        <h4>Tachroun slimane</h4>
+                        <p style="font-size: 0.8em;">professeur de mathématiques au lycée Hassan II TIZNIT</p>
+                        <p style="font-size: 0.8em;">WHATSAP/ +212707668863</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Wacop. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/profile.js"></script>
+</body>
+</html>

@@ -1,0 +1,240 @@
+/* --- Profile Dashboard Styles --- */
+.profile-grid {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 2rem;
+    margin: 2rem auto;
+}
+
+/* User Card */
+.user-card {
+    background: white;
+    border: 1px solid #dee2e6;
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    height: fit-content;
+}
+
+.user-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #e9ecef;
+    color: #2a5298;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    margin: 0 auto 1rem auto;
+    border: 3px solid #2a5298;
+}
+
+.user-card h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.4rem;
+    color: #343a40;
+}
+
+.user-card p {
+    color: #6c757d;
+    font-size: 0.95rem;
+    margin: 0 0 1.5rem 0;
+}
+
+.level-badge-select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #dee2e6;
+    background-color: #f8f9fa;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #495057;
+    outline: none;
+    cursor: pointer;
+}
+
+/* Dashboard Panel */
+.dashboard-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.stats-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.profile-stat-card {
+    background: white;
+    border: 1px solid #dee2e6;
+    border-radius: 10px;
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+}
+
+.stat-icon-box {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
+.stat-icon-box.green { background-color: #e8f5e9; color: #28a745; }
+.stat-icon-box.blue { background-color: #e3f2fd; color: #1a73e8; }
+.stat-icon-box.purple { background-color: #f3e5f5; color: #9c27b0; }
+
+.stat-info-title {
+    font-size: 0.85rem;
+    color: #6c757d;
+    margin: 0;
+    font-weight: 500;
+}
+
+.stat-info-val {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #343a40;
+    margin: 2px 0 0 0;
+}
+
+/* Checklist Panel */
+.checklist-card {
+    background: white;
+    border: 1px solid #dee2e6;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.checklist-card h4 {
+    margin: 0 0 1.5rem 0;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #343a40;
+}
+
+.checklist-progress-bar {
+    height: 8px;
+    background-color: #e9ecef;
+    border-radius: 50px;
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+}
+
+.checklist-progress-fill {
+    height: 100%;
+    background-color: #28a745;
+    width: 0%;
+    transition: width 0.3s ease;
+}
+
+.checklist-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.checklist-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.2rem;
+    border-radius: 8px;
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    transition: all 0.2s;
+}
+
+.checklist-item:hover {
+    background-color: #f1f3f5;
+}
+
+.checklist-item.checked {
+    background-color: #eef7eef2;
+    border-color: #c3e6cb;
+}
+
+.checklist-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    font-weight: 500;
+    color: #343a40;
+    flex: 1;
+}
+
+.checklist-item.checked .checklist-label span {
+    text-decoration: line-through;
+    color: #6c757d;
+}
+
+.checklist-label input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #28a745;
+    cursor: pointer;
+}
+
+.checklist-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.checklist-btn {
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    text-decoration: none;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    transition: all 0.2s;
+    border: 1px solid #dee2e6;
+    background-color: white;
+    color: #495057;
+}
+
+.checklist-btn:hover {
+    background-color: #f1f3f5;
+    border-color: #adb5bd;
+}
+
+.checklist-btn-quiz {
+    background-color: #e8f5e9;
+    border-color: #c3e6cb;
+    color: #2e7d32;
+}
+
+.checklist-btn-quiz:hover {
+    background-color: #c8e6c9;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .profile-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .stats-row {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+}

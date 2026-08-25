@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WT2TXDWM');</script>
+<!-- End Google Tag Manager -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Testez vos compétences en mathématiques avec nos quiz interactifs par chapitre sur Wacop. Questions corrigées avec explications détaillées pour le Tronc Commun, 1ère Bac et 2ème Bac.">
+    <title>Quiz Interactifs en Mathématiques - Wacop</title>
+    <link rel="icon" href="icon/icon.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/quiz.css">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1ZP8J9JBT6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-1ZP8J9JBT6');
+</script>
+<script defer src="/dist/script.js"></script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WT2TXDWM"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+    <!-- Header -->
+    <header class="main-header">
+        <div class="container">
+            <div class="logo"><a href="index.html"><img src="logo/logo.png" alt="Wacop Logo" width="200"></a></div>
+            <nav class="top-nav">
+                <div class="header-icons">
+                    <a href="search.html"><i class="fas fa-search"></i></a>
+                    <a href="notifications.html"><i class="fas fa-bell"></i></a>
+                    <a href="profile.html"><i class="fas fa-user-circle"></i></a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="quiz-container">
+        
+        <!-- LEVEL SELECTOR SCREEN -->
+        <div id="screen-selection" class="quiz-card fade-in">
+            <div class="quiz-badge">Évaluation</div>
+            <h1 class="page-title" style="margin-top: 0;">Quiz Interactifs de Mathématiques</h1>
+            <p>Sélectionnez votre niveau scolaire, puis choisissez un chapitre pour démarrer votre évaluation interactive de 5 questions. Recevez une correction immédiate avec des explications détaillées après chaque réponse.</p>
+            
+            <div class="selection-grid">
+                <div class="selection-card" data-level="tc">
+                    <i class="fas fa-layer-group"></i>
+                    <h4>Tronc Commun</h4>
+                    <p style="font-size: 0.9rem; color: #6c757d; margin-top: 8px;">Arithmétique, équations et géométrie.</p>
+                </div>
+                
+                <div class="selection-card" data-level="1bac">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h4>1ère Année Bac</h4>
+                    <p style="font-size: 0.9rem; color: #6c757d; margin-top: 8px;">Logique, dérivation, limites et suites.</p>
+                </div>
+                
+                <div class="selection-card" data-level="2bac">
+                    <i class="fas fa-award"></i>
+                    <h4>2ème Année Bac</h4>
+                    <p style="font-size: 0.9rem; color: #6c757d; margin-top: 8px;">Complexes, logarithmes, intégrales.</p>
+                </div>
+            </div>
+
+            <!-- Chapter dropdown (hidden initially) -->
+            <div id="topic-selection-container" style="display: none; margin-top: 2.5rem; border-top: 1px solid var(--quiz-border); padding-top: 2rem; text-align: center;">
+                <h3 style="margin-top: 0; font-size: 1.2rem; margin-bottom: 1rem;"><i class="fas fa-book-open" style="color: var(--quiz-primary);"></i> Choisissez un Chapitre :</h3>
+                <select id="topic-select" class="quiz-btn quiz-btn-outline" style="width: 100%; max-width: 450px; padding: 12px; margin: 0 auto; display: block; font-size: 1rem; border-radius: 6px; border-color: #adb5bd; color: #495057;">
+                    <!-- Options injected dynamically -->
+                </select>
+            </div>
+            
+            <div style="text-align: center; margin-top: 2.5rem;">
+                <button id="start-btn" class="quiz-btn quiz-btn-primary" style="display: inline-flex; width: auto; padding: 15px 40px;" disabled>
+                    Commencer le Quiz <i class="fas fa-play"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- ACTIVE QUIZ SCREEN -->
+        <div id="screen-quiz" class="quiz-card fade-in" style="display: none;">
+            <div id="quiz-badge" class="quiz-badge">Tronc Commun</div>
+            
+            <div class="quiz-progress-container">
+                <div class="quiz-progress-text">
+                    <span id="progress-text">Question 1 sur 5</span>
+                </div>
+                <div class="quiz-progress-bar">
+                    <div id="progress-fill" class="quiz-progress-fill"></div>
+                </div>
+            </div>
+            
+            <div id="question-text" class="question-text">
+                Question loading...
+            </div>
+            
+            <ul id="options-list" class="options-list">
+                <!-- Javascript will inject list items here -->
+            </ul>
+            
+            <!-- Explanation Card (hidden by default) -->
+            <div id="explanation-card" class="explanation-card" style="display: none;">
+                <h5><i class="fas fa-lightbulb"></i> Explication Pédagogique</h5>
+                <p id="explanation-text">Explanation content...</p>
+            </div>
+            
+            <div class="quiz-actions">
+                <button id="submit-btn" class="quiz-btn quiz-btn-primary" disabled>
+                    Valider ma réponse <i class="fas fa-check"></i>
+                </button>
+                <button id="next-btn" class="quiz-btn quiz-btn-primary" style="display: none;">
+                    Question suivante <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- RESULTS SCREEN -->
+        <div id="screen-results" class="quiz-card fade-in" style="display: none;">
+            <div class="quiz-badge">Résultats</div>
+            
+            <div class="results-header">
+                <div id="score-circle" class="score-circle">
+                    <span id="score-number" class="score-number">0/5</span>
+                    <span class="score-label">Score</span>
+                </div>
+                <h2>Félicitations pour avoir terminé le quiz !</h2>
+                <p style="color: #6c757d;">Découvrez le résumé détaillé de votre performance ci-dessous.</p>
+            </div>
+            
+            <div class="results-stats">
+                <div class="stat-item">
+                    <div id="stat-accuracy" class="stat-val">0%</div>
+                    <div class="stat-lbl">Taux de précision</div>
+                </div>
+                <div class="stat-item">
+                    <div id="stat-correct" class="stat-val">0 / 5</div>
+                    <div class="stat-lbl">Réponses correctes</div>
+                </div>
+            </div>
+            
+            <div class="quiz-actions">
+                <button id="retry-btn" class="quiz-btn quiz-btn-primary">
+                    Recommencer le Quiz <i class="fas fa-redo"></i>
+                </button>
+                <button id="home-btn" class="quiz-btn quiz-btn-outline">
+                    Changer de Niveau <i class="fas fa-home"></i>
+                </button>
+            </div>
+        </div>
+        
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer-enhanced">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <h4>Wacop</h4>
+                    <p>Votre partenaire de confiance pour le soutien scolaire au Maroc. Apprenez à votre rythme, où que vous soyez.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Liens Rapides</h4>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="about.html">À propos</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="quiz.html">Quiz interactifs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social" style="text-align: center;">
+                    <img src="slimane.jpeg" alt="Slimane" style="width: 100px; height: 100px; border-radius: 50%;">
+                    <div class="footer-info">
+                        <h4>Tachroun slimane</h4>
+                        <p style="font-size: 0.8em;">professeur de mathématiques au lycée Hassan II TIZNIT</p>
+                        <p style="font-size: 0.8em;">WHATSAP/ +212707668863</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Wacop. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/quiz.js"></script>
+</body>
+</html>
